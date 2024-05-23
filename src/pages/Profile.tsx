@@ -13,10 +13,10 @@ export default function Profile() {
 					}
 					text="показать username"
 				/>
-				{/* <Button
+				<Button
 					onClick={() => WebApp.showAlert(`${WebApp.initDataUnsafe.user?.id}`)}
 					text="показать id"
-				/> */}
+				/>
 			</div>
 		</section>
 	);
