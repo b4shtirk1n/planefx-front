@@ -6,10 +6,18 @@ export default function Profile() {
 	return (
 		<section className="profile-section">
 			<h1>Добро пожаловать</h1>
-			<Button
-				onClick={() => WebApp.showAlert(`${WebApp.initDataUnsafe.user?.id}`)}
-				text="показать id"
-			/>
+			<div className="button-container">
+				<Button
+					onClick={() =>
+						WebApp.showAlert(`${WebApp.initDataUnsafe.user?.username}`)
+					}
+					text="показать username"
+				/>
+				<Button
+					onClick={() => WebApp.showAlert(`${WebApp.initDataUnsafe.user?.id}`)}
+					text="показать id"
+				/>
+			</div>
 		</section>
 	);
 }
