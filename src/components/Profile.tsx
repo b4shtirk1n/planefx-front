@@ -4,7 +4,7 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	return (
-		<section className="profile-section">
+		<div className="profile">
 			<h1>Добро пожаловать</h1>
 			<div className="button-container">
 				<Button
@@ -18,6 +18,6 @@ export default function Profile() {
 					text="показать id"
 				/>
 			</div>
-		</section>
+		</div>
 	);
 }

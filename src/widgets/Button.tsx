@@ -1,7 +1,7 @@
 import "../styles/Button.scss";
 
 type ButtonProps = {
-	onClick: () => void;
+	onClick?: () => void;
 	text: string;
 };
 
