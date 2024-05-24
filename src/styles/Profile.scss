@@ -6,7 +6,11 @@
 	flex-direction: column;
 	background: var(--tg-theme-secondary-bg-color);
 
-	.button-container {
+	div {
+		background: var(--tg-theme-secondary-bg-color);
+	}
+
+	.content-container {
 		width: 100%;
 		height: 100%;
 		display: flex;

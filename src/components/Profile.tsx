@@ -6,7 +6,7 @@ export default function Profile() {
 	return (
 		<div className="profile">
 			<h1>Добро пожаловать</h1>
-			<div className="button-container">
+			<div className="content-container">
 				<Button
 					onClick={() =>
 						WebApp.showAlert(`${WebApp.initDataUnsafe.user?.username}`)
