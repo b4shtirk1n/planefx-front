@@ -18,4 +18,8 @@ section {
 	grid-template-rows: 40px auto 40px;
 	width: 100%;
 	height: 100vh;
+
+	div {
+		background: var(--tg-theme-secondary-bg-color);
+	}
 }
