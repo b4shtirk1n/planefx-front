@@ -12,7 +12,7 @@ export default function NavBar({
 	isProfile,
 }: NavBarProps) {
 	return (
-		<div className="nav-bar">
+		<nav className="nav-bar">
 			<a className={`${isAccounts && "active"}`} href="/accounts">
 				<svg
 					width="32"
@@ -54,6 +54,6 @@ export default function NavBar({
 					/>
 				</svg>
 			</a>
-		</div>
+		</nav>
 	);
 }
