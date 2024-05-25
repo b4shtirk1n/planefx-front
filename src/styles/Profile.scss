@@ -1,9 +1,11 @@
 .profile {
+	grid-row: 2;
+	margin-bottom: 40px;
 	padding: 15px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	gap: 5%;
+	gap: 20px;
 
 	.user-container {
 		padding: 6% 0;

@@ -11,13 +11,9 @@
 	color: var(--tg-theme-text-color);
 }
 
-h1 {
-	font-size: 18px;
-	font-weight: 500;
-}
-
-a {
-	text-decoration: none;
+body {
+	background: var(--tg-theme-bg-color);
+	overflow: hidden;
 }
 
 section {
@@ -26,4 +22,14 @@ section {
 	width: 100%;
 	height: 100vh;
 	background: var(--tg-theme-secondary-bg-color);
+	overflow: auto;
+}
+
+h1 {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+a {
+	text-decoration: none;
 }
