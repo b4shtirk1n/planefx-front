@@ -12,12 +12,10 @@ export default function Profile() {
 	return (
 		<div className="profile">
 			<div className="user-container">
-				<div className="bio">
-					<div className="img">
-						<img src={photoUrl ?? profileImg} />
-					</div>
-					<h1>{username}hgh</h1>
+				<div className="img">
+					<img src={photoUrl ?? profileImg} />
 				</div>
+				<h1>{username}</h1>
 				<div className="token">
 					<h1>Токен:</h1>
 				</div>
