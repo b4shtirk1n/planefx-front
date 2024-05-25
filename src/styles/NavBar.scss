@@ -6,9 +6,9 @@
 
 	a {
 		stroke: var(--tg-theme-text-color);
+	}
 
-		.active {
-			stroke: var(--tg-theme-button-color);
-		}
+	.active {
+		stroke: var(--tg-theme-button-color);
 	}
 }
