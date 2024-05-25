@@ -1,14 +1,55 @@
 .profile {
-	padding: 5px;
-	height: 100%;
+	padding: 15px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	gap: 5%;
 
-	.content-container {
+	.user-container {
+		padding: 6% 0;
 		width: 100%;
-		height: 100%;
 		display: flex;
-		align-items: end;
+		flex-flow: column wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5em;
+		text-align: center;
+		background: var(--tg-theme-button-color);
+		border-radius: 12px;
+
+		.bio {
+			.img {
+				width: 54px;
+				height: 54px;
+				border: 2px solid white;
+				border-radius: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			h1 {
+				padding: 5% 0;
+			}
+		}
+
+		.token {
+			h1 {
+				font-size: 13px;
+			}
+		}
+	}
+
+	.info-container {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+
+		div {
+			min-width: 132px;
+			min-height: 116px;
+			background: invert(var(--tg-theme-button-color));
+		}
 	}
 }
