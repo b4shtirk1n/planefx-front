@@ -1,7 +1,6 @@
 import { useUserStore } from "../stores/UserStore";
 import WebApp from "@twa-dev/sdk";
 import Button from "../widgets/Button";
-import profileImg from "../assets/profile.svg";
 import "../styles/Profile.scss";
 
 export default function Profile() {
@@ -13,7 +12,7 @@ export default function Profile() {
 		<div className="profile">
 			<div className="user-container">
 				<div className="img">
-					<img src={photoUrl ? photoUrl : profileImg} />
+					<img src={photoUrl} />
 				</div>
 				<h1>{username}</h1>
 				<div className="token">

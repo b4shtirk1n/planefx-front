@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import WebApp from "@twa-dev/sdk";
+import profileImg from "../assets/profile.svg";
 
 type UserStore = {
 	username?: string;
@@ -13,7 +14,7 @@ type UserStore = {
 export const useUserStore = create<UserStore>()(() => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user?.id,
-	photoUrl: WebApp.initDataUnsafe.user?.photo_url,
+	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
 	token: "",
 
 	async onCopyToken() {
