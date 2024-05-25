@@ -11,10 +11,18 @@ type UserStore = {
 	onCopyToken(): Promise<void>;
 };
 
+function getPhoto(): string {
+	if (WebApp.initDataUnsafe.user?.photo_url === undefined) {
+		return profileImg;
+	} else {
+		return WebApp.initDataUnsafe.user?.photo_url;
+	}
+}
+
 export const useUserStore = create<UserStore>()(() => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user?.id,
-	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
+	photoUrl: getPhoto(),
 	token: "",
 
 	async onCopyToken() {
