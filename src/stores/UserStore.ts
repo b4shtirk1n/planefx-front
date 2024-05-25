@@ -5,7 +5,7 @@ import profileImg from "../assets/profile.svg";
 type UserStore = {
 	username?: string;
 	tgId?: number;
-	photoUrl?: string;
+	photoUrl: string;
 	token?: string;
 
 	onCopyToken(): Promise<void>;
