@@ -9,7 +9,7 @@ export default function Profile() {
 	const photoUrl = useUserStore((s) => s.photoUrl);
 
 	return (
-		<div className="profile">
+		<div className="container profile">
 			<div className="user-container">
 				<div className="img">
 					<img src={photoUrl} />
@@ -32,7 +32,7 @@ export default function Profile() {
 				text="Реферальная система"
 			/>
 			<Button
-				onClick={() => WebApp.showAlert(`${tgId}`)}
+				onClick={() => WebApp.showAlert(`${photoUrl}`)}
 				text="Пригласить друзей"
 			/>
 		</div>
