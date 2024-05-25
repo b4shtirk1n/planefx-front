@@ -5,7 +5,7 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	const username = useUserStore((s) => s.username);
-	const photoUrl = WebApp.initDataUnsafe.user?.photo_url;
+	const photoUrl = useUserStore((s) => s.photoUrl);
 
 	return (
 		<div className="container profile">

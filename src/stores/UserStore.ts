@@ -13,10 +13,11 @@ type UserStore = {
 export const useUserStore = create<UserStore>()(
 	() => (
 		console.log(WebApp.initDataUnsafe.user?.photo_url),
+		console.log(Telegram.WebApp.initDataUnsafe.user?.photo_url),
 		{
 			username: WebApp.initDataUnsafe.user?.username,
 			tgId: WebApp.initDataUnsafe.user?.id,
-			photoUrl: WebApp.initDataUnsafe.user?.photo_url,
+			photoUrl: Telegram.WebApp.initDataUnsafe.user?.photo_url,
 			token: "",
 
 			async onCopyToken() {
