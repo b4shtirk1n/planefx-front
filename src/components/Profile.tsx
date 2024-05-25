@@ -13,7 +13,7 @@ export default function Profile() {
 		<div className="profile">
 			<div className="user-container">
 				<div className="img">
-					<img src={photoUrl && profileImg} />
+					<img src={photoUrl ? photoUrl : profileImg} />
 				</div>
 				<h1>{username}</h1>
 				<div className="token">
