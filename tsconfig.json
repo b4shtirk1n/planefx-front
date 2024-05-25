@@ -19,8 +19,6 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-
-		"typeRoots": ["./node_modules/telegram-webapps"]
 	},
 	"include": ["src"],
 	"references": [{ "path": "./tsconfig.node.json" }]
