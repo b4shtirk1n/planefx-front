@@ -5,7 +5,6 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	const username = useUserStore((s) => s.username);
-	const tgId = useUserStore((s) => s.tgId);
 	const photoUrl = useUserStore((s) => s.photoUrl);
 
 	return (
