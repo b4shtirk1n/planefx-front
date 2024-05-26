@@ -1,6 +1,7 @@
 import { useUserStore } from "../stores/UserStore";
 import WebApp from "@twa-dev/sdk";
 import Button from "../widgets/Button";
+import Info from "./Info";
 import "../styles/Profile.scss";
 
 export default function Profile() {
@@ -19,12 +20,8 @@ export default function Profile() {
 				</div>
 			</div>
 			<div className="info-container">
-				<div>
-					<h1>gfg</h1>
-				</div>
-				<div>
-					<h1>gfg</h1>
-				</div>
+				<Info name="Баланс" amount={"200.00"} imgUrl={photoUrl} />
+				<Info name="Реф. баланс" amount={"200.00"} imgUrl="" />
 			</div>
 			<Button
 				onClick={() => WebApp.showAlert(`${username}`)}

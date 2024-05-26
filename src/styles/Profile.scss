@@ -40,11 +40,5 @@
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
-
-		div {
-			min-width: 132px;
-			min-height: 116px;
-			background: invert(var(--tg-theme-button-color));
-		}
 	}
 }
