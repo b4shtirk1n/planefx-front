@@ -7,7 +7,12 @@
 	justify-content: space-between;
 	border-radius: 8px;
 	background: var(--tg-theme-button-color);
+	background: aqua;
 	filter: invert(1);
+
+	div {
+		filter: invert(1);
+	}
 
 	.image {
 		position: relative;
