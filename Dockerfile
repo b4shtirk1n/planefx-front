@@ -1,4 +1,4 @@
-FROM node:alpine AS build
+FROM node:current-alpine AS build
 WORKDIR /app
 COPY . .
 RUN corepack enable

@@ -9,6 +9,10 @@
 	background: var(--tg-theme-button-color);
 	filter: invert(1);
 
+	* {
+		filter: invert(1);
+	}
+
 	.image {
 		position: relative;
 		width: 28px;
