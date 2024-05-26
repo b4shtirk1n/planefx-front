@@ -13,7 +13,7 @@ export default function Profile() {
 	const refBalance = useUserStore((s) => s.getRefBalance());
 
 	return (
-		<div className="profile">
+		<div className="container profile">
 			<div className="user-container">
 				<div className="img">
 					<img src={photoUrl} />
