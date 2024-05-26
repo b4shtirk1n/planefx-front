@@ -7,7 +7,6 @@
 	justify-content: space-between;
 	border-radius: 8px;
 	background: var(--tg-theme-button-color);
-	background: aqua;
 	filter: invert(1);
 
 	div {
@@ -27,6 +26,7 @@
 			background: var(--tg-theme-button-text-color);
 			opacity: 0.4;
 			border-radius: 10px;
+			filter: initial;
 		}
 
 		img {
