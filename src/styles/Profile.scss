@@ -17,7 +17,7 @@
 		.img {
 			width: 54px;
 			height: 54px;
-			border: 2px solid white;
+			border: 2px solid var(--tg-theme-button-text-color);
 			border-radius: 100%;
 
 			img {
@@ -30,8 +30,23 @@
 		}
 
 		.token {
+			display: flex;
+			align-items: center;
+			width: 55%;
+
 			h1 {
 				font-size: 13px;
+				text-wrap: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			a {
+				display: flex;
+
+				svg {
+					stroke: var(--tg-theme-button-text-color);
+				}
 			}
 		}
 	}

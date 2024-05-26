@@ -5,10 +5,14 @@ import profileImg from "../assets/profile.svg";
 type UserStore = {
 	username?: string;
 	tgId?: number;
-	photoUrl: string;
-	token?: string;
+	photoUrl?: string;
+	token: string;
+	refLink?: string;
 
+	getBalance(): string;
+	getRefBalance(): string;
 	onCopyToken(): Promise<void>;
+	onInviteFriend(): Promise<void>;
 };
 
 export const useUserStore = create<UserStore>()(() => ({
@@ -16,8 +20,21 @@ export const useUserStore = create<UserStore>()(() => ({
 	tgId: WebApp.initDataUnsafe.user?.id,
 	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
 	token: "",
+	refLink: "",
+
+	getBalance(): string {
+		return new Number(200).toFixed(2);
+	},
+
+	getRefBalance(): string {
+		return new Number(200).toFixed(2);
+	},
 
 	async onCopyToken() {
-		await navigator.clipboard.writeText(this.token!);
+		await navigator.clipboard.writeText(this.token);
+	},
+
+	async onInviteFriend() {
+		await navigator.clipboard.writeText(this.refLink!);
 	},
 }));
