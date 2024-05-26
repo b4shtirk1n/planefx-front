@@ -18,7 +18,7 @@ export default function Profile() {
 				<div className="img">
 					<img src={photoUrl} />
 				</div>
-				<h1>{username}</h1>
+				<h1 className="username">{username}</h1>
 				<div className="token">
 					<h1>Токен: dfghjkghufegfksfkshkhkghdkgkdjwh</h1>
 					<a>
