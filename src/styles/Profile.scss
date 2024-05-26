@@ -6,11 +6,14 @@
 	gap: 20px;
 
 	.user-container {
-		padding: 6% 0;
+		padding: 5%;
 		width: 100%;
+		height: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		justify-content: space-between;
+		gap: 5%;
 		background: var(--tg-theme-button-color);
 		border-radius: 12px;
 
@@ -26,13 +29,13 @@
 		}
 
 		h1 {
-			padding: 2% 0;
+			font-weight: 600;
 		}
 
 		.token {
 			display: flex;
 			align-items: center;
-			width: 55%;
+			width: 200px;
 
 			h1 {
 				font-size: 13px;
@@ -53,8 +56,13 @@
 
 	.info-container {
 		width: 100%;
+		height: 100%;
 		display: flex;
 		justify-content: space-between;
 		gap: 5%;
+
+		@media (max-width: 320px) {
+			flex-direction: column;
+		}
 	}
 }
