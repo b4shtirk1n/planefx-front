@@ -15,21 +15,26 @@
 		background: var(--tg-theme-button-color);
 		border-radius: 12px;
 
-		.img {
-			width: 54px;
-			height: 54px;
-			border: 2px solid var(--tg-theme-button-text-color);
-			border-radius: 100%;
+		.user {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
-			img {
-				width: 100%;
+			.img {
+				width: 54px;
+				height: 54px;
+				border: 2px solid var(--tg-theme-button-text-color);
+				border-radius: 100%;
+
+				img {
+					width: 100%;
+				}
 			}
-		}
 
-		.username {
-			padding-top: 5px;
-			text-align: center;
-			font-weight: 600;
+			.username {
+				padding-top: 5px;
+				font-weight: 600;
+			}
 		}
 
 		h1 {

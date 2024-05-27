@@ -15,7 +15,7 @@ export default function Profile() {
 	return (
 		<div className="container profile">
 			<div className="user-container">
-				<div>
+				<div className="user">
 					<div className="img">
 						<img src={photoUrl} />
 					</div>
