@@ -15,10 +15,12 @@ export default function Profile() {
 	return (
 		<div className="container profile">
 			<div className="user-container">
-				<div className="img">
-					<img src={photoUrl} />
+				<div>
+					<div className="img">
+						<img src={photoUrl} />
+					</div>
+					<h1 className="username">{username}</h1>
 				</div>
-				<h1 className="username">{username}</h1>
 				<div className="token">
 					<h1>Токен: dfghjkghufegfksfkshkhkghdkgkdjwh</h1>
 					<a>
