@@ -7,7 +7,7 @@ export default function ProfilePage() {
 		<section>
 			<Header text="Профиль" />
 			<Profile />
-			<NavBar isProfile={true} />
+			<NavBar isProfile />
 		</section>
 	);
 }
