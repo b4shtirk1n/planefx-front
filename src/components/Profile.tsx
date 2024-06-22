@@ -5,6 +5,7 @@ import Info from "./Info";
 import balanceImg from "../assets/balance.svg";
 import refBalanceImg from "../assets/ref-balance.svg";
 import "../styles/Profile.scss";
+import { writeClipboardText } from "../services/Clipboard";
 
 export default function Profile() {
 	const username = useUserStore((s) => s.username);
@@ -12,7 +13,6 @@ export default function Profile() {
 	const token = useUserStore((s) => s.token);
 	const balance = useUserStore((s) => s.getBalance());
 	const refBalance = useUserStore((s) => s.getRefBalance());
-	const copyToken = useUserStore((s) => s.onCopyToken);
 
 	return (
 		<div className="container profile">
@@ -25,7 +25,7 @@ export default function Profile() {
 				</div>
 				<div className="token">
 					<h1>Токен: {token}</h1>
-					<a onClick={() => copyToken()}>
+					<a onClick={() => writeClipboardText(token)}>
 						<svg
 							width="16"
 							height="16"

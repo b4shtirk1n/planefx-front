@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
+import { writeClipboardText } from "../services/Clipboard";
 
 type UserStore = {
 	username?: string;
@@ -11,11 +12,10 @@ type UserStore = {
 
 	getBalance(): string;
 	getRefBalance(): string;
-	onCopyToken(): Promise<void>;
 	onInviteFriend(): Promise<void>;
 };
 
-export const useUserStore = create<UserStore>()(() => ({
+export const useUserStore = create<UserStore>(() => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user?.id,
 	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
@@ -28,10 +28,6 @@ export const useUserStore = create<UserStore>()(() => ({
 
 	getRefBalance(): string {
 		return new Number(200).toFixed(2);
-	},
-
-	async onCopyToken() {
-		await navigator.clipboard.writeText(this.token);
 	},
 
 	async onInviteFriend() {
