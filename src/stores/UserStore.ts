@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
-import { writeClipboardText } from "../services/Clipboard";
 
 type UserStore = {
 	username?: string;
