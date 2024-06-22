@@ -25,7 +25,7 @@ export default function Profile() {
 				</div>
 				<div className="token">
 					<h1>Токен: {token}</h1>
-					<a onClick={() => copyToken}>
+					<a onClick={() => copyToken()}>
 						<svg
 							width="16"
 							height="16"
