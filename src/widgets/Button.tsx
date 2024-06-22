@@ -8,7 +8,7 @@ type ButtonProps = {
 export default function Button({ text, onClick }: ButtonProps) {
 	return (
 		<div className="btn">
-			<button onClick={onClick}>{text}</button>
+			<a onClick={onClick}>{text}</a>
 		</div>
 	);
 }

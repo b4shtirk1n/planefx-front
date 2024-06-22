@@ -13,8 +13,11 @@
 		align-items: center;
 		gap: 12px;
 		border-radius: 12px;
-		color: aqua;
 		background: var(--tg-theme-button-color);
+
+		* {
+			color: var(--tg-theme-button-text-color);
+		}
 
 		.user {
 			display: flex;
@@ -69,7 +72,10 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 18px;
-		color: var(--tg-theme-button-text-color);
+
+		* {
+			color: var(--tg-theme-button-text-color);
+		}
 
 		@media (max-width: 320px) {
 			flex-direction: column;
