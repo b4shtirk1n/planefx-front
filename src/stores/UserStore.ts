@@ -19,7 +19,7 @@ export const useUserStore = create<UserStore>()(() => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user?.id,
 	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
-	token: "",
+	token: "dfghjkghufegfksfkshkhkghdkgkdjwh",
 	refLink: "",
 
 	getBalance(): string {

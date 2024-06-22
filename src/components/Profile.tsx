@@ -9,8 +9,10 @@ import "../styles/Profile.scss";
 export default function Profile() {
 	const username = useUserStore((s) => s.username);
 	const photoUrl = useUserStore((s) => s.photoUrl);
+	const token = useUserStore((s) => s.token);
 	const balance = useUserStore((s) => s.getBalance());
 	const refBalance = useUserStore((s) => s.getRefBalance());
+	const copyToken = useUserStore((s) => s.onCopyToken);
 
 	return (
 		<div className="container profile">
@@ -22,8 +24,8 @@ export default function Profile() {
 					<h1 className="username">{username}</h1>
 				</div>
 				<div className="token">
-					<h1>Токен: dfghjkghufegfksfkshkhkghdkgkdjwh</h1>
-					<a>
+					<h1>Токен: {token}</h1>
+					<a onClick={copyToken}>
 						<svg
 							width="16"
 							height="16"
