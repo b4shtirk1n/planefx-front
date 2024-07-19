@@ -11,6 +11,12 @@ export default function Profile() {
 	const username = useUserStore((s) => s.username);
 	const photoUrl = useUserStore((s) => s.photoUrl);
 	const user = useUserStore((s) => s.user);
+	const balance = useUserStore((s) => s.getBalance);
+
+	function test() {
+		balance();
+		WebApp.showAlert(`${username}`);
+	}
 
 	return (
 		<div className="container profile">
@@ -53,10 +59,7 @@ export default function Profile() {
 					imgUrl={refBalanceImg}
 				/>
 			</div>
-			<Button
-				onClick={() => WebApp.showAlert(`${username}`)}
-				text="Реферальная система"
-			/>
+			<Button onClick={() => test} text="Реферальная система" />
 			<Button
 				onClick={() => WebApp.showAlert(`${photoUrl}`)}
 				text="Пригласить друзей"
