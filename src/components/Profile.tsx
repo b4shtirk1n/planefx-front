@@ -3,16 +3,14 @@ import WebApp from "@twa-dev/sdk";
 import Button from "../widgets/Button";
 import Info from "./Info";
 import balanceImg from "../assets/balance.svg";
+import { writeClipboardText } from "../services/Clipboard";
 import refBalanceImg from "../assets/ref-balance.svg";
 import "../styles/Profile.scss";
-import { writeClipboardText } from "../services/Clipboard";
 
 export default function Profile() {
 	const username = useUserStore((s) => s.username);
 	const photoUrl = useUserStore((s) => s.photoUrl);
-	const token = useUserStore((s) => s.token);
-	const balance = useUserStore((s) => s.getBalance());
-	const refBalance = useUserStore((s) => s.getRefBalance());
+	const user = useUserStore((s) => s.user);
 
 	return (
 		<div className="container profile">
@@ -24,8 +22,8 @@ export default function Profile() {
 					<h1 className="username">{username}</h1>
 				</div>
 				<div className="token">
-					<h1>Токен: {token}</h1>
-					<a onClick={() => writeClipboardText(token)}>
+					<h1>Токен: {user?.Token}</h1>
+					<a onClick={() => writeClipboardText(user!.Token)}>
 						<svg
 							width="16"
 							height="16"
@@ -48,8 +46,12 @@ export default function Profile() {
 				</div>
 			</div>
 			<div className="info-container">
-				<Info name="Баланс" amount={balance} imgUrl={balanceImg} />
-				<Info name="Реф. баланс" amount={refBalance} imgUrl={refBalanceImg} />
+				<Info name="Баланс" amount={user!.Username!} imgUrl={balanceImg} />
+				<Info
+					name="Реф. баланс"
+					amount={user!.Username!}
+					imgUrl={refBalanceImg}
+				/>
 			</div>
 			<Button
 				onClick={() => WebApp.showAlert(`${username}`)}
