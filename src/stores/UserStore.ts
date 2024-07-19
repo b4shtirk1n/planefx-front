@@ -25,7 +25,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
 	},
 
 	getBalance(): string {
-		console.log(WebApp.initDataUnsafe.user?.photo_url);
 		return this.user!.Id.toFixed(2);
 	},
 }));
