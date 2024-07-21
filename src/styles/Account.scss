@@ -8,7 +8,7 @@
 @mixin bg-bg-border-rad($rad: 100%) {
 	border: 1px solid var(--tg-theme-text-color);
 	border-radius: $rad;
-	// background: var(--tg-theme-bg-color);
+	background: var(--tg-theme-bg-color);
 }
 
 .account {
@@ -40,5 +40,15 @@
 	&-info {
 		height: 104px;
 		@include flex-between-p15;
+
+		div {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+
+			p {
+				font-weight: 300;
+			}
+		}
 	}
 }
