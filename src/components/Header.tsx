@@ -2,14 +2,16 @@ import "../styles/Header.scss";
 
 type HeaderProps = {
 	backBtn?: JSX.Element;
-	text: string;
+	text?: string;
+	addBtn?: JSX.Element;
 };
 
-export default function Header({ backBtn, text }: HeaderProps) {
+export default function Header({ backBtn, text, addBtn }: HeaderProps) {
 	return (
 		<header>
 			{backBtn}
 			<h1>{text}</h1>
+			{addBtn}
 		</header>
 	);
 }
