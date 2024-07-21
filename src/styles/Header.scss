@@ -1,11 +1,19 @@
 header {
-	padding: 10px;
-	display: flex;
+	padding: 0 15px;
+	display: grid;
+	grid-template-columns: 20px auto 20px;
 	align-items: center;
 	border-bottom: 1px solid;
 	background: var(--tg-theme-bg-color);
 
 	h1 {
+		grid-column: 2;
 		margin: 0 auto;
+	}
+
+	a {
+		path {
+			fill: var(--tg-theme-button-text-color);
+		}
 	}
 }
