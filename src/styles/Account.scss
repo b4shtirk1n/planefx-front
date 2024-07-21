@@ -1,0 +1,44 @@
+@mixin flex-between-p15 {
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin bg-bg-border-rad($rad: 100%) {
+	border: 1px solid var(--tg-theme-text-color);
+	border-radius: $rad;
+	// background: var(--tg-theme-bg-color);
+}
+
+.account {
+	height: 148px;
+	margin: 20px 30px;
+	@include bg-bg-border-rad(12px);
+
+	&-header {
+		height: 44px;
+		border-radius: 12px 12px 0 0;
+		background: var(--tg-theme-button-color);
+		@include flex-between-p15;
+
+		&-order {
+			position: relative;
+			width: 24px;
+			height: 24px;
+			@include bg-bg-border-rad;
+
+			h1 {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	&-info {
+		height: 104px;
+		@include flex-between-p15;
+	}
+}
