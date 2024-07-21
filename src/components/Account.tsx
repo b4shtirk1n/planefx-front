@@ -6,7 +6,7 @@ export default function Account() {
 			<div className="account-header">
 				<h1>Account</h1>
 				<div className="account-header-order">
-					<h1>8</h1>
+					<h2>8</h2>
 				</div>
 			</div>
 			<div className="account-info">
@@ -17,10 +17,10 @@ export default function Account() {
 					<p>баланс</p>
 				</div>
 				<div>
-					<p>1</p>
-					<p>1</p>
-					<p>1</p>
-					<p>1</p>
+					<h2>1</h2>
+					<h2>1</h2>
+					<h2>1</h2>
+					<h2>1</h2>
 				</div>
 			</div>
 		</div>
