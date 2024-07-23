@@ -1,7 +1,10 @@
-export interface User {
-	Id: number;
-	Username?: string;
-	TgId?: number;
-	PhotoUrl?: string;
+import { BaseModel } from "./BaseModel";
+
+export interface User extends BaseModel {
+	Username: string;
+	TgId: number;
 	Token: string;
+	Role: number;
+	MainBalance: number;
+	ReferralBalance: number;
 }
