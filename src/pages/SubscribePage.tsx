@@ -5,6 +5,7 @@ export default function SubscribePage() {
 	return (
 		<section>
 			<Header text="Подписка" />
+			<section />
 			<NavBar isSubscribes />
 		</section>
 	);
