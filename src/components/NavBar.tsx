@@ -19,7 +19,7 @@ export default function NavBar({
 			<a className={`${isAccounts && "active"}`} href="/accounts">
 				<AccountImg />
 			</a>
-			<a className={`${isSubscribes && "active"}`} href="/subscribes">
+			<a className={`${isSubscribes && "active"}`} href="/subscribe">
 				<SubscribeImg />
 			</a>
 			<a className={`${isProfile && "active"}`} href="/">
