@@ -8,6 +8,8 @@ import SubscribePage from "./pages/SubscribePage";
 import "./styles/main.scss";
 
 WebApp.ready();
+WebApp.requestContact();
+WebApp.requestWriteAccess();
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<React.StrictMode>
 		<BrowserRouter>
