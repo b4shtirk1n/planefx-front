@@ -1,10 +1,14 @@
-import Account from "./Account";
+import { useAccountStore } from "../stores/AccountStore";
+import Account from "./AccountItem";
 
 export default function AccountsList() {
+	const { accounts } = useAccountStore();
+
 	return (
 		<div className="container">
-			<Account />
-			<Account />
+			{accounts.map((item) => (
+				<Account account={item} />
+			))}
 		</div>
 	);
 }
