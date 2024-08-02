@@ -14,7 +14,7 @@ export default function Info({ name, imgUrl, amount }: InfoProps) {
 				<img src={imgUrl} />
 			</div>
 			<div>
-				<h1>{amount}$</h1>
+				<h2>{amount}$</h2>
 				<p>{name}</p>
 			</div>
 		</div>
