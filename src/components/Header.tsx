@@ -10,7 +10,7 @@ export default function Header({ backBtn, text, addBtn }: HeaderProps) {
 	return (
 		<header>
 			{backBtn}
-			<h1>{text}</h1>
+			<h2>{text}</h2>
 			{addBtn}
 		</header>
 	);
