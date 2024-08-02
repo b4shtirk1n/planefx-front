@@ -9,16 +9,7 @@ import ClipboardImg from "../widgets/ClipboardIng";
 import "../styles/Profile.scss";
 
 export default function Profile() {
-	const { username, photoUrl, user, loading, error, fetchUser } =
-		useUserStore();
-
-	function test() {
-		console.log(loading);
-		console.log(error);
-		fetchUser();
-		console.log(loading);
-		WebApp.showAlert(`${username}`);
-	}
+	const { username, photoUrl, user } = useUserStore();
 
 	return (
 		<div className="container profile">
@@ -27,10 +18,10 @@ export default function Profile() {
 					<div className="img">
 						<img src={photoUrl} />
 					</div>
-					<h1 className="username">{username}</h1>
+					<h2 className="username">{username}</h2>
 				</div>
 				<div className="token">
-					<h1>Токен: {user?.Token}</h1>
+					<h2>Токен: {user?.Token}</h2>
 					<a onClick={() => writeClipboardText(user!.Token)}>
 						<ClipboardImg />
 					</a>
@@ -44,7 +35,10 @@ export default function Profile() {
 					imgUrl={refBalanceImg}
 				/>
 			</div>
-			<Button onClick={() => test} text="Реферальная система" />
+			<Button
+				onClick={() => WebApp.showAlert(`${username}`)}
+				text="Реферальная система"
+			/>
 			<Button
 				onClick={() => WebApp.showAlert(`${photoUrl}`)}
 				text="Пригласить друзей"
