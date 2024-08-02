@@ -1,12 +1,17 @@
+import { Account } from "../models/Account";
 import "../styles/Account.scss";
 
-export default function Account() {
+type accountProps = {
+	account: Account;
+};
+
+export default function AccountItem({ account }: accountProps) {
 	return (
 		<div className="account">
 			<div className="account-header">
-				<h1>Account</h1>
+				<h2>{account.Name}</h2>
 				<div className="account-header-order">
-					<h2>8</h2>
+					<h3>{account.Count}</h3>
 				</div>
 			</div>
 			<div className="account-info">
@@ -17,10 +22,10 @@ export default function Account() {
 					<p>баланс</p>
 				</div>
 				<div>
-					<h2>1</h2>
-					<h2>1</h2>
-					<h2>1</h2>
-					<h2>1</h2>
+					<h3>1</h3>
+					<h3>1</h3>
+					<h3>1</h3>
+					<h3>1</h3>
 				</div>
 			</div>
 		</div>
