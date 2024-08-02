@@ -14,7 +14,7 @@ export default function AccountsPage() {
 		<section>
 			<Header
 				text="Счета"
-				addBtn={
+				rightBtn={
 					<a>
 						<PlusImg />
 					</a>
