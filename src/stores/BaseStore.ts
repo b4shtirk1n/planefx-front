@@ -1,4 +1,4 @@
 export type BaseStore = {
-	loading: boolean;
+	isLoading: boolean;
 	error?: object;
 };
