@@ -35,14 +35,12 @@ export default function Profile() {
 					imgUrl={refBalanceImg}
 				/>
 			</div>
-			<Button
-				onClick={() => WebApp.showAlert(`${username}`)}
-				text="Реферальная система"
-			/>
-			<Button
-				onClick={() => WebApp.showAlert(`${photoUrl}`)}
-				text="Пригласить друзей"
-			/>
+			<Button onClick={() => WebApp.showAlert(`${username}`)}>
+				Реферальная система
+			</Button>
+			<Button onClick={() => WebApp.showAlert(`${photoUrl}`)}>
+				Пригласить друзей
+			</Button>
 		</div>
 	);
 }
