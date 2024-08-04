@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900");
+@import "mixin.scss";
 
 *,
 ::before,
@@ -54,4 +55,14 @@ a {
 	text-align: center;
 	font-weight: 500;
 	cursor: pointer;
+}
+
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+  padding: 30px 40px;
+	@include flex-center;
 }
