@@ -2,14 +2,13 @@ import "../styles/Button.scss";
 
 type ButtonProps = {
 	onClick?: () => void;
-	text?: string;
-	child?: JSX.Element;
+	children?: React.ReactNode;
 };
 
-export default function Button({ text, onClick, child }: ButtonProps) {
+export default function Button({ onClick }: ButtonProps) {
 	return (
 		<div className="btn">
-			<a onClick={onClick}>{text ?? child}</a>
+			<a onClick={onClick}></a>
 		</div>
 	);
 }
