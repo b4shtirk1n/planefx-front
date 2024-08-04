@@ -2,7 +2,7 @@ import { useSubscribeStore } from "../stores/SubscribeStore";
 import { Subscribe } from "../models/Subscribe";
 import SubImg from "../widgets/SubImg";
 import PlusImg from "../widgets/PlusImg";
-import "../styles/Subscribe.scss";
+import "../styles/SubscribeItem.scss";
 
 type SubscribeItemProps = {
 	subscribe: Subscribe;
@@ -13,7 +13,7 @@ export default function SubscribeItem({ subscribe }: SubscribeItemProps) {
 
 	return (
 		<div className="subscribe-item">
-			<div>
+			<div className="subscribe-item-info">
 				<h1 className="accounts-count">{subscribe.AccountsCount}</h1>
 				<h1>{subscribe.AccountsCount == 3 ? "счёта" : "счетов"}</h1>
 			</div>
