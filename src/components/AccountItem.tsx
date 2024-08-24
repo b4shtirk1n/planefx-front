@@ -1,4 +1,5 @@
 import { Account } from "../models/Account";
+import ColorSum from "../widgets/ColorSum";
 import "../styles/Account.scss";
 
 type accountProps = {
@@ -22,10 +23,10 @@ export default function AccountItem({ account }: accountProps) {
 					<p>баланс</p>
 				</div>
 				<div>
-					<h3>1</h3>
-					<h3>1</h3>
-					<h3>1</h3>
-					<h3>1</h3>
+					<ColorSum Sum={1} />
+					<ColorSum Sum={0} />
+					<ColorSum Sum={-1} />
+					<ColorSum Sum={1} />
 				</div>
 			</div>
 		</div>
