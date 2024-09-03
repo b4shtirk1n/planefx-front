@@ -7,8 +7,6 @@ type InfoProps = {
 };
 
 export default function Info({ name, imgUrl, amount }: InfoProps) {
-	const fixAmount = amount.toFixed(2);
-
 	return (
 		<div className="info">
 			<div className="image">
@@ -16,7 +14,7 @@ export default function Info({ name, imgUrl, amount }: InfoProps) {
 				<img src={imgUrl} />
 			</div>
 			<div>
-				<h2>{fixAmount}$</h2>
+				<h2>{amount.toFixed(2)}$</h2>
 				<p>{name}</p>
 			</div>
 		</div>

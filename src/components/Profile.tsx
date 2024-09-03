@@ -9,15 +9,7 @@ import ClipboardImg from "../widgets/ClipboardIng";
 import "../styles/Profile.scss";
 
 export default function Profile() {
-	const { username, photoUrl, user } = useUserStore(
-		({ username, photoUrl, user }) => ({
-			username,
-			photoUrl,
-			user,
-		})
-	);
-	console.log(user?.MainBalance);
-	console.log(user?.Token);
+	const { username, photoUrl, user } = useUserStore();
 
 	return (
 		<div className="container profile">
@@ -29,17 +21,17 @@ export default function Profile() {
 					<h2 className="username">{username}</h2>
 				</div>
 				<div className="token">
-					<h2>Токен: {user!.Token}</h2>
-					<a onClick={() => writeClipboardText(user!.Token)}>
+					<h2>Токен: {user!.token}</h2>
+					<a onClick={() => writeClipboardText(user!.token)}>
 						<ClipboardImg />
 					</a>
 				</div>
 			</div>
 			<div className="info-container">
-				<Info name="Баланс" amount={user!.MainBalance} imgUrl={balanceImg} />
+				<Info name="Баланс" amount={user!.mainBalance} imgUrl={balanceImg} />
 				<Info
 					name="Реф. баланс"
-					amount={user!.ReferralBalance}
+					amount={user!.referralBalance}
 					imgUrl={refBalanceImg}
 				/>
 			</div>
