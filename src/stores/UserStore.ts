@@ -25,7 +25,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
 		set({ isLoading: true });
 		try {
 			const response = await api.post("User", {
-				params: {
+				data: {
 					Username: get().username,
 					TgId: get().tgId,
 					TimeZone: new Date().getTimezoneOffset() / -60,
