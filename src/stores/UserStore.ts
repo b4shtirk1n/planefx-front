@@ -33,6 +33,7 @@ export const useUserStore = create<UserStore>((set, get) => ({
 			});
 			set({ user: response.data as User });
 		} catch (err) {
+			console.log(err)
 			set({ error: (err as AxiosError).toJSON() });
 		}
 		set({ isLoading: false });
