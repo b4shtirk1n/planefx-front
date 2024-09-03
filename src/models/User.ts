@@ -1,10 +1,10 @@
 import { BaseModel } from "./BaseModel";
 
 export interface User extends BaseModel {
-	Username: string;
-	TgId: number;
-	Token: string;
-	Role: number;
-	MainBalance: number;
-	ReferralBalance: number;
+	username: string;
+	tgId: number;
+	token: string;
+	role: number;
+	mainBalance: number;
+	referralBalance: number;
 }
