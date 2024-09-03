@@ -24,9 +24,11 @@ export const useUserStore = create<UserStore>((set, get) => ({
 	async fetchUser() {
 		set({ isLoading: true });
 		try {
-			const response = await api.get("User/GetByTg", {
+			const response = await api.post("User", {
 				params: {
-					Id: get().tgId,
+					Username: get().username,
+					TgId: get().tgId,
+					TimeZone: new Date().getTimezoneOffset() / -60,
 				},
 			});
 			set({ user: response.data as User });
