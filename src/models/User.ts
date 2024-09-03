@@ -5,6 +5,6 @@ export interface User extends BaseModel {
 	TgId: number;
 	Token: string;
 	Role: number;
-	Balance: number;
-	RefBalance: number;
+	MainBalance: number;
+	ReferralBalance: number;
 }
