@@ -21,24 +21,28 @@ export default function Profile() {
 					<h2 className="username">{username}</h2>
 				</div>
 				<div className="token">
-					<h2>Токен: {user?.Token}</h2>
+					<h2>Токен: {user!.Token}</h2>
 					<a onClick={() => writeClipboardText(user!.Token)}>
 						<ClipboardImg />
 					</a>
 				</div>
 			</div>
 			<div className="info-container">
-				<Info name="Баланс" amount={user?.Username ?? ""} imgUrl={balanceImg} />
+				<Info
+					name="Баланс"
+					amount={user!.Balance.toFixed(2)}
+					imgUrl={balanceImg}
+				/>
 				<Info
 					name="Реф. баланс"
-					amount={user?.Username ?? ""}
+					amount={user!.RefBalance.toFixed(2)}
 					imgUrl={refBalanceImg}
 				/>
 			</div>
 			<Button onClick={() => WebApp.showAlert(`${username}`)}>
 				Реферальная система
 			</Button>
-			<Button onClick={() => WebApp.showAlert(`${photoUrl}`)}>
+			<Button onClick={() => WebApp.showAlert(`${username}`)}>
 				Пригласить друзей
 			</Button>
 		</div>
