@@ -10,6 +10,7 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	const { username, photoUrl, user } = useUserStore();
+	console.log(user?.MainBalance);
 
 	return (
 		<div className="container profile">

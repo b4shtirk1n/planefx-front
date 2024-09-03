@@ -7,7 +7,6 @@ type InfoProps = {
 };
 
 export default function Info({ name, imgUrl, amount }: InfoProps) {
-	console.log(amount);
 	const fixAmount = amount.toFixed(2);
 
 	return (
