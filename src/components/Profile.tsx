@@ -10,6 +10,7 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	const { username, photoUrl, user } = useUserStore();
+	console.log(user);
 
 	return (
 		<div className="container profile">
@@ -30,12 +31,12 @@ export default function Profile() {
 			<div className="info-container">
 				<Info
 					name="Баланс"
-					amount={user!.MainBalance.toFixed(2) ?? 0}
+					amount={user!.MainBalance.toFixed(2)}
 					imgUrl={balanceImg}
 				/>
 				<Info
 					name="Реф. баланс"
-					amount={user!.ReferralBalance.toFixed(2) ?? 0}
+					amount={user!.ReferralBalance.toFixed(2)}
 					imgUrl={refBalanceImg}
 				/>
 			</div>
