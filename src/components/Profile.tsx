@@ -11,6 +11,7 @@ import "../styles/Profile.scss";
 export default function Profile() {
 	const { username, photoUrl, user } = useUserStore();
 	console.log(user?.MainBalance);
+	console.log(user?.Token);
 
 	return (
 		<div className="container profile">
