@@ -3,7 +3,7 @@ import "../styles/Info.scss";
 type InfoProps = {
 	name: string;
 	imgUrl: string;
-	amount: string;
+	amount: number;
 };
 
 export default function Info({ name, imgUrl, amount }: InfoProps) {
@@ -14,7 +14,7 @@ export default function Info({ name, imgUrl, amount }: InfoProps) {
 				<img src={imgUrl} />
 			</div>
 			<div>
-				<h2>{amount}$</h2>
+				<h2>{amount.toFixed(2)}$</h2>
 				<p>{name}</p>
 			</div>
 		</div>
