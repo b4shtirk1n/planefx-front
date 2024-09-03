@@ -30,12 +30,12 @@ export default function Profile() {
 			<div className="info-container">
 				<Info
 					name="Баланс"
-					amount={user!.Balance.toFixed(2)}
+					amount={user!.MainBalance.toFixed(2)}
 					imgUrl={balanceImg}
 				/>
 				<Info
 					name="Реф. баланс"
-					amount={user!.RefBalance.toFixed(2)}
+					amount={user!.ReferralBalance.toFixed(2)}
 					imgUrl={refBalanceImg}
 				/>
 			</div>
