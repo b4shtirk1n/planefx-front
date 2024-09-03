@@ -1,5 +1,6 @@
 import { useUserStore } from "../stores/UserStore";
 import { writeClipboardText } from "../services/Clipboard";
+import { shallow } from "zustand/shallow";
 import WebApp from "@twa-dev/sdk";
 import Button from "../widgets/Button";
 import Info from "./Info";
@@ -9,7 +10,14 @@ import ClipboardImg from "../widgets/ClipboardIng";
 import "../styles/Profile.scss";
 
 export default function Profile() {
-	const { username, photoUrl, user } = useUserStore();
+	const { username, photoUrl, user } = useUserStore(
+		({ username, photoUrl, user }) => ({
+			username,
+			photoUrl,
+			user,
+		}),
+		shallow
+	);
 	console.log(user?.MainBalance);
 	console.log(user?.Token);
 
