@@ -5,11 +5,9 @@ import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
 import { useUserStore } from "../stores/UserStore";
 
-export default function AccountsPage() {
-	const { user } = useUserStore();
-	console.log(user);
-	useAccountStore.getState().fetchAccounts(user?.id);
+useAccountStore.getState().fetchAccounts(useUserStore.getState().user?.id);
 
+export default function AccountsPage() {
 	const { isLoading } = useAccountStore();
 
 	return (
