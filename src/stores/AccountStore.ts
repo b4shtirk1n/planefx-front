@@ -5,6 +5,7 @@ import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { OrderResponse } from "../models/OrderResponse";
 import { useUserStore } from "./UserStore";
+import { useReducer } from "react";
 
 type AccountStore = BaseStore & {
 	accounts: Account[];
@@ -17,11 +18,11 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	isLoading: false,
 
 	async fetchAccounts() {
-		// eslint-disable-next-line react-hooks/rules-of-hooks
-		const user = useUserStore((s) => s.user)
+		const user = useUserStore.getState().user
+		console.log(user)
 		set({ isLoading: true });
 		try {
-			let response = await api.get(`Account/User/${user}`);
+			let response = await api.get(`Account/User/${user?.id}`);
 			const accounts = response.data as Account[]
 			console.log(accounts)
 
