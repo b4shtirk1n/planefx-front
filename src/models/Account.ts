@@ -1,8 +1,9 @@
 import { BaseModel } from "./BaseModel";
+import { OrderResponse } from "./OrderResponse";
 
 export interface Account extends BaseModel {
-	Name: string;
-	Number: number;
-	Count: number;
-	IsCent: boolean;
+	name: string;
+	number: number;
+	isCent: boolean;
+	orders: OrderResponse;
 }
