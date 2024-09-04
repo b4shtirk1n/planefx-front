@@ -3,9 +3,8 @@ import AccountsList from "../components/AccountsList";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
-import { useUserStore } from "../stores/UserStore";
 
-useAccountStore.getState().fetchAccounts(useUserStore.getState().user?.id);
+useAccountStore.getState().fetchAccounts();
 
 export default function AccountsPage() {
 	const { isLoading } = useAccountStore();

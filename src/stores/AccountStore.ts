@@ -4,18 +4,21 @@ import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { OrderResponse } from "../models/OrderResponse";
+import { useUserStore } from "./UserStore";
 
 type AccountStore = BaseStore & {
 	accounts: Account[];
 
-	fetchAccounts(user?: number): void;
+	fetchAccounts(): void;
 };
 
 export const useAccountStore = create<AccountStore>((set) => ({
 	accounts: [],
 	isLoading: false,
 
-	async fetchAccounts(user) {
+	async fetchAccounts() {
+		// eslint-disable-next-line react-hooks/rules-of-hooks
+		const user = useUserStore((s) => s.user)
 		set({ isLoading: true });
 		try {
 			let response = await api.get(`Account/User/${user}`);
