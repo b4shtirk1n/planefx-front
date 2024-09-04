@@ -3,7 +3,6 @@ import { User } from "../models/User";
 import { api } from "../api/Axios";
 import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
-import { immer } from "zustand/middleware/immer";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
 
@@ -16,7 +15,7 @@ type UserStore = BaseStore & {
 	fetchUser(): void;
 };
 
-export const useUserStore = create(immer<UserStore>((set, get) => ({
+export const useUserStore = create<UserStore>((set, get) => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user!.id,
 	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
@@ -37,4 +36,4 @@ export const useUserStore = create(immer<UserStore>((set, get) => ({
 			set({ isLoading: false });
 		}
 	},
-})));
+}));
