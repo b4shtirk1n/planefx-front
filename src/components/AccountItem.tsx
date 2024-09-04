@@ -13,7 +13,7 @@ export default function AccountItem({ account }: accountProps) {
 			<div className="account-header">
 				<h2>{account.name}</h2>
 				<div className="account-header-order">
-					<h3>{account.orders.openedOrders.length}</h3>
+					<h3>{account.openedOrders.length}</h3>
 				</div>
 			</div>
 			<div className="account-info">
@@ -25,7 +25,7 @@ export default function AccountItem({ account }: accountProps) {
 				</div>
 				<div>
 					<ColorSum
-						Sum={account.orders.openedOrders.reduce(
+						Sum={account.openedOrders.reduce(
 							(prev, cur) => prev + cur.priceOpened,
 							0
 						)}
