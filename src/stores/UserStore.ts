@@ -5,6 +5,7 @@ import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
+import { persist } from "zustand/middleware";
 
 type UserStore = BaseStore & {
 	username?: string;
@@ -15,7 +16,7 @@ type UserStore = BaseStore & {
 	fetchUser(): void;
 };
 
-export const useUserStore = create<UserStore>((set, get) => ({
+export const useUserStore = create(persist<UserStore>((set, get) => ({
 	username: WebApp.initDataUnsafe.user?.username,
 	tgId: WebApp.initDataUnsafe.user!.id,
 	photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
@@ -36,4 +37,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
 			set({ isLoading: false });
 		}
 	},
+}), {
+	name: "user"
 }));
