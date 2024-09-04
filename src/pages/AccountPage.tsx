@@ -9,7 +9,10 @@ useUserStore.getState().fetchUser();
 useAccountStore.getState().fetchAccounts();
 
 export default function AccountsPage() {
+	const { user } = useUserStore();
 	const { isLoading } = useAccountStore();
+
+	console.log(user);
 
 	return (
 		<section>
