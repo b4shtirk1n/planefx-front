@@ -28,6 +28,7 @@ export const useAccountStore = create<AccountStore>((set) => ({
 				const orders = response.data as OrderResponse
 				account.openedOrders = orders.openedOrders
 				account.closedOrders = orders.closedOrders
+				console.log(orders.openedOrders)
 			});
 			set({ accounts });
 		} catch (err) {
