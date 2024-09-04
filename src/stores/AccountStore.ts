@@ -5,6 +5,7 @@ import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { OrderResponse } from "../models/OrderResponse";
 import { User } from "../models/User";
+import { useUserStore } from "./UserStore";
 
 type AccountStore = BaseStore & {
 	accounts: Account[];
@@ -17,8 +18,9 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	isLoading: false,
 
 	async fetchAccounts() {
-		const user = localStorage.getItem("user") as unknown as User
+		const user = JSON.parse(localStorage.getItem("user") || "") as User
 		console.log(user)
+		console.log(useUserStore.getState().user?.id)
 		set({ isLoading: true });
 		try {
 			let response = await api.get(`Account/User/${user?.id}`);
