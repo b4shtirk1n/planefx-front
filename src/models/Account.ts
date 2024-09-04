@@ -1,9 +1,11 @@
 import { BaseModel } from "./BaseModel";
-import { OrderResponse } from "./OrderResponse";
+import { CLoseOrder } from "./CloseOrder";
+import { OpenOrder } from "./OpenOrder";
 
 export interface Account extends BaseModel {
 	name: string;
 	number: number;
 	isCent: boolean;
-	orders: OrderResponse;
+	openedOrders: OpenOrder[];
+	closedOrders: CLoseOrder[];
 }

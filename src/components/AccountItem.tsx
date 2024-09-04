@@ -1,14 +1,13 @@
 import { Account } from "../models/Account";
 import ColorSum from "../widgets/ColorSum";
 import "../styles/Account.scss";
-import { OrderResponse } from "../models/OrderResponse";
 
 type accountProps = {
 	account: Account;
 };
 
 export default function AccountItem({ account }: accountProps) {
-	console.log(account.orders as OrderResponse);
+	console.log(account.openedOrders);
 	return (
 		<div className="account">
 			<div className="account-header">

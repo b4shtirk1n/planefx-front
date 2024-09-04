@@ -25,7 +25,9 @@ export const useAccountStore = create<AccountStore>((set) => ({
 
 			accounts.forEach(async account => {
 				response = await api.get(`Order/${account.id}`);
-				account.orders = response.data as OrderResponse
+				const orders = response.data as OrderResponse
+				account.openedOrders = orders.openedOrders
+				account.closedOrders = orders.closedOrders
 			});
 			set({ accounts });
 		} catch (err) {
