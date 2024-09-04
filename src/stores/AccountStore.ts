@@ -22,11 +22,9 @@ export const useAccountStore = create<AccountStore>((set) => ({
 		try {
 			let response = await api.get(`Account/User/${user?.id}`);
 			const accounts = response.data as Account[]
-			console.log(accounts)
 
 			accounts.forEach(async account => {
 				response = await api.get(`Order/${account.id}`);
-				console.log(response.data)
 				account.orders = response.data as OrderResponse
 			});
 			set({ accounts });
