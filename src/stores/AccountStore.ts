@@ -5,7 +5,6 @@ import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { OrderResponse } from "../models/OrderResponse";
 import { useUserStore } from "./UserStore";
-import { useReducer } from "react";
 
 type AccountStore = BaseStore & {
 	accounts: Account[];
