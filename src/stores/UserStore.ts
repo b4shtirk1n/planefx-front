@@ -39,5 +39,4 @@ export const useUserStore = create(persist<UserStore>((set, get) => ({
 	},
 }), {
 	name: "user",
-	getStorage: () => localStorage
 }));

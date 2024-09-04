@@ -4,7 +4,6 @@ import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { OrderResponse } from "../models/OrderResponse";
-import { User } from "../models/User";
 import { useUserStore } from "./UserStore";
 
 type AccountStore = BaseStore & {
@@ -18,14 +17,11 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	isLoading: false,
 
 	async fetchAccounts() {
-		const user = JSON.parse(localStorage.getItem("user") || "") as User
-		console.log(user)
-		console.log(useUserStore.getState().user?.id)
+		const user = useUserStore.getState().user
 		set({ isLoading: true });
 		try {
 			let response = await api.get(`Account/User/${user?.id}`);
 			const accounts = response.data as Account[]
-			console.log(accounts)
 
 			accounts.forEach(async account => {
 				response = await api.get(`Order/${account.id}`);
@@ -33,7 +29,6 @@ export const useAccountStore = create<AccountStore>((set) => ({
 			});
 			set({ accounts });
 		} catch (err) {
-			console.log(err)
 			set({ error: (err as AxiosError).toJSON() });
 		} finally {
 			set({ isLoading: false });
