@@ -24,8 +24,8 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		set({ isLoading: true });
 		set({
 			subscribes: [
-				{ Id: 1, AccountsCount: 3, Count: 0, Price: 150 },
-				{ Id: 2, AccountsCount: 5, Count: 0, Price: 300 },
+				{ id: 1, accountsCount: 3, count: 0, price: 150 },
+				{ id: 2, accountsCount: 5, count: 0, price: 300 },
 			],
 			userSubscribes: [],
 		});
@@ -40,14 +40,14 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 
 	addToCart(subscribe) {
 		const subscribes = get().subscribes.map((i) =>
-			i.Id === subscribe ? { ...i, Count: ++i.Count } : i
+			i.id === subscribe ? { ...i, Count: ++i.count } : i
 		);
 		set({ subscribes });
 	},
 
 	removeToCart(subscribe) {
 		const subscribes = get().subscribes.map((i) =>
-			i.Id === subscribe ? { ...i, Count: i.Count - 1 > 0 ? --i.Count : 0 } : i
+			i.id === subscribe ? { ...i, Count: i.count - 1 > 0 ? --i.count : 0 } : i
 		);
 		set({ subscribes });
 	},
@@ -56,10 +56,10 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		const date = new Date();
 		const userSubscribes: UserSubscribe[] = [];
 		get().subscribes.forEach((item) => {
-			for (let i = 0; i < item.Count; i++) {
+			for (let i = 0; i < item.count; i++) {
 				userSubscribes.push({
 					User: user,
-					Subscribe: item.Id,
+					Subscribe: item.id,
 					Date: date,
 				});
 			}
