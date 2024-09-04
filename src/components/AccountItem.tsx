@@ -7,7 +7,7 @@ type accountProps = {
 };
 
 export default function AccountItem({ account }: accountProps) {
-	console.log(account.orders);
+	console.log(account);
 	return (
 		<div className="account">
 			<div className="account-header">
