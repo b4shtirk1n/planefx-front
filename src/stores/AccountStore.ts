@@ -5,23 +5,25 @@ import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { useUserStore } from "./UserStore";
 import { OrderResponse } from "../models/OrderResponse";
+import { User } from "../models/User";
 
 type AccountStore = BaseStore & {
 	accounts: Account[];
+	user?: User;
 
 	fetchAccounts(): void;
 };
 
-export const useAccountStore = create<AccountStore>((set) => ({
+export const useAccountStore = create<AccountStore>((set, get) => ({
 	accounts: [],
 	isLoading: false,
+	user: useUserStore.getState().user,
 
 	async fetchAccounts() {
-		const user = useUserStore.getState().user?.id;
-		console.log(user)
+		console.log(get().user)
 		set({ isLoading: true });
 		try {
-			let response = await api.get(`Account/User/${user}`);
+			let response = await api.get(`Account/User/${get().user?.id}`);
 			const accounts = response.data as Account[]
 			console.log(accounts)
 
