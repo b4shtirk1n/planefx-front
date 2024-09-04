@@ -30,7 +30,6 @@ export const useUserStore = create<UserStore>((set, get) => ({
 				TimeZone: new Date().getTimezoneOffset() / -60,
 			});
 			set({ user: response.data as User });
-			console.log(response.data)
 		} catch (err) {
 			set({ error: (err as AxiosError).toJSON() });
 		} finally {
