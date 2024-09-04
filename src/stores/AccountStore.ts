@@ -22,6 +22,7 @@ export const useAccountStore = create<AccountStore>((set) => ({
 		try {
 			let response = await api.get(`Account/User/${user?.id}`);
 			const accounts = response.data as Account[]
+			console.log(accounts)
 
 			accounts.forEach(async account => {
 				response = await api.get(`Order/${account.id}`);
@@ -29,6 +30,7 @@ export const useAccountStore = create<AccountStore>((set) => ({
 			});
 			set({ accounts });
 		} catch (err) {
+			console.log(err)
 			set({ error: (err as AxiosError).toJSON() });
 		} finally {
 			set({ isLoading: false });
