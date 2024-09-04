@@ -6,11 +6,9 @@ export default function AccountsList() {
 
 	return (
 		<div className="container">
-			{accounts.map(
-				(item) => (
-					console.log(item), (<Account key={item.id} account={item} />)
-				)
-			)}
+			{accounts.map((item) => (
+				<Account key={item.id} account={item} />
+			))}
 		</div>
 	);
 }
