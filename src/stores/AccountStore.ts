@@ -21,14 +21,15 @@ export const useAccountStore = create<AccountStore>((set) => ({
 		set({ isLoading: true });
 		try {
 			let response = await api.get(`Account/User/${user?.id}`);
-			const accounts = response.data as Account[]
+			let accounts = response.data as Account[]
 
-			accounts.map(async (account) => {
+			accounts = await Promise.all(accounts.map(async account => {
 				response = await api.get(`Order/${account.id}`);
 				const orders = response.data as OrderResponse;
 				account.openedOrders = orders.openedOrders;
 				account.closedOrders = orders.closedOrders;
-			});
+				return account
+			}));
 			set({ accounts });
 		} catch (err) {
 			set({ error: (err as AxiosError).toJSON() });
