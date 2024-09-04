@@ -17,10 +17,11 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	isLoading: false,
 
 	async fetchAccounts() {
-		const user = useUserStore.getState().user;
+		const user = useUserStore.getState().user?.id;
+		console.log(user)
 		set({ isLoading: true });
 		try {
-			let response = await api.get(`Account/User/${user?.id}`);
+			let response = await api.get(`Account/User/${user}`);
 			const accounts = response.data as Account[]
 			console.log(accounts)
 

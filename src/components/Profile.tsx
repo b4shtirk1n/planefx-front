@@ -10,7 +10,6 @@ import "../styles/Profile.scss";
 
 export default function Profile() {
 	const { username, photoUrl, user } = useUserStore();
-	console.log(user?.id);
 
 	return (
 		<div className="container profile">
