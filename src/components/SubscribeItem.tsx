@@ -14,16 +14,16 @@ export default function SubscribeItem({ subscribe }: SubscribeItemProps) {
 	return (
 		<div className="subscribe-item">
 			<div className="subscribe-item-info">
-				<h1 className="accounts-count">{subscribe.AccountsCount}</h1>
-				<h1>{subscribe.AccountsCount == 3 ? "счёта" : "счетов"}</h1>
+				<h1 className="accounts-count">{subscribe.accountsCount}</h1>
+				<h1>{subscribe.accountsCount == 3 ? "счёта" : "счетов"}</h1>
 			</div>
-			<h1>{subscribe.Price} / день</h1>
+			<h1>{subscribe.price} / день</h1>
 			<div className="subscribe-counter">
-				<a onClick={() => removeToCart(subscribe.Id)}>
+				<a onClick={() => removeToCart(subscribe.id)}>
 					<SubImg />
 				</a>
-				<h1>{subscribe.Count}</h1>
-				<a onClick={() => addToCart(subscribe.Id)}>
+				<h1>{subscribe.count}</h1>
+				<a onClick={() => addToCart(subscribe.id)}>
 					<PlusImg />
 				</a>
 			</div>

@@ -19,7 +19,7 @@ export default function SubscribeList() {
 			modules={[Navigation, Pagination]}
 		>
 			{subscribes.map((item) => (
-				<SwiperSlide key={item.Id}>
+				<SwiperSlide key={item.id}>
 					<SubscribeItem subscribe={item} />
 				</SwiperSlide>
 			))}
