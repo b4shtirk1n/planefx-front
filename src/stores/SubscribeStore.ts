@@ -2,8 +2,9 @@ import { create } from "zustand";
 import { Subscribe } from "../models/Subscribe";
 import { BaseStore } from "./BaseStore";
 import { UserSubscribe } from "../models/UserSubscribe";
-// import { api } from "../api/Axios";
-// import { AxiosError } from "axios";
+import { api } from "../api/Axios";
+import { AxiosError } from "axios";
+import { useUserStore } from "./UserStore";
 
 type SubscribeStore = BaseStore & {
 	subscribes: Subscribe[];
@@ -22,34 +23,33 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 
 	async fetchSubscribes() {
 		set({ isLoading: true });
-		set({
-			subscribes: [
-				{ id: 1, accountsCount: 3, count: 0, price: 150 },
-				{ id: 2, accountsCount: 5, count: 0, price: 300 },
-			],
-			userSubscribes: [],
-		});
-		// try {
-		// 	const response = await api.get("User/GetByTg");
-		// 	set({ subscribes: response.data as Subscribe[] });
-		// } catch (err) {
-		// 	set({ error: (err as AxiosError).toJSON() });
-		// }
-		set({ isLoading: false });
+		try {
+			const response = await api.get(`Subscribe/${useUserStore.getState().user?.id}`);
+			set({
+				subscribes: response.data as Subscribe[],
+				userSubscribes: []
+			});
+		} catch (err) {
+			set({ error: (err as AxiosError).toJSON() });
+		} finally {
+			set({ isLoading: false });
+		}
 	},
 
 	addToCart(subscribe) {
-		const subscribes = get().subscribes.map((i) =>
-			i.id === subscribe ? { ...i, Count: ++i.count } : i
-		);
-		set({ subscribes });
+		set({
+			subscribes: get().subscribes.map((i) =>
+				i.id === subscribe ? { ...i, Count: ++i.count } : i
+			)
+		});
 	},
 
 	removeToCart(subscribe) {
-		const subscribes = get().subscribes.map((i) =>
-			i.id === subscribe ? { ...i, Count: i.count - 1 > 0 ? --i.count : 0 } : i
-		);
-		set({ subscribes });
+		set({
+			subscribes: get().subscribes.map((i) =>
+				i.id === subscribe ? { ...i, Count: i.count - 1 > 0 ? --i.count : 0 } : i
+			)
+		});
 	},
 
 	checkout(user) {
