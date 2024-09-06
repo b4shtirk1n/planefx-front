@@ -1,5 +1,5 @@
 export interface UserSubscribe {
-	User?: number;
+	User: number;
 	Subscribe: number;
 	Date?: Date;
 }

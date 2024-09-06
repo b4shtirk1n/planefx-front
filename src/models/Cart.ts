@@ -1,3 +1,3 @@
 export interface Cart {
-	Subscribes: number[];
+	subscribes: number[];
 }
