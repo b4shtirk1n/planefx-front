@@ -17,10 +17,9 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	isLoading: false,
 
 	async fetchAccounts() {
-		const user = useUserStore.getState().user
 		set({ isLoading: true });
 		try {
-			let response = await api.get(`Account/User/${user?.id}`);
+			let response = await api.get(`Account/User/${useUserStore.getState().user?.id}`);
 			let accounts = response.data as Account[]
 
 			accounts = await Promise.all(accounts.map(async account => {
