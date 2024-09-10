@@ -9,7 +9,6 @@
 	gap: 10px;
 	background: var(--tg-theme-bg-color);
 	border-radius: 12px;
-	transition: all 0.5s;
 
 	&-info {
 		display: flex;
@@ -35,14 +34,6 @@
 
 		path {
 			fill: var(--tg-theme-text-color);
-		}
-	}
-
-	a:active {
-		color: var(--tg-theme-button-color);
-
-		path {
-			fill: var(--tg-theme-button-color);
 		}
 	}
 }
