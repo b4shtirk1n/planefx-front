@@ -16,6 +16,10 @@
 		gap: 0.4rem;
 	}
 
+	svg {
+		stroke: var(--tg-theme-button-text-color);
+	}
+
 	.subscribe-counter {
 		bottom: 0;
 		padding: 20px 0;
