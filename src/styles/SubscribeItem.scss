@@ -9,6 +9,7 @@
 	gap: 10px;
 	background: var(--tg-theme-bg-color);
 	border-radius: 12px;
+	transition: all 0.3;
 
 	&-info {
 		display: flex;
@@ -30,8 +31,18 @@
 	}
 
 	a {
+		color: var(--tg-theme-text-color);
+
 		path {
 			fill: var(--tg-theme-button-color);
+		}
+
+		&:active {
+			color: var(--tg-theme-button-color);
+
+			path {
+				fill: var(--tg-theme-button-color);
+			}
 		}
 	}
 }
