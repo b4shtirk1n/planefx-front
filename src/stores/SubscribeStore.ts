@@ -25,9 +25,9 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		try {
 			const response = await api.get("Subscribe");
 			set({
-				subscribes: (response.data as Subscribe[]).map(subscribe => {
-					subscribe.count = 0;
-					return subscribe
+				subscribes: (response.data as Subscribe[]).map(item => {
+					item.count = 0;
+					return item
 				}),
 				userSubscribes: []
 			});
@@ -40,16 +40,16 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 
 	addToCart(subscribe) {
 		set({
-			subscribes: get().subscribes.map((i) =>
-				i.id === subscribe ? { ...i, Count: ++i.count } : i
+			subscribes: get().subscribes.map((item) =>
+				item.id === subscribe ? { ...item, count: ++item.count } : item
 			)
 		});
 	},
 
 	removeToCart(subscribe) {
 		set({
-			subscribes: get().subscribes.map((i) =>
-				i.id === subscribe ? { ...i, Count: i.count - 1 > 0 ? --i.count : 0 } : i
+			subscribes: get().subscribes.map((item) =>
+				item.id === subscribe ? { ...item, count: item.count - 1 > 0 ? --item.count : 0 } : item
 			)
 		});
 	},
