@@ -25,7 +25,10 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		try {
 			const response = await api.get("Subscribe");
 			set({
-				subscribes: response.data as Subscribe[],
+				subscribes: (response.data as Subscribe[]).map(subscribe => {
+					subscribe.count = 0;
+					return subscribe
+				}),
 				userSubscribes: []
 			});
 		} catch (err) {
