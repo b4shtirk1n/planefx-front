@@ -34,15 +34,15 @@
 		color: var(--tg-theme-text-color);
 
 		path {
-			fill: var(--tg-theme-button-color);
+			fill: var(--tg-theme-text-color);
 		}
+	}
 
-		&:active {
-			color: var(--tg-theme-button-color);
+	a:active {
+		color: var(--tg-theme-button-color);
 
-			path {
-				fill: var(--tg-theme-button-color);
-			}
+		path {
+			fill: var(--tg-theme-button-color);
 		}
 	}
 }
