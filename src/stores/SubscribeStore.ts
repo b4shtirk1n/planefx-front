@@ -4,7 +4,6 @@ import { BaseStore } from "./BaseStore";
 import { UserSubscribe } from "../models/UserSubscribe";
 import { api } from "../api/Axios";
 import { AxiosError } from "axios";
-import { useUserStore } from "./UserStore";
 
 type SubscribeStore = BaseStore & {
 	subscribes: Subscribe[];
@@ -24,7 +23,7 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 	async fetchSubscribes() {
 		set({ isLoading: true });
 		try {
-			const response = await api.get(`Subscribe/${useUserStore.getState().user?.id}`);
+			const response = await api.get("Subscribe");
 			set({
 				subscribes: response.data as Subscribe[],
 				userSubscribes: []
