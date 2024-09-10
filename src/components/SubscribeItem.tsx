@@ -2,6 +2,7 @@ import { useSubscribeStore } from "../stores/SubscribeStore";
 import { Subscribe } from "../models/Subscribe";
 import SubImg from "../widgets/SubImg";
 import PlusImg from "../widgets/PlusImg";
+import Star from "../widgets/Star";
 import "../styles/SubscribeItem.scss";
 
 type SubscribeItemProps = {
@@ -17,7 +18,9 @@ export default function SubscribeItem({ subscribe }: SubscribeItemProps) {
 				<h1 className="accounts-count">{subscribe.accountsCount}</h1>
 				<h1>{subscribe.accountsCount == 3 ? "счёта" : "счетов"}</h1>
 			</div>
-			<h1>{subscribe.price} / день</h1>
+			<h1>
+				{subscribe.price} <Star /> / день
+			</h1>
 			<div className="subscribe-counter">
 				<a onClick={() => removeToCart(subscribe.id)}>
 					<SubImg />
