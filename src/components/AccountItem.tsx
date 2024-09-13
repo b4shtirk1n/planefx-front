@@ -23,15 +23,10 @@ export default function AccountItem({ account }: accountProps) {
 					<p>баланс</p>
 				</div>
 				<div>
-					<ColorSum
-						Sum={account.openedOrders.reduce(
-							(prev, cur) => prev + cur.priceOpened,
-							0
-						)}
-					/>
-					<ColorSum Sum={0} />
-					<ColorSum Sum={-100} />
-					<ColorSum Sum={1} />
+					<ColorSum Sum={account.marginLevel} />
+					<ColorSum Sum={account.drawdown} />
+					<ColorSum Sum={account.profit} />
+					<ColorSum Sum={account.balance} />
 				</div>
 			</div>
 		</div>
