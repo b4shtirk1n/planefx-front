@@ -7,6 +7,13 @@ export interface Account extends BaseModel {
 	number: number;
 	isCent: boolean;
 	countOrders: number;
+	profit: number;
+	profitToday: number;
+	profitYesterday: number;
+	profitWeek: number;
+	drawdown: number;
+	marginLevel: number;
+	balance: number;
 	openedOrders: OpenOrder[];
 	closedOrders: CLoseOrder[];
 }
