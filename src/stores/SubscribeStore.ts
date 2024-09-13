@@ -54,7 +54,8 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		});
 	},
 
-	checkout(user) {
+	async checkout(user) {
+		// const response = await api.post("Subscribe/Checkout");
 		const date = new Date();
 		const userSubscribes: UserSubscribe[] = [];
 		get().subscribes.forEach((item) => {
