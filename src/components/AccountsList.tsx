@@ -7,7 +7,11 @@ export default function AccountsList() {
 	return (
 		<div className="container">
 			{accounts.map((item) => (
-				<Account key={item.id} account={item} />
+				<Account
+					key={item.account.id}
+					account={item.account}
+					countOrders={item.countOrders}
+				/>
 			))}
 		</div>
 	);
