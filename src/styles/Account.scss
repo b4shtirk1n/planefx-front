@@ -1,7 +1,6 @@
 @import "mixin.scss";
 
 .account {
-	height: 148px;
 	margin: 20px 30px;
 	@include bg-bg-border-rad(12px);
 
@@ -28,8 +27,8 @@
 	}
 
 	&-info {
-		height: 104px;
-		@include flex-between-p15;
+		padding: 10px 15px;
+		@include flex-between;
 
 		div {
 			display: flex;
