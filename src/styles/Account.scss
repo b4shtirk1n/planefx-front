@@ -28,7 +28,8 @@
 
 	&-info {
 		padding: 10px 15px;
-		@include flex-between;
+		display: flex;
+		justify-content: space-between;
 
 		div {
 			display: flex;
