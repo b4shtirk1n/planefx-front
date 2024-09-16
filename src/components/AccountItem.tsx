@@ -31,9 +31,9 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 					<ColorSum Sum={account.marginLevel} Prefix="%" />
 					<ColorSum Sum={account.profit} Prefix="%" />
 					<ColorSum Sum={account.balance} Prefix="$" />
-					<ColorSum Sum={account.profitToday} Prefix="$" />
-					<ColorSum Sum={account.profitYesterday} Prefix="$" />
-					<ColorSum Sum={account.profitWeek} Prefix="$" />
+					<ColorSum Sum={account.profitToday} Prefix="%" />
+					<ColorSum Sum={account.profitYesterday} Prefix="%" />
+					<ColorSum Sum={account.profitWeek} Prefix="%" />
 				</div>
 			</div>
 		</div>
