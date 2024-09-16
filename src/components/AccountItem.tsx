@@ -20,14 +20,20 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 				<div>
 					<p>просадка</p>
 					<p>маржа</p>
-					<p>прибыль</p>
+					<p>доход</p>
 					<p>баланс</p>
+					<p>прибыль</p>
+					<p>прибыль за день</p>
+					<p>прибыль за неделю</p>
 				</div>
 				<div>
 					<ColorSum Sum={account.drawdown} Prefix="%" />
 					<ColorSum Sum={account.marginLevel} Prefix="%" />
 					<ColorSum Sum={account.profit} Prefix="%" />
 					<ColorSum Sum={account.balance} Prefix="$" />
+					<ColorSum Sum={account.profitToday} Prefix="$" />
+					<ColorSum Sum={account.profitYesterday} Prefix="$" />
+					<ColorSum Sum={account.profitWeek} Prefix="$" />
 				</div>
 			</div>
 		</div>
