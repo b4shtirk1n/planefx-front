@@ -24,10 +24,10 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 					<p>баланс</p>
 				</div>
 				<div>
-					<ColorSum Sum={account.marginLevel} />
-					<ColorSum Sum={account.drawdown} />
-					<ColorSum Sum={account.profit} />
-					<ColorSum Sum={account.balance} />
+					<ColorSum Sum={account.drawdown} Prefix="%" />
+					<ColorSum Sum={account.marginLevel} Prefix="%" />
+					<ColorSum Sum={account.profit} Prefix="%" />
+					<ColorSum Sum={account.balance} Prefix="$" />
 				</div>
 			</div>
 		</div>
