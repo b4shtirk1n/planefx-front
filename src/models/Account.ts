@@ -6,7 +6,6 @@ export interface Account extends BaseModel {
 	name: string;
 	number: number;
 	isCent: boolean;
-	countOrders: number;
 	profit: number;
 	profitToday: number;
 	profitYesterday: number;
