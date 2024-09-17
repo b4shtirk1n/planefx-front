@@ -19,8 +19,8 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 			<div className="account-info">
 				<div>
 					<p>просадка</p>
-					<p>маржа</p>
-					<p>прибыль</p>
+					<p>уровень маржи</p>
+					<p>текущая прибыль</p>
 					<p>баланс</p>
 					<p>прибыль за день</p>
 					<p>прибыль за неделю</p>
