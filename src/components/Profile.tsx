@@ -1,5 +1,5 @@
 import { useUserStore } from "../stores/UserStore";
-import { writeClipboardText } from "../services/Clipboard";
+import { writeClipboardText } from "../helpers/Clipboard";
 import WebApp from "@twa-dev/sdk";
 import Button from "../widgets/Button";
 import Info from "./Info";
