@@ -6,9 +6,9 @@ export class BaseOrder extends BaseModel {
   volume!: number;
   timeOpened!: Date;
   priceOpened!: number;
-  sL?: number;
-  tP?: number;
-  swap?: number;
-  commissions?: number;
+  sL!: number;
+  tP!: number;
+  swap!: number;
+  commissions!: number;
   symbol!: number;
 }
