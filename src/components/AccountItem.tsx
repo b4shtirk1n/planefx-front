@@ -1,4 +1,5 @@
 import { Account } from "../models/Account";
+import { useNavigate } from "react-router-dom";
 import ColorSum from "../widgets/ColorSum";
 import "../styles/Account.scss";
 
@@ -8,8 +9,10 @@ type accountProps = {
 };
 
 export default function AccountItem({ account, countOrders }: accountProps) {
+	const navigate = useNavigate();
+
 	return (
-		<div className="account">
+		<div className="account" onClick={() => navigate(`${account.id}`)}>
 			<div className="account-header">
 				<h2>{account.name}</h2>
 				<div className="account-header-order">

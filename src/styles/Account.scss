@@ -3,6 +3,7 @@
 .account {
 	margin: 20px 30px;
 	@include bg-bg-border-rad(12px);
+	cursor: pointer;
 
 	&-header {
 		height: 44px;
