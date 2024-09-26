@@ -11,7 +11,7 @@ export default function OrderList() {
 
 		console.log(opened);
 		console.log(closed);
-	}, 500);
+	}, 10000);
 
 	return <></>;
 }
