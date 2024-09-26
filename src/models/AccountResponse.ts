@@ -1,6 +1,6 @@
 import { Account } from "./Account";
 
-export interface AccountResponse {
-  account: Account;
-  countOrders: number;
+export class AccountResponse {
+  account!: Account;
+  countOrders!: number;
 }

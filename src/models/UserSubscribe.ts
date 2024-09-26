@@ -1,5 +1,5 @@
-export interface UserSubscribe {
-	User: number;
-	Subscribe: number;
-	Date?: Date;
+export class UserSubscribe {
+	user!: number;
+	subscribe!: number;
+	date?: Date = new Date();
 }
