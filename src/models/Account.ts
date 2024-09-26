@@ -1,6 +1,4 @@
 import { BaseModel } from "./BaseModel";
-import { CLoseOrder } from "./CloseOrder";
-import { OpenOrder } from "./OpenOrder";
 
 export interface Account extends BaseModel {
 	name: string;
@@ -13,6 +11,4 @@ export interface Account extends BaseModel {
 	drawdown: number;
 	marginLevel: number;
 	balance: number;
-	openedOrders: OpenOrder[];
-	closedOrders: CLoseOrder[];
 }
