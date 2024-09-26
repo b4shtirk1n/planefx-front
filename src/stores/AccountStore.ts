@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import { api } from "../api/Axios";
-import { OrderResponse } from "../models/OrderResponse";
 import { useUserStore } from "./UserStore";
 import { AccountResponse } from "../models/AccountResponse";
 
@@ -19,17 +18,8 @@ export const useAccountStore = create<AccountStore>((set) => ({
 	async fetchAccounts() {
 		set({ isLoading: true });
 		try {
-			let response = await api.get(`Account/User/${useUserStore.getState().user?.id}`);
-			let accounts = response.data as AccountResponse[]
-
-			accounts = await Promise.all(accounts.map(async account => {
-				response = await api.get(`Order/${account.account.id}`);
-				const orders = response.data as OrderResponse;
-				account.account.openedOrders = orders.openedOrders;
-				account.account.closedOrders = orders.closedOrders;
-				return account
-			}));
-			set({ accounts });
+			const response = await api.get(`Account/User/${useUserStore.getState().user?.id}`);
+			set({ accounts: response.data as AccountResponse[] });
 		} catch (err) {
 			set({ error: (err as AxiosError).toJSON() });
 		} finally {
