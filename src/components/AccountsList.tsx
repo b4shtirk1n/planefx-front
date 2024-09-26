@@ -1,5 +1,5 @@
 import { useAccountStore } from "../stores/AccountStore";
-import Account from "./AccountItem";
+import AccountItem from "./AccountItem";
 
 export default function AccountsList() {
 	const { accounts } = useAccountStore();
@@ -7,7 +7,7 @@ export default function AccountsList() {
 	return (
 		<div className="container">
 			{accounts.map((item) => (
-				<Account
+				<AccountItem
 					key={item.account.id}
 					account={item.account}
 					countOrders={item.countOrders}
