@@ -7,8 +7,8 @@ type OrderProps = {
 };
 
 export default function OrderItem({ order }: OrderProps) {
-	console.log(typeof order);
-	console.log(order instanceof OpenOrder);
+	const type = new OpenOrder();
+	console.log(type instanceof OpenOrder);
 
 	return (
 		<div className="order">
