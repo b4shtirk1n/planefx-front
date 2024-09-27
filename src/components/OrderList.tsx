@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { OrderParams } from "../models/OrderParams";
 import { useOrderStore } from "../stores/OrderStore";
-import OrderItem from "./OrderItem";
 import { OpenOrder } from "../models/OpenOrder";
 import { CloseOrder } from "../models/CloseOrder";
 import { useEffect } from "react";
+import OrderItem from "./OrderItem";
 
 export default function OrderList() {
 	const { orders, fetchOrders } = useOrderStore();
@@ -27,11 +27,9 @@ export default function OrderList() {
 
 	return (
 		<div className="container">
-			{orders ? (
-				(mapOrders(orders.openedOrders), mapOrders(orders.closedOrders))
-			) : (
-				<></>
-			)}
+			{orders?.openedOrders.map((item) => (
+				<OrderItem key={item.id} order={item} />
+			))}
 		</div>
 	);
 }
