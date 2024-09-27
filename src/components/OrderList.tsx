@@ -4,6 +4,7 @@ import { useOrderStore } from "../stores/OrderStore";
 import OrderItem from "./OrderItem";
 import { OpenOrder } from "../models/OpenOrder";
 import { CloseOrder } from "../models/CloseOrder";
+import { useEffect } from "react";
 
 export default function OrderList() {
 	const { orders, fetchOrders } = useOrderStore();
@@ -13,10 +14,12 @@ export default function OrderList() {
 		return orders.map((item) => <OrderItem key={item.id} order={item} />);
 	}
 
-	setTimeout(() => {
-		fetchOrders(Number(id));
-		console.log(orders);
-	}, 10000);
+	useEffect(() => {
+		setTimeout(() => {
+			fetchOrders(Number(id));
+			console.log(orders);
+		}, 10000);
+	}, []);
 
 	return (
 		<div className="container">
