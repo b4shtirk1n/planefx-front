@@ -15,11 +15,15 @@ export default function OrderList() {
 	}
 
 	useEffect(() => {
-		setTimeout(() => {
+		const timer = setTimeout(() => {
 			fetchOrders(Number(id));
 			console.log(orders);
 		}, 10000);
-	}, [orders]);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, []);
 
 	return (
 		<div className="container">
