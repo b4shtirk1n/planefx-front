@@ -23,7 +23,7 @@ export default function OrderList() {
 		return () => {
 			clearInterval(timer);
 		};
-	}, []);
+	}, [orders]);
 
 	return (
 		<div className="container">
