@@ -62,6 +62,7 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 				userSubscribes.push({
 					user: user,
 					subscribe: item.id,
+					date: new Date()
 				});
 			}
 		});
