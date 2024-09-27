@@ -9,19 +9,24 @@ export default function OrderList() {
 	const { orders, fetchOrders } = useOrderStore();
 	const { id } = useParams<OrderParams>();
 
+	fetchOrders(Number(id));
+	console.log(orders);
+
 	function mapOrders(orders: OpenOrder[] | CloseOrder[]) {
 		return orders.map((item) => <OrderItem key={item.id} order={item} />);
 	}
 
 	setTimeout(() => {
-		fetchOrders(Number(id));
-
 		console.log(orders);
 	}, 10000);
 
 	return (
 		<div className="container">
-			{(mapOrders(orders!.openedOrders), mapOrders(orders!.closedOrders))}
+			{orders ? (
+				(mapOrders(orders.openedOrders), mapOrders(orders.closedOrders))
+			) : (
+				<></>
+			)}
 		</div>
 	);
 }
