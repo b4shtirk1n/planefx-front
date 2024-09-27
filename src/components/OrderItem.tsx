@@ -7,9 +7,6 @@ type OrderProps = {
 };
 
 export default function OrderItem({ order }: OrderProps) {
-	const type = new OpenOrder();
-	console.log(type instanceof OpenOrder);
-
 	return (
 		<div className="order">
 			<div className="order-header">
@@ -17,7 +14,7 @@ export default function OrderItem({ order }: OrderProps) {
 			</div>
 			<div className="account-info">
 				<div>
-					{order instanceof OpenOrder ? (
+					{order.isOpen ? (
 						<p>последнее обновления</p>
 					) : (
 						<>
@@ -33,7 +30,7 @@ export default function OrderItem({ order }: OrderProps) {
 					<p>объём</p>
 				</div>
 				<div>
-					{order instanceof OpenOrder ? (
+					{order.isOpen ? (
 						<h3>{order.timeUpdate.getTime()}</h3>
 					) : (
 						<>

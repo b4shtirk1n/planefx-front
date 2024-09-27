@@ -13,7 +13,6 @@ export default function OrderList() {
 		const timer = setTimeout(() => {
 			fetchOrders(Number(id));
 			console.log(orders);
-			console.log(isLoading);
 		}, 10000);
 
 		return () => {
