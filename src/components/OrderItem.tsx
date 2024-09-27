@@ -8,6 +8,7 @@ type OrderProps = {
 
 export default function OrderItem({ order }: OrderProps) {
 	const isOpen = order instanceof OpenOrder;
+	console.log(isOpen);
 
 	return (
 		<div className="order">
