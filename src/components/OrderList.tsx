@@ -19,7 +19,7 @@ export default function OrderList() {
 			fetchOrders(Number(id));
 			console.log(orders);
 		}, 10000);
-	}, []);
+	}, [orders]);
 
 	return (
 		<div className="container">
