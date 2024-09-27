@@ -1,6 +1,7 @@
 import { BaseOrder } from "./BaseOrder";
 
-export class CloseOrder extends BaseOrder {
-  timeClosed!: Date;
-  priceClosed!: number;
+export interface CloseOrder extends BaseOrder {
+  timeClosed: Date;
+  priceClosed: number;
+  isOpen: false;
 }

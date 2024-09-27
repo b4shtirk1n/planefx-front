@@ -1,3 +1,3 @@
-export class Cart {
-	subscribes!: number[];
+export interface Cart {
+	subscribes: number[];
 }

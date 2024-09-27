@@ -1,5 +1,6 @@
 import { BaseOrder } from "./BaseOrder";
 
-export class OpenOrder extends BaseOrder {
-  timeUpdate!: Date;
+export interface OpenOrder extends BaseOrder {
+  timeUpdate: Date;
+  isOpen: true;
 }
