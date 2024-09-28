@@ -9,6 +9,7 @@ type OrderProps = {
 
 export default function OrderItem({ order, isOpen }: OrderProps) {
 	console.log(order);
+	console.log(order.timeOpened.getTime());
 
 	return (
 		<div className="order">
