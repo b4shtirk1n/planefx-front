@@ -8,6 +8,8 @@ type OrderProps = {
 };
 
 export default function OrderItem({ order, isOpen }: OrderProps) {
+	console.log(order);
+
 	return (
 		<div className="order">
 			<div className="order-header">
@@ -32,10 +34,10 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 				</div>
 				<div>
 					{isOpen ? (
-						<h3>{(order as OpenOrder).timeUpdate.getTime()}</h3>
+						<h3>{(order as OpenOrder).timeUpdate.toISOString()}</h3>
 					) : (
 						<>
-							<h3>{(order as CloseOrder).timeClosed.getTime()}</h3>
+							<h3>{(order as CloseOrder).timeClosed.toISOString()}</h3>
 							<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="%" />
 						</>
 					)}
