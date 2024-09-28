@@ -24,7 +24,7 @@ export default function OrderPage() {
 	return (
 		<section className="modal">
 			<Header leftBtn={<BackButton />} text="Счёт" />
-			{orders ? <Loading /> : <OrderList />}
+			{orders ? <OrderList /> : <Loading />}
 		</section>
 	);
 }
