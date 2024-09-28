@@ -24,7 +24,7 @@ export default function OrderList() {
 		<div className="container">
 			{orders ? (
 				orders.openedOrders.map((item) => (
-					<OrderItem key={item.id} order={item} />
+					<OrderItem key={item.id} order={item} isOpen={true} />
 				))
 			) : (
 				<Loading />

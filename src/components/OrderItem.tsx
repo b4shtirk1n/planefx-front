@@ -4,13 +4,10 @@ import ColorSum from "../widgets/ColorSum";
 
 type OrderProps = {
 	order: OpenOrder | CloseOrder;
+	isOpen: boolean;
 };
 
-export default function OrderItem({ order }: OrderProps) {
-	console.log(order);
-	console.log(order.isOpen);
-	console.log(typeof order.isOpen);
-
+export default function OrderItem({ order, isOpen }: OrderProps) {
 	return (
 		<div className="order">
 			<div className="order-header">
@@ -18,7 +15,7 @@ export default function OrderItem({ order }: OrderProps) {
 			</div>
 			<div className="account-info">
 				<div>
-					{order.isOpen ? (
+					{isOpen ? (
 						<p>последнее обновления</p>
 					) : (
 						<>
@@ -34,12 +31,12 @@ export default function OrderItem({ order }: OrderProps) {
 					<p>объём</p>
 				</div>
 				<div>
-					{order.isOpen ? (
-						<h3>{order.timeUpdate.getTime()}</h3>
+					{isOpen ? (
+						<h3>{(order as OpenOrder).timeUpdate.getTime()}</h3>
 					) : (
 						<>
-							<h3>{order.timeClosed.getTime()}</h3>
-							<ColorSum Sum={order.priceClosed} Prefix="%" />
+							<h3>{(order as CloseOrder).timeClosed.getTime()}</h3>
+							<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="%" />
 						</>
 					)}
 					<h3>{order.timeOpened.getTime()}</h3>
