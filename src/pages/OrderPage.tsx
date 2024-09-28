@@ -19,7 +19,7 @@ export default function OrderPage() {
 		return () => {
 			clearInterval(timer);
 		};
-	}, []);
+	}, [isLoading]);
 
 	return (
 		<section className="modal">
