@@ -6,8 +6,8 @@ export interface BaseOrder extends BaseModel {
   volume: number;
   timeOpened: Date;
   priceOpened: number;
-  sL: number;
-  tP: number;
+  sl: number;
+  tp: number;
   swap: number;
   commissions: number;
   symbol: number;
