@@ -23,9 +23,9 @@ export default function OrderList() {
 	return (
 		<div className="container">
 			{orders ? (
-				orders.openedOrders.map((item) => (
-					<OrderItem key={item.id} order={item} isOpen={true} />
-				))
+				orders.openedOrders
+					.sort((a, b) => a.id - b.id)
+					.map((item) => <OrderItem key={item.id} order={item} isOpen={true} />)
 			) : (
 				<Loading />
 			)}
