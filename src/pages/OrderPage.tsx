@@ -8,7 +8,7 @@ import BackButton from "../widgets/BackButton";
 import Loading from "../widgets/Loading";
 
 export default function OrderPage() {
-	const { isLoading, fetchOrders } = useOrderStore();
+	const { orders, fetchOrders } = useOrderStore();
 	const { id } = useParams<OrderParams>();
 
 	useEffect(() => {
@@ -19,12 +19,12 @@ export default function OrderPage() {
 		return () => {
 			clearInterval(timer);
 		};
-	}, [isLoading]);
+	}, [orders]);
 
 	return (
 		<section className="modal">
 			<Header leftBtn={<BackButton />} text="Счёт" />
-			{isLoading ? <Loading /> : <OrderList />}
+			{orders ? <Loading /> : <OrderList />}
 		</section>
 	);
 }
