@@ -6,7 +6,7 @@ import OrderItem from "./OrderItem";
 import Loading from "../widgets/Loading";
 
 export default function OrderList() {
-	const { orders, isLoading, fetchOrders } = useOrderStore();
+	const { orders, fetchOrders } = useOrderStore();
 	const { id } = useParams<OrderParams>();
 
 	useEffect(() => {
@@ -18,7 +18,7 @@ export default function OrderList() {
 		return () => {
 			clearInterval(timer);
 		};
-	}, [orders, isLoading]);
+	}, [orders]);
 
 	return (
 		<div className="container">
