@@ -32,16 +32,24 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 				</div>
 				<div>
 					{isOpen ? (
-						<h3>{(order as OpenOrder).timeUpdate.toLocaleString("en-GB")}</h3>
+						<h3>
+							{new Date(
+								Date.parse(`${(order as OpenOrder).timeUpdate}`)
+							).toLocaleString()}
+						</h3>
 					) : (
 						<>
 							<h3>
-								{(order as CloseOrder).timeClosed.toLocaleString("en-GB")}
+								{new Date(
+									Date.parse(`${(order as CloseOrder).timeClosed}`)
+								).toLocaleString()}
 							</h3>
 							<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="%" />
 						</>
 					)}
-					<h3>{order.timeOpened.toLocaleString("en-GB")}</h3>
+					<h3>
+						{new Date(Date.parse(`${order.timeOpened}`)).toLocaleString()}
+					</h3>
 					<ColorSum Sum={order.priceOpened} Prefix="%" />
 					<ColorSum Sum={order.sl} Prefix="%" />
 					<ColorSum Sum={order.tp} Prefix="%" />
