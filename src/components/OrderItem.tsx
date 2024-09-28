@@ -14,7 +14,7 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 		<div className="card">
 			<div className="card-header">
 				<h2>{order.order}</h2>
-				<h2>{order.symbol}</h2>
+				<h3>{order.symbol}</h3>
 			</div>
 			<div className="card-info">
 				<div>
