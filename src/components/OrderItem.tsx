@@ -1,7 +1,8 @@
-import getDate from "../helpers/Date";
 import { CloseOrder } from "../models/CloseOrder";
 import { OpenOrder } from "../models/OpenOrder";
+import getDate from "../helpers/Date";
 import ColorSum from "../widgets/ColorSum";
+import "../styles/Card.scss";
 
 type OrderProps = {
 	order: OpenOrder | CloseOrder;

@@ -1,7 +1,7 @@
 import { Account } from "../models/Account";
 import { useNavigate } from "react-router-dom";
 import ColorSum from "../widgets/ColorSum";
-import "../styles/Account.scss";
+import "../styles/Card.scss";
 
 type accountProps = {
 	account: Account;
