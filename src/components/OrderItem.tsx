@@ -1,3 +1,4 @@
+import getDate from "../helpers/Date";
 import { CloseOrder } from "../models/CloseOrder";
 import { OpenOrder } from "../models/OpenOrder";
 import ColorSum from "../widgets/ColorSum";
@@ -32,24 +33,14 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 				</div>
 				<div>
 					{isOpen ? (
-						<h3>
-							{new Date(
-								Date.parse(`${(order as OpenOrder).timeUpdate}`)
-							).toLocaleString()}
-						</h3>
+						<h3>{getDate((order as OpenOrder).timeUpdate)}</h3>
 					) : (
 						<>
-							<h3>
-								{new Date(
-									Date.parse(`${(order as CloseOrder).timeClosed}`)
-								).toLocaleString()}
-							</h3>
+							<h3>{getDate((order as CloseOrder).timeClosed)}</h3>
 							<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="%" />
 						</>
 					)}
-					<h3>
-						{new Date(Date.parse(`${order.timeOpened}`)).toLocaleString()}
-					</h3>
+					<h3>{getDate(order.timeOpened)}</h3>
 					<ColorSum Sum={order.priceOpened} Prefix="%" />
 					<ColorSum Sum={order.sl} Prefix="%" />
 					<ColorSum Sum={order.tp} Prefix="%" />
