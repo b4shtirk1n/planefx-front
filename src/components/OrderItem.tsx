@@ -43,8 +43,8 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 					)}
 					<h3>{order.timeOpened.toLocaleString("en-GB")}</h3>
 					<ColorSum Sum={order.priceOpened} Prefix="%" />
-					<ColorSum Sum={order.sL} Prefix="%" />
-					<ColorSum Sum={order.tP} Prefix="%" />
+					<ColorSum Sum={order.sl} Prefix="%" />
+					<ColorSum Sum={order.tp} Prefix="%" />
 					<ColorSum Sum={order.swap} Prefix="$" />
 					<ColorSum Sum={order.volume} Prefix="%" />
 				</div>
