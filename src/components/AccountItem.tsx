@@ -12,14 +12,14 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 	const navigate = useNavigate();
 
 	return (
-		<div className="account" onClick={() => navigate(`${account.id}`)}>
-			<div className="account-header">
+		<div className="card" onClick={() => navigate(`${account.id}`)}>
+			<div className="card-header">
 				<h2>{account.name}</h2>
-				<div className="account-header-order">
+				<div className="card-header-order">
 					<h3>{countOrders}</h3>
 				</div>
 			</div>
-			<div className="account-info">
+			<div className="card-info">
 				<div>
 					<p>просадка</p>
 					<p>уровень маржи</p>

@@ -10,11 +10,11 @@ type OrderProps = {
 
 export default function OrderItem({ order, isOpen }: OrderProps) {
 	return (
-		<div className="order">
-			<div className="order-header">
+		<div className="card">
+			<div className="card-header">
 				<h2>{order.order}</h2>
 			</div>
-			<div className="account-info">
+			<div className="card-info">
 				<div>
 					{isOpen ? (
 						<p>последнее обновления</p>
