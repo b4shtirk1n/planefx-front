@@ -7,6 +7,9 @@ type OrderProps = {
 };
 
 export default function OrderItem({ order }: OrderProps) {
+	console.log(order.isOpen);
+	console.log(typeof order.isOpen);
+
 	return (
 		<div className="order">
 			<div className="order-header">
