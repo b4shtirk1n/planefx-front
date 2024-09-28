@@ -63,6 +63,10 @@ a {
 }
 
 .swiper-slide {
-  padding: 30px 40px;
+	padding: 30px 40px;
 	@include flex-center;
+}
+
+.modal {
+	grid-template-rows: 40px auto;
 }

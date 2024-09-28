@@ -4,7 +4,7 @@ import BackButton from "../widgets/BackButton";
 
 export default function OrderPage() {
 	return (
-		<section>
+		<section className="modal">
 			<Header leftBtn={<BackButton />} text="Счёт" />
 			<OrderList />
 		</section>
