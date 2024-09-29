@@ -8,7 +8,6 @@ import OrderList from "../components/OrderList";
 import Header from "../components/Header";
 import Loading from "../widgets/Loading";
 
-BackButton;
 export default function OrderPage() {
 	const { orders, fetchOrders } = useOrderStore();
 	const { id } = useParams<OrderParams>();
@@ -25,6 +24,7 @@ export default function OrderPage() {
 
 	return (
 		<section className="modal">
+			<BackButton />
 			<Header leftBtn={<BackBtn />} text="Счёт" />
 			{orders ? <OrderList /> : <Loading />}
 		</section>
