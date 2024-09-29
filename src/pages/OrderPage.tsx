@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useOrderStore } from "../stores/OrderStore";
 import { OrderParams } from "../models/OrderParams";
+import { BackButton } from "@twa-dev/sdk/react";
+import BackBtn from "../widgets/BackButton";
 import OrderList from "../components/OrderList";
 import Header from "../components/Header";
-import BackButton from "../widgets/BackButton";
 import Loading from "../widgets/Loading";
 
+BackButton;
 export default function OrderPage() {
 	const { orders, fetchOrders } = useOrderStore();
 	const { id } = useParams<OrderParams>();
@@ -23,7 +25,7 @@ export default function OrderPage() {
 
 	return (
 		<section className="modal">
-			<Header leftBtn={<BackButton />} text="Счёт" />
+			<Header leftBtn={<BackBtn />} text="Счёт" />
 			{orders ? <OrderList /> : <Loading />}
 		</section>
 	);
