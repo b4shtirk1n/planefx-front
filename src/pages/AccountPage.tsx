@@ -1,13 +1,22 @@
+import { useEffect } from "react";
 import { useAccountStore } from "../stores/AccountStore";
+import { REQUEST_DELAY } from "../constants/ApiConst";
 import AccountsList from "../components/AccountsList";
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
 
-useAccountStore.getState().fetchAccounts();
-
 export default function AccountsPage() {
-	const { isLoading } = useAccountStore();
+	const { accounts, isLoading, fetchAccounts } = useAccountStore();
+
+	useEffect(() => {
+		fetchAccounts();
+		const timer = setTimeout(() => {}, REQUEST_DELAY);
+
+		return () => {
+			clearInterval(timer);
+		};
+	}, [accounts, isLoading]);
 
 	return (
 		<section>
