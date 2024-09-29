@@ -12,7 +12,7 @@ export default function AccountItem({ account, countOrders }: accountProps) {
 	const navigate = useNavigate();
 
 	return (
-		<div className="card" onClick={() => navigate(`${account.id}`)}>
+		<div className="card clickable" onClick={() => navigate(`${account.id}`)}>
 			<div className="card-header">
 				<h2>{account.name}</h2>
 				<div className="card-header-order">
