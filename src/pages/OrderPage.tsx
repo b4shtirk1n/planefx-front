@@ -12,11 +12,8 @@ export default function OrderPage() {
 	const { id } = useParams<OrderParams>();
 
 	useEffect(() => {
-		console.log(1);
-		const timer = setTimeout(() => {
-			fetchOrders(Number(id));
-			console.log(2);
-		}, 10000);
+		fetchOrders(Number(id));
+		const timer = setTimeout(() => {}, 10000);
 
 		return () => {
 			clearInterval(timer);
