@@ -16,7 +16,7 @@ export default function AccountsPage() {
 		return () => {
 			clearInterval(timer);
 		};
-	}, [accounts, isLoading]);
+	}, [accounts]);
 
 	return (
 		<section>
