@@ -10,8 +10,9 @@ export default function AccountsPage() {
 	const { accounts, fetchAccounts } = useAccountStore();
 
 	useEffect(() => {
-		fetchAccounts();
-		const timer = setTimeout(() => {}, REQUEST_DELAY);
+		const timer = setTimeout(() => {
+			fetchAccounts();
+		}, REQUEST_DELAY);
 
 		return () => {
 			clearInterval(timer);
