@@ -15,7 +15,7 @@ export default function OrderPage() {
 	useEffect(() => {
 		fetchOrders(Number(id));
 		const timer = setInterval(() => {
-			console.log(1);
+			fetchOrders(Number(id));
 		}, REQUEST_DELAY);
 		return () => clearInterval(timer);
 	}, []);
