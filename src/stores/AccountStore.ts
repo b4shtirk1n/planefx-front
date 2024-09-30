@@ -6,13 +6,12 @@ import { useUserStore } from "./UserStore";
 import { AccountResponse } from "../models/AccountResponse";
 
 type AccountStore = BaseStore & {
-	accounts: AccountResponse[];
+	accounts?: AccountResponse[];
 
 	fetchAccounts(): void;
 };
 
 export const useAccountStore = create<AccountStore>((set) => ({
-	accounts: [],
 	isLoading: false,
 
 	async fetchAccounts() {
