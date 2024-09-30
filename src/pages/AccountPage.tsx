@@ -12,7 +12,7 @@ export default function AccountsPage() {
 	useEffect(() => {
 		fetchAccounts();
 		console.log(1);
-		const timer = setInterval(fetchAccounts, REQUEST_DELAY);
+		const timer = setInterval(() => fetchAccounts(), REQUEST_DELAY);
 		return () => clearInterval(timer);
 	}, [accounts]);
 
