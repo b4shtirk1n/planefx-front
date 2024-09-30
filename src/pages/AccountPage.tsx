@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
 
 export default function AccountsPage() {
-	const { accounts, fetchAccounts } = useAccountStore();
+	const { isLoading, fetchAccounts } = useAccountStore();
 
 	useEffect(() => {
 		fetchAccounts();
@@ -20,7 +20,7 @@ export default function AccountsPage() {
 	return (
 		<section>
 			<Header text="Счета" />
-			{accounts ? <AccountsList /> : <Loading />}
+			{isLoading ? <Loading /> : <AccountsList />}
 			<NavBar isAccounts />
 		</section>
 	);
