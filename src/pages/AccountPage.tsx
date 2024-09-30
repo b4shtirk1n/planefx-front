@@ -12,8 +12,8 @@ export default function AccountsPage() {
 	useEffect(() => {
 		fetchAccounts();
 		console.log(1);
-		const timer = setTimeout(() => {
-			console.log(2);
+		const timer = setTimeout(async () => {
+			await new Promise((f) => setTimeout(f, REQUEST_DELAY));
 		}, REQUEST_DELAY);
 		return () => clearInterval(timer);
 	}, [accounts]);
