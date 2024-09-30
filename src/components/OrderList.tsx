@@ -1,5 +1,5 @@
-import OrderItem from "./OrderItem";
 import { useOrderStore } from "../stores/OrderStore";
+import OrderItem from "./OrderItem";
 
 export default function OrderList() {
 	const { orders } = useOrderStore();
