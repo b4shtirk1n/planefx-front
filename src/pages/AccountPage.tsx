@@ -9,13 +9,17 @@ import Loading from "../widgets/Loading";
 export default function AccountsPage() {
 	const { accounts, fetchAccounts } = useAccountStore();
 
+	async function delay() {
+		await new Promise((resolve) => setTimeout(resolve, REQUEST_DELAY));
+	}
+
 	useEffect(() => {
 		fetchAccounts();
 		console.log(1);
-		function delay() {
-			return new Promise((resolve) => setTimeout(resolve, REQUEST_DELAY));
-		}
-		delay();
+
+		return () => {
+			delay();
+		};
 	}, [accounts]);
 
 	return (
