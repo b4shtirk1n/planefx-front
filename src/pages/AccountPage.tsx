@@ -15,11 +15,8 @@ export default function AccountsPage() {
 
 	useEffect(() => {
 		fetchAccounts();
-		console.log(1);
-
-		return () => {
-			delay();
-		};
+		console.log(2);
+		delay();
 	}, [accounts]);
 
 	return (
