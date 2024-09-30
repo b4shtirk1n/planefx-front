@@ -17,7 +17,7 @@ export default function OrderPage() {
 		console.log(1);
 
 		const timer = setInterval(() => {
-			return;
+			console.log();
 		}, REQUEST_DELAY);
 
 		return () => clearInterval(timer);
