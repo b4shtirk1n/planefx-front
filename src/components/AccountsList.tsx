@@ -6,7 +6,7 @@ export default function AccountsList() {
 
 	return (
 		<div className="container">
-			{accounts.map((item) => (
+			{accounts?.map((item) => (
 				<AccountItem
 					key={item.account.id}
 					account={item.account}
