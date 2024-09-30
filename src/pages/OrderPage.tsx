@@ -13,14 +13,10 @@ export default function OrderPage() {
 	const { id } = useParams<OrderParams>();
 
 	useEffect(() => {
-		fetchOrders(Number(id));
 		console.log(1);
-		const timer = setTimeout(() => {}, REQUEST_DELAY);
+		const timer = setInterval(() => fetchOrders(Number(id)), REQUEST_DELAY);
 
-		return () => {
-			console.log(2);
-			clearInterval(timer);
-		};
+		return () => clearInterval(timer);
 	}, [orders]);
 
 	return (
