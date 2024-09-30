@@ -16,7 +16,7 @@ export default function AccountsPage() {
 			fetchAccounts();
 		}, REQUEST_DELAY);
 		return () => clearInterval(timer);
-	}, [accounts]);
+	}, []);
 
 	return (
 		<section>
