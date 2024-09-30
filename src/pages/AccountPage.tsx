@@ -9,14 +9,13 @@ import Loading from "../widgets/Loading";
 export default function AccountsPage() {
 	const { accounts, fetchAccounts } = useAccountStore();
 
-	async function delay() {
-		await new Promise((resolve) => setTimeout(resolve, REQUEST_DELAY));
-	}
-
 	useEffect(() => {
 		fetchAccounts();
-		console.log(2);
-		delay();
+		console.log(1);
+		const timer = setTimeout(() => {
+			console.log(2);
+		}, REQUEST_DELAY);
+		return () => clearInterval(timer);
 	}, [accounts]);
 
 	return (
