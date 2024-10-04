@@ -7,4 +7,5 @@ export interface User extends BaseModel {
 	role: number;
 	mainBalance: number;
 	referralBalance: number;
+	parent: number;
 }
