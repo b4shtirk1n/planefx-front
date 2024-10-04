@@ -35,7 +35,7 @@ export default function Profile() {
 					imgUrl={refBalanceImg}
 				/>
 			</div>
-			{user?.role === 2 ? (
+			{user?.parent === undefined ? (
 				<Button onClick={() => WebApp.showAlert(`${username}`)}>
 					Реферальная система
 				</Button>
