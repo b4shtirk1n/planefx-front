@@ -7,13 +7,13 @@ import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
 
 export default function AccountsPage() {
-	const { accounts } = useAccountStore();
-
-	const timer = setInterval(() => {
-		useAccountStore.getState().fetchAccounts();
-	}, REQUEST_DELAY);
+	const { accounts, fetchAccounts } = useAccountStore();
 
 	useEffect(() => {
+		fetchAccounts();
+		const timer = setInterval(() => {
+			fetchAccounts();
+		}, REQUEST_DELAY);
 		return () => clearInterval(timer);
 	}, []);
 
