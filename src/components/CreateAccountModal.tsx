@@ -24,7 +24,7 @@ export default function CreateAccountModal({
 				className={isModalShow ? "modal" : "hide"}
 				onClick={() => setIsModalShow(false)}
 			></div>
-			{isLoading ? <Loading /> : <CreateAccount isModalShow />}
+			{isLoading ? <Loading /> : <CreateAccount isModalShow={isModalShow} />}
 		</>
 	);
 }
