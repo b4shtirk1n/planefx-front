@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import ColorSum from "../widgets/ColorSum";
 import "../styles/Card.scss";
 
-type accountProps = {
+type AccountProps = {
 	account: Account;
 	countOrders: number;
 };
 
-export default function AccountItem({ account, countOrders }: accountProps) {
+export default function AccountItem({ account, countOrders }: AccountProps) {
 	const navigate = useNavigate();
 
 	return (
