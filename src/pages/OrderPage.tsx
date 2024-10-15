@@ -21,7 +21,7 @@ export default function OrderPage() {
 	}, []);
 
 	return (
-		<section className="modal">
+		<section className="without-nav">
 			<BackButton />
 			<Header text="Счёт" />
 			{orders ? <OrderList /> : <Loading />}
