@@ -67,6 +67,10 @@ a {
 	@include flex-center;
 }
 
+.without-nav {
+	grid-template-rows: 40px auto;
+}
+
 .modal {
 	position: absolute;
 	display: flex;
