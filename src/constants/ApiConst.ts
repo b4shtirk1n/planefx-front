@@ -1,1 +1,1 @@
-export const REQUEST_DELAY = 5000 //5 seconds 
+export const REQUEST_DELAY = 3000 //3 seconds 
