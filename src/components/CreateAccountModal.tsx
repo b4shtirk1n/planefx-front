@@ -19,12 +19,11 @@ export default function CreateAccountModal({
 	console.log(isModalShow);
 
 	return (
-		<div className={isModalShow ? "modal create-account" : "hide"}>
-			{isLoading ? (
-				<Loading />
-			) : (
-				<CreateAccount setIsModalShow={setIsModalShow} />
-			)}
+		<div
+			className={isModalShow ? "modal" : "hide"}
+			onClick={() => setIsModalShow(false)}
+		>
+			{isLoading ? <Loading /> : <CreateAccount />}
 		</div>
 	);
 }

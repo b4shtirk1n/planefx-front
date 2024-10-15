@@ -2,18 +2,14 @@ import { useState } from "react";
 import { useServiceStore } from "../stores/ServiceStore";
 import { CreateAccountRequest } from "../models/CreateAccountRequestÏ";
 
-type CreateAccountProps = {
-	setIsModalShow(flag: boolean): void;
-};
-
-export default function CreateAccount({ setIsModalShow }: CreateAccountProps) {
+export default function CreateAccount() {
 	const { tickers } = useServiceStore();
 	const [createAccount, setCreateAccount] = useState<CreateAccountRequest>(
 		new CreateAccountRequest()
 	);
 
 	return (
-		<div onClick={() => setIsModalShow(false)}>
+		<div className="create-account">
 			<div>
 				<p>Название</p>
 				<input
