@@ -21,7 +21,10 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 					pattern="[0-9]*"
 					value={createOrder?.volume}
 					onChange={(e) =>
-						setCreateOrder({ ...createOrder, volume: e.target.value })
+						setCreateOrder({
+							...createOrder,
+							volume: e.target.validity.valid ? e.target.value : "",
+						})
 					}
 				/>
 			</div>
