@@ -4,13 +4,12 @@ import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 
 type ServiceStore = BaseStore & {
-  tickers: string[];
+  tickers?: string[];
   fetchTickers(): void;
 }
 
 export const useServiceStore = create<ServiceStore>((set) => ({
   isLoading: false,
-  tickers: [],
 
   async fetchTickers() {
     set({ isLoading: true })
