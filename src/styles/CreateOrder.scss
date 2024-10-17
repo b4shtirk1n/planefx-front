@@ -1,6 +1,12 @@
-.create-account {
+.create-order {
 	position: absolute;
 	z-index: 20;
+
+	div {
+		display: flex;
+		justify-content: space-between;
+		gap: 4px;
+	}
 }
 
 .hide {

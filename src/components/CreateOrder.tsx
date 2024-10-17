@@ -4,10 +4,10 @@ import { useOrderStore } from "../stores/OrderStore";
 import { CommandRequest } from "../models/CommandRequest";
 import { OrderParams } from "../models/OrderParams";
 import { useParams } from "react-router-dom";
+import { CommandType } from "../enums/CommandType";
 import { useCommandStore } from "../stores/CommandStore";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
-import { CommandType } from "../enums/CommandType";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
@@ -40,7 +40,7 @@ export default function CreateAccount({
 	}
 
 	return (
-		<div className={isModalShow ? "create-account" : "hide"}>
+		<div className={isModalShow ? "create-order" : "hide"}>
 			{isLoading ? (
 				<Loading />
 			) : (
