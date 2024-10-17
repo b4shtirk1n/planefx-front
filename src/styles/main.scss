@@ -65,7 +65,7 @@ a {
 
 .swiper-slide {
 	padding: 30px 40px;
-	@include mixin.flex-center;
+	@include flex-center;
 }
 
 .without-nav {
