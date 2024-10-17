@@ -1,5 +1,5 @@
 @use "sass:meta";
-@use "mixin" as *;
+@use "mixin.scss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900");
 
 *,
@@ -65,7 +65,7 @@ a {
 
 .swiper-slide {
 	padding: 30px 40px;
-	@include flex-center;
+	@include mixin.flex-center;
 }
 
 .without-nav {
