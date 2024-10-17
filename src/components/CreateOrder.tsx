@@ -58,7 +58,9 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 					))}
 				</select>
 			</div>
-			<Button onClick={() => CreateCommand(command, Number(id))}></Button>
+			<Button onClick={() => CreateCommand(command, Number(id))}>
+				Открыть сделку
+			</Button>
 		</div>
 	);
 }
