@@ -12,6 +12,7 @@
 	font-size: 16px;
 	color: var(--tg-theme-text-color);
 	--swiper-navigation-size: 20px;
+	--arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
 }
 
 body {
@@ -59,13 +60,11 @@ a {
 }
 
 input {
-	width: 200px;
-	background: var(--tg-theme-section-separator-color);
+	@include input-reset;
 }
 
 select {
-	width: 200px;
-	background: var(--tg-theme-section-separator-color);
+	@include input-reset;
 }
 
 .swiper {
