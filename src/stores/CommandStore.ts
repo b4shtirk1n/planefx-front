@@ -13,6 +13,7 @@ export const useCommandStore = create<CommandStore>((set) => ({
 
   async CreateCommand(command, account) {
     command.account = account;
+    console.log(command);
 
     set({ isLoading: true });
     try {
