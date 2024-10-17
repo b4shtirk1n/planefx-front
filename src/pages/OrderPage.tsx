@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useOrderStore } from "../stores/OrderStore";
 import { OrderParams } from "../models/OrderParams";
 import { BackButton } from "@twa-dev/sdk/react";
+import { useServiceStore } from "../stores/ServiceStore";
 import { REQUEST_DELAY } from "../constants/ApiConst";
 import OrderList from "../components/OrderList";
 import Header from "../components/Header";
@@ -10,9 +11,12 @@ import Loading from "../widgets/Loading";
 import PlusImg from "../widgets/PlusImg";
 import CreateOrderModal from "../components/CreateOrderModal";
 
+useServiceStore.getState().fetchTickers();
+
 export default function OrderPage() {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 	const { orders, fetchOrders } = useOrderStore();
+	const { isLoading } = useServiceStore();
 	const { id } = useParams<OrderParams>();
 
 	useEffect(() => {
@@ -38,7 +42,7 @@ export default function OrderPage() {
 				isModalShow={isModalShow}
 				setIsModalShow={setIsModalShow}
 			/>
-			{orders ? <OrderList /> : <Loading />}
+			{orders && isLoading ? <OrderList /> : <Loading />}
 		</section>
 	);
 }
