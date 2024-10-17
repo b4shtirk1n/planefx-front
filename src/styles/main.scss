@@ -65,6 +65,8 @@ input {
 
 select {
 	@include mixin.input-reset;
+	background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+		var(--tg-theme-section-separator-color);
 }
 
 .swiper {
