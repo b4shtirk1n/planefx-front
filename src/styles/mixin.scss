@@ -16,7 +16,7 @@
 	background: var(--tg-theme-bg-color);
 }
 
-@mixin to-center($s) {
+@mixin to-center() {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
