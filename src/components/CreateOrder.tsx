@@ -23,7 +23,8 @@ export default function CreateAccount({
 	const { types } = useOrderStore();
 	const { isLoading, CreateCommand } = useCommandStore();
 
-	const [volumeParse, setVolumeParse] = useState<string>("0");
+	const [volumeParse, setVolumeParse] = useState<string>();
+	const [priceParse, setPriceParse] = useState<string>();
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(
 			Number(id),
@@ -59,6 +60,21 @@ export default function CreateAccount({
 							}
 						/>
 					</div>
+					{command.orderType === "Buy limit" && (
+						<div>
+							<p>Объём</p>
+							<input
+								type="text"
+								pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
+								value={priceParse}
+								onChange={(e) =>
+									setPriceParse(
+										e.target.validity.valid ? e.target.value : priceParse
+									)
+								}
+							/>
+						</div>
+					)}
 					<div>
 						<p>Тикер</p>
 						<select
@@ -87,7 +103,11 @@ export default function CreateAccount({
 					</div>
 					<Button
 						onClick={() =>
-							handleClick({ ...command, volume: Number(volumeParse) })
+							handleClick({
+								...command,
+								volume: Number(volumeParse),
+								price: Number(priceParse),
+							})
 						}
 					>
 						Открыть сделку

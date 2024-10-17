@@ -4,6 +4,7 @@ export class CommandRequest {
   account: number;
   order?: number;
   volume?: number;
+  price?: number;
   ticker?: string;
   orderType: string;
   type: CommandType;
