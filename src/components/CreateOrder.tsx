@@ -49,7 +49,7 @@ export default function CreateAccount({
 						<p>Объём</p>
 						<input
 							type="text"
-							pattern="[+-]?([0-9]*[.])?[0-9]+"
+							pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 							value={command.volume}
 							onChange={(e) =>
 								setCommand({
