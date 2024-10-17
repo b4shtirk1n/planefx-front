@@ -23,6 +23,7 @@ export default function CreateAccount({
 	const { types } = useOrderStore();
 	const { isLoading, CreateCommand } = useCommandStore();
 
+	const [volumeParse, setVolumeParse] = useState<string>("0");
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(
 			Number(id),
@@ -50,14 +51,11 @@ export default function CreateAccount({
 						<input
 							type="text"
 							pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
-							value={command.volume}
+							value={volumeParse}
 							onChange={(e) =>
-								setCommand({
-									...command,
-									volume: e.target.validity.valid
-										? Number(e.target.value)
-										: command.volume,
-								})
+								setVolumeParse(
+									e.target.validity.valid ? e.target.value : volumeParse
+								)
 							}
 						/>
 					</div>
@@ -87,7 +85,13 @@ export default function CreateAccount({
 							))}
 						</select>
 					</div>
-					<Button onClick={() => handleClick(command)}>Открыть сделку</Button>
+					<Button
+						onClick={() =>
+							handleClick({ ...command, volume: Number(volumeParse) })
+						}
+					>
+						Открыть сделку
+					</Button>
 				</>
 			)}
 		</div>
