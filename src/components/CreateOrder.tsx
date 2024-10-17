@@ -18,7 +18,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 	const { CreateCommand } = useCommandStore();
 
 	const [command, setCommand] = useState<CommandRequest>(
-		new CommandRequest(Number(id), types[0], tickers![0])
+		new CommandRequest(Number(id), types[0], undefined, tickers![0], 0)
 	);
 
 	return (
@@ -28,7 +28,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 				<input
 					type="text"
 					pattern="[0-9]*"
-					value={command?.volume}
+					value={command.volume}
 					onChange={(e) =>
 						setCommand({
 							...command,
@@ -63,9 +63,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 					))}
 				</select>
 			</div>
-			<Button onClick={() => CreateCommand(command, Number(id))}>
-				Открыть сделку
-			</Button>
+			<Button onClick={() => CreateCommand(command)}>Открыть сделку</Button>
 		</div>
 	);
 }
