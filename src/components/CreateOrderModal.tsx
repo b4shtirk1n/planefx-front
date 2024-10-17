@@ -16,7 +16,10 @@ export default function CreateOrderModal({
 				className={isModalShow ? "modal" : "hide"}
 				onClick={() => setIsModalShow(false)}
 			></div>
-			<CreateAccount isModalShow={isModalShow} />
+			<CreateAccount
+				isModalShow={isModalShow}
+				setIsModalShow={setIsModalShow}
+			/>
 		</>
 	);
 }

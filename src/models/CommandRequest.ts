@@ -6,7 +6,7 @@ export class CommandRequest {
   volume?: number;
   ticker?: string;
   orderType: string;
-  type: CommandType = this.volume ? CommandType.Open : CommandType.Close;
+  type: CommandType;
 
   constructor(account: number, orderType: string, order?: number, ticker?: string, volume?: number) {
     this.account = account;
@@ -14,5 +14,6 @@ export class CommandRequest {
     this.volume = volume;
     this.ticker = ticker;
     this.orderType = orderType;
+    this.type = volume ? CommandType.Open : CommandType.Close
   }
 }

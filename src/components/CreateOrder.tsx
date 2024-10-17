@@ -10,9 +10,13 @@ import Loading from "../widgets/Loading";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
+	setIsModalShow(flag: boolean): void;
 };
 
-export default function CreateAccount({ isModalShow }: CreateOrderProps) {
+export default function CreateAccount({
+	isModalShow,
+	setIsModalShow,
+}: CreateOrderProps) {
 	const { id } = useParams<OrderParams>();
 	const { tickers } = useServiceStore();
 	const { types } = useOrderStore();
@@ -21,6 +25,11 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(Number(id), types[0], undefined, tickers![0], 0)
 	);
+
+	function handleClick(command: CommandRequest) {
+		CreateCommand(command);
+		setIsModalShow(false);
+	}
 
 	return (
 		<div className={isModalShow ? "create-account" : "hide"}>
@@ -70,7 +79,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 							))}
 						</select>
 					</div>
-					<Button onClick={() => CreateCommand(command)}>Открыть сделку</Button>
+					<Button onClick={() => handleClick(command)}>Открыть сделку</Button>
 				</>
 			)}
 		</div>
