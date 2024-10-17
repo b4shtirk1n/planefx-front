@@ -60,11 +60,11 @@ a {
 }
 
 input {
-	@include input-reset;
+	@include mixin.input-reset;
 }
 
 select {
-	@include input-reset;
+	@include mixin.input-reset;
 }
 
 .swiper {
