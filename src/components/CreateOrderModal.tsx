@@ -1,6 +1,7 @@
 import { useServiceStore } from "../stores/ServiceStore";
 import CreateAccount from "./CreateOrder";
 import "../styles/CreateOrder.scss";
+import Loading from "../widgets/Loading";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
@@ -13,16 +14,24 @@ export default function CreateOrderModal({
 	isModalShow,
 	setIsModalShow,
 }: CreateOrderProps) {
+	const { isLoading } = useServiceStore();
+
 	return (
 		<>
-			<div
-				className={isModalShow ? "modal" : "hide"}
-				onClick={() => setIsModalShow(false)}
-			></div>
-			<CreateAccount
-				isModalShow={isModalShow}
-				setIsModalShow={setIsModalShow}
-			/>
+			{isLoading ? (
+				<Loading />
+			) : (
+				<>
+					<div
+						className={isModalShow ? "modal" : "hide"}
+						onClick={() => setIsModalShow(false)}
+					></div>
+					<CreateAccount
+						isModalShow={isModalShow}
+						setIsModalShow={setIsModalShow}
+					/>
+				</>
+			)}
 		</>
 	);
 }
