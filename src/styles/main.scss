@@ -1,6 +1,6 @@
 @use "sass:meta";
+@use "mixin" as *;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900");
-@include meta.load-css("mixin");
 
 *,
 ::before,
