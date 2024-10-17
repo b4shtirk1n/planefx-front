@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { useServiceStore } from "../stores/ServiceStore";
-import { CreateOrderRequest } from "../models/CreateOrderRequestÏ";
 import { useOrderStore } from "../stores/OrderStore";
+import { CommandRequest } from "../models/CommandRequest";
+import { OrderParams } from "../models/OrderParams";
+import { useParams } from "react-router-dom";
+import { useCommandStore } from "../stores/CommandStore";
+import Button from "../widgets/Button";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
 };
 
 export default function CreateAccount({ isModalShow }: CreateOrderProps) {
-	const [createOrder, setCreateOrder] = useState<CreateOrderRequest>();
+	const [command, setCommand] = useState<CommandRequest>(new CommandRequest());
 	const { tickers } = useServiceStore();
 	const { types } = useOrderStore();
+	const { id } = useParams<OrderParams>();
+	const { CreateCommand } = useCommandStore();
 
 	return (
 		<div className={isModalShow ? "create-account" : "hide"}>
@@ -19,11 +25,13 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 				<input
 					type="text"
 					pattern="[0-9]*"
-					value={createOrder?.volume}
+					value={command?.volume}
 					onChange={(e) =>
-						setCreateOrder({
-							...createOrder,
-							volume: e.target.validity.valid ? e.target.value : "",
+						setCommand({
+							...command,
+							volume: e.target.validity.valid
+								? Number(e.target.value)
+								: Number(""),
 						})
 					}
 				/>
@@ -31,9 +39,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 			<div>
 				<p>Тикер</p>
 				<select
-					onChange={(e) =>
-						setCreateOrder({ ...createOrder, ticker: e.target.value })
-					}
+					onChange={(e) => setCommand({ ...command, ticker: e.target.value })}
 				>
 					{tickers?.map((item) => (
 						<option value={item}>{item}</option>
@@ -44,14 +50,15 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 				<p>Тип</p>
 				<select
 					onChange={(e) =>
-						setCreateOrder({ ...createOrder, type: e.target.value })
+						setCommand({ ...command, orderType: e.target.value })
 					}
 				>
 					{types?.map((item) => (
-						<option value={item.name}>{item.name}</option>
+						<option value={item}>{item}</option>
 					))}
 				</select>
 			</div>
+			<Button onClick={() => CreateCommand(command, Number(id))}></Button>
 		</div>
 	);
 }
