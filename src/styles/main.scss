@@ -60,10 +60,12 @@ a {
 
 input {
 	width: 200px;
+	background: var(--tg-theme-section-separator-color);
 }
 
 select {
 	width: 200px;
+	background: var(--tg-theme-section-separator-color);
 }
 
 .swiper {
