@@ -42,7 +42,7 @@ export default function OrderPage() {
 				isModalShow={isModalShow}
 				setIsModalShow={setIsModalShow}
 			/>
-			{orders && isLoading ? <OrderList /> : <Loading />}
+			{orders && !isLoading ? <OrderList /> : <Loading />}
 		</section>
 	);
 }
