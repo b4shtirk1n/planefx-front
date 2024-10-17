@@ -12,11 +12,14 @@ type CreateOrderProps = {
 };
 
 export default function CreateAccount({ isModalShow }: CreateOrderProps) {
-	const [command, setCommand] = useState<CommandRequest>(new CommandRequest());
+	const { id } = useParams<OrderParams>();
 	const { tickers } = useServiceStore();
 	const { types } = useOrderStore();
-	const { id } = useParams<OrderParams>();
 	const { CreateCommand } = useCommandStore();
+
+	const [command, setCommand] = useState<CommandRequest>(
+		new CommandRequest(Number(id), types[0], tickers![0])
+	);
 
 	return (
 		<div className={isModalShow ? "create-account" : "hide"}>
