@@ -56,7 +56,7 @@ export default function CreateAccount({
 									...command,
 									volume: e.target.validity.valid
 										? Number(e.target.value)
-										: Number(""),
+										: command.volume,
 								})
 							}
 						/>
