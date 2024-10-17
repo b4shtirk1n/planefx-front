@@ -11,8 +11,6 @@ import Loading from "../widgets/Loading";
 import PlusImg from "../widgets/PlusImg";
 import CreateOrderModal from "../components/CreateOrderModal";
 
-useServiceStore.getState().fetchTickers();
-
 export default function OrderPage() {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 	const { orders, fetchOrders } = useOrderStore();
