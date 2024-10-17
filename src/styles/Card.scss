@@ -1,4 +1,4 @@
-@import "mixin.scss";
+@use "mixin.scss";
 
 .clickable {
 	cursor: pointer;
@@ -6,20 +6,20 @@
 
 .card {
 	margin: 20px 30px;
-	@include bg-bg-border-rad(12px);
+	@include mixin.bg-bg-border-rad(12px);
 
 	&-header {
 		height: 44px;
 		border-radius: 12px 12px 0 0;
 		background: var(--tg-theme-button-color);
-		@include flex-between-p15;
+		@include mixin.flex-between-p15;
 
 		&-order {
 			position: relative;
 			width: 24px;
 			height: 24px;
 			border: 1px solid var(--tg-theme-text-color);
-			@include bg-bg-border-rad;
+			@include mixin.bg-bg-border-rad;
 
 			h3 {
 				position: absolute;
