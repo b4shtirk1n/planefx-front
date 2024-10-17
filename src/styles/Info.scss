@@ -7,10 +7,10 @@
 	justify-content: space-between;
 	border-radius: 8px;
 	background: var(--tg-theme-button-color);
-	color: invert(1);
+	filter: invert(1);
 
 	div {
-		color: invert(1);
+		filter: invert(1);
 	}
 
 	.image {
