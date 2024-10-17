@@ -39,6 +39,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 			<div>
 				<p>Тикер</p>
 				<select
+					value={command.ticker}
 					onChange={(e) => setCommand({ ...command, ticker: e.target.value })}
 				>
 					{tickers?.map((item) => (
@@ -49,6 +50,7 @@ export default function CreateAccount({ isModalShow }: CreateOrderProps) {
 			<div>
 				<p>Тип</p>
 				<select
+					value={command.orderType}
 					onChange={(e) =>
 						setCommand({ ...command, orderType: e.target.value })
 					}
