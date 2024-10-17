@@ -23,11 +23,11 @@
 }
 
 @mixin input-reset() {
-	width: 200px;
-	appearance: none;
 	padding: 0.4rem 1rem;
-	background: var(--tg-theme-section-separator-color);
-	background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, #ffffff;
+	width: 200px;
 	border: 0;
 	border-radius: 0.25em;
+	appearance: none;
+	background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+		var(--tg-theme-section-separator-color);
 }
