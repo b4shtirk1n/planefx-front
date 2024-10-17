@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useCommandStore } from "../stores/CommandStore";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
+import { CommandType } from "../enums/CommandType";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
@@ -23,7 +24,14 @@ export default function CreateAccount({
 	const { isLoading, CreateCommand } = useCommandStore();
 
 	const [command, setCommand] = useState<CommandRequest>(
-		new CommandRequest(Number(id), types[0], undefined, tickers![0], 0)
+		new CommandRequest(
+			Number(id),
+			types[0],
+			CommandType.Open,
+			undefined,
+			tickers![0],
+			0
+		)
 	);
 
 	function handleClick(command: CommandRequest) {

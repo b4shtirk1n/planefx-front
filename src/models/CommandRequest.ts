@@ -8,12 +8,12 @@ export class CommandRequest {
   orderType: string;
   type: CommandType;
 
-  constructor(account: number, orderType: string, order?: number, ticker?: string, volume?: number) {
+  constructor(account: number, orderType: string, type: CommandType, order?: number, ticker?: string, volume?: number) {
     this.account = account;
     this.order = order;
     this.volume = volume;
     this.ticker = ticker;
     this.orderType = orderType;
-    this.type = volume ? CommandType.Open : CommandType.Close
+    this.type = type;
   }
 }
