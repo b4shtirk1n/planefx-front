@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { CloseOrder } from "../models/CloseOrder";
 import { OpenOrder } from "../models/OpenOrder";
 import getDate from "../helpers/Date";
 import ColorSum from "../widgets/ColorSum";
+import SubImg from "../widgets/SubImg";
+import Confirm from "./Confirm";
 import "../styles/Card.scss";
 
 type OrderProps = {
@@ -10,11 +13,26 @@ type OrderProps = {
 };
 
 export default function OrderItem({ order, isOpen }: OrderProps) {
+	const [isModalShow, setIsModalShow] = useState<boolean>(false);
+
 	return (
 		<div className="card">
 			<div className="card-header">
 				<h2>{order.order}</h2>
 				<h3>{order.symbol}</h3>
+				{isOpen ? (
+					<a onClick={() => setIsModalShow(true)}>
+						<Confirm
+							id={order.id}
+							isModalShow={isModalShow}
+							setIsModalShow={setIsModalShow}
+							process={() => {}}
+						/>
+						<SubImg />
+					</a>
+				) : (
+					<div />
+				)}
 			</div>
 			<div className="card-info">
 				<div>
