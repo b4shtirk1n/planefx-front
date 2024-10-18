@@ -28,9 +28,10 @@ export default function CreateAccount({
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(
 			Number(id),
-			types[0],
 			CommandType.Open,
+			types[0],
 			undefined,
+			0,
 			tickers![0],
 			0
 		)
