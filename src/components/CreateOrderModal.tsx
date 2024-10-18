@@ -1,7 +1,7 @@
 import { useServiceStore } from "../stores/ServiceStore";
 import CreateAccount from "./CreateOrder";
-import "../styles/CreateOrder.scss";
 import Loading from "../widgets/Loading";
+import "../styles/CreateOrder.scss";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
