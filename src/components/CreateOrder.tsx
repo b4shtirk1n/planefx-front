@@ -39,7 +39,7 @@ export default function CreateAccount({
 
 	function handleInput(value: string, prev: string): string {
 		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
-		return re.exec(value) ? value : prev;
+		return value === "" || re.test(value) ? value : prev;
 	}
 
 	function handleClick(command: CommandRequest) {
@@ -71,8 +71,8 @@ export default function CreateAccount({
 								type="text"
 								inputMode="numeric"
 								value={priceParse}
-								onInput={(e) =>
-									setPriceParse(handleInput(e.currentTarget.value, priceParse))
+								onChange={(e) =>
+									setPriceParse(handleInput(e.target.value, priceParse))
 								}
 							/>
 						</div>
