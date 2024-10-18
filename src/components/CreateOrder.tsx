@@ -50,7 +50,7 @@ export default function CreateAccount({
 					<div>
 						<p>Объём</p>
 						<input
-							type="text"
+							type="number"
 							pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 							value={volumeParse}
 							onChange={(e) =>
