@@ -6,14 +6,10 @@ import { OrderParams } from "../models/OrderParams";
 import { useParams } from "react-router-dom";
 import { CommandType } from "../enums/CommandType";
 import { useCommandStore } from "../stores/CommandStore";
+import { CreateOrderProps } from "../models/CreateOrderProps";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
 import handleInputNumeric from "../helpers/Input";
-
-type CreateOrderProps = {
-	isModalShow: boolean;
-	setIsModalShow(flag: boolean): void;
-};
 
 export default function CreateAccount({
 	isModalShow,
