@@ -23,7 +23,7 @@ export default function CreateAccount({
 	const { types } = useOrderStore();
 	const { isLoading, CreateCommand } = useCommandStore();
 
-	const [volumeParse, setVolumeParse] = useState<string>();
+	const [volumeParse, setVolumeParse] = useState<string>("");
 	const [priceParse, setPriceParse] = useState<string>();
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(
@@ -35,6 +35,10 @@ export default function CreateAccount({
 			0
 		)
 	);
+
+	function handleInput(pattern: RegExp, value: string, prev: string): string {
+		return pattern.exec(value) ? value : prev;
+	}
 
 	function handleClick(command: CommandRequest) {
 		CreateCommand(command);
@@ -62,14 +66,18 @@ export default function CreateAccount({
 					</div>
 					{command.orderType === "Buy limit" && (
 						<div>
-							<p>Объём</p>
+							<p>Цена</p>
 							<input
 								type="text"
 								pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 								value={priceParse}
 								onChange={(e) =>
 									setPriceParse(
-										e.target.validity.valid ? e.target.value : priceParse
+										handleInput(
+											RegExp(e.target.pattern),
+											e.target.value,
+											priceParse!
+										)
 									)
 								}
 							/>
