@@ -69,9 +69,11 @@ export default function CreateAccount({
 								inputMode="numeric"
 								pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 								value={priceParse}
-								onChange={(e) =>
+								onInput={(e) =>
 									setPriceParse(
-										e.target.validity.valid ? e.target.value : volumeParse
+										e.currentTarget.validity.valid
+											? e.currentTarget.value
+											: volumeParse
 									)
 								}
 							/>
