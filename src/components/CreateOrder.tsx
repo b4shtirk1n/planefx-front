@@ -50,7 +50,8 @@ export default function CreateAccount({
 					<div>
 						<p>Объём</p>
 						<input
-							type="number"
+							type="text"
+							inputMode="numeric"
 							pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 							value={volumeParse}
 							onChange={(e) =>
@@ -65,6 +66,7 @@ export default function CreateAccount({
 							<p>Цена</p>
 							<input
 								type="text"
+								inputMode="numeric"
 								pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 								value={priceParse}
 								onChange={(e) =>
