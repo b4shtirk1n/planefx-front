@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { BaseStore } from "./BaseStore";
-import { OrderResponse } from "../models/OrderResponse";
+import { OrderResponse } from "../responses/OrderResponse";
 import { api } from "../api/Axios";
 import { AxiosError } from "axios";
 

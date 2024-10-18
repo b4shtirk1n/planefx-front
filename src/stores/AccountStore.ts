@@ -3,7 +3,7 @@ import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import { api } from "../api/Axios";
 import { useUserStore } from "./UserStore";
-import { AccountResponse } from "../models/AccountResponse";
+import { AccountResponse } from "../responses/AccountResponse";
 
 type AccountStore = BaseStore & {
 	accounts?: AccountResponse[];

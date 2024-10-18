@@ -1,4 +1,4 @@
-import { Account } from "./Account";
+import { Account } from "../models/Account";
 
 export interface AccountResponse {
   account: Account;

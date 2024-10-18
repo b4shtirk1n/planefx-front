@@ -1,5 +1,5 @@
-import { CloseOrder } from "./CloseOrder";
-import { OpenOrder } from "./OpenOrder";
+import { CloseOrder } from "../models/CloseOrder";
+import { OpenOrder } from "../models/OpenOrder";
 
 export interface OrderResponse {
   openedOrders: OpenOrder[];
