@@ -24,7 +24,7 @@ export default function CreateAccount({
 	const { isLoading, CreateCommand } = useCommandStore();
 
 	const [volumeParse, setVolumeParse] = useState<string>("");
-	const [priceParse, setPriceParse] = useState<string>();
+	const [priceParse, setPriceParse] = useState<string>("");
 	const [command, setCommand] = useState<CommandRequest>(
 		new CommandRequest(
 			Number(id),
@@ -35,10 +35,6 @@ export default function CreateAccount({
 			0
 		)
 	);
-
-	function handleInput(pattern: RegExp, value: string, prev: string): string {
-		return pattern.exec(value) ? value : prev;
-	}
 
 	function handleClick(command: CommandRequest) {
 		CreateCommand(command);
@@ -73,11 +69,7 @@ export default function CreateAccount({
 								value={priceParse}
 								onChange={(e) =>
 									setPriceParse(
-										handleInput(
-											RegExp(e.target.pattern),
-											e.target.value,
-											priceParse!
-										)
+										e.target.validity.valid ? e.target.value : volumeParse
 									)
 								}
 							/>
