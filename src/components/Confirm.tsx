@@ -16,10 +16,6 @@ export default function Confirm({
 }: ConfirmProps) {
 	return (
 		<>
-			<div
-				className={isModalShow ? "modal" : "hide"}
-				onClick={() => setIsModalShow(false)}
-			/>
 			<div className={isModalShow ? "confirm" : "hide"}>
 				<h3>{id} Сделка закроется через некоторое время!</h3>
 				<div>
