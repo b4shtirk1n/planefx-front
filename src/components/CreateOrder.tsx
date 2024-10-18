@@ -41,7 +41,7 @@ export default function CreateAccount({
 		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
 		const res = re.exec(value)?.[0];
 		console.log(res);
-		return value === "" || res! ? res! : prev;
+		return value === "" || res ? (res ? res : "") : prev;
 	}
 
 	function handleClick(command: CommandRequest) {
