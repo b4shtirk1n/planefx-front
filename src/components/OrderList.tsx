@@ -13,7 +13,12 @@ export default function OrderList() {
 				onClick={() => setIsModalShow(false)}
 			/>
 			{orders?.openedOrders.map((item) => (
-				<OrderItem key={item.id} order={item} isOpen={true} />
+				<OrderItem
+					key={item.id}
+					order={item}
+					isOpen={true}
+					setModalBgShow={setIsModalShow}
+				/>
 			))}
 			{orders?.closedOrders.map((item) => (
 				<OrderItem key={item.id} order={item} isOpen={false} />

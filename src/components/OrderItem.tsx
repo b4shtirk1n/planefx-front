@@ -10,9 +10,14 @@ import "../styles/Card.scss";
 type OrderProps = {
 	order: OpenOrder | CloseOrder;
 	isOpen: boolean;
+	setModalBgShow?(flag: boolean): void;
 };
 
-export default function OrderItem({ order, isOpen }: OrderProps) {
+export default function OrderItem({
+	order,
+	isOpen,
+	setModalBgShow,
+}: OrderProps) {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
 	return (
@@ -28,7 +33,7 @@ export default function OrderItem({ order, isOpen }: OrderProps) {
 					<h2>{order.order}</h2>
 					<h3>{order.symbol}</h3>
 					{isOpen ? (
-						<a onClick={() => setIsModalShow(true)}>
+						<a onClick={() => (setIsModalShow(true), setModalBgShow!(true))}>
 							<SubImg />
 						</a>
 					) : (
