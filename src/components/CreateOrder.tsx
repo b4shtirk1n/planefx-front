@@ -36,6 +36,11 @@ export default function CreateAccount({
 		)
 	);
 
+	function handleInput(value: string, prev: string): string {
+		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
+		return re.exec(value) ? value : prev;
+	}
+
 	function handleClick(command: CommandRequest) {
 		CreateCommand(command);
 		setIsModalShow(false);
@@ -52,12 +57,9 @@ export default function CreateAccount({
 						<input
 							type="text"
 							inputMode="numeric"
-							pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 							value={volumeParse}
 							onChange={(e) =>
-								setVolumeParse(
-									e.target.validity.valid ? e.target.value : volumeParse
-								)
+								setVolumeParse(handleInput(e.target.value, volumeParse))
 							}
 						/>
 					</div>
@@ -67,14 +69,9 @@ export default function CreateAccount({
 							<input
 								type="text"
 								inputMode="numeric"
-								pattern="[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)"
 								value={priceParse}
 								onInput={(e) =>
-									setPriceParse(
-										e.currentTarget.validity.valid
-											? e.currentTarget.value
-											: volumeParse
-									)
+									setPriceParse(handleInput(e.currentTarget.value, volumeParse))
 								}
 							/>
 						</div>
