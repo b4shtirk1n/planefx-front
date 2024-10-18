@@ -71,7 +71,7 @@ export default function CreateAccount({
 								inputMode="numeric"
 								value={priceParse}
 								onInput={(e) =>
-									setPriceParse(handleInput(e.currentTarget.value, volumeParse))
+									setPriceParse(handleInput(e.currentTarget.value, priceParse))
 								}
 							/>
 						</div>
