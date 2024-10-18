@@ -3,15 +3,16 @@
 .confirm {
 	position: absolute;
 	display: flex;
+	flex-direction: column;
+	text-align: center;
 	padding: 15px;
+	gap: 20px;
 	@include mixin.to-center;
 	@include mixin.bg-bg-border-rad(10px);
 	z-index: 20;
 
 	div {
 		display: flex;
-		padding: 15px;
-		align-items: center;
-		justify-content: space-between;
+		gap: 15px;
 	}
 }
