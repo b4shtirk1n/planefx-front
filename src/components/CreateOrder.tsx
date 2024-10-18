@@ -40,7 +40,6 @@ export default function CreateAccount({
 	function handleInput(value: string, prev: string): string {
 		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
 		const res = re.exec(value)?.[0];
-		console.log(res);
 		return value === "" || res ? (res ? res : "") : prev;
 	}
 
