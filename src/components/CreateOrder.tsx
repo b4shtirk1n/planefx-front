@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useServiceStore } from "../stores/ServiceStore";
 import { useOrderStore } from "../stores/OrderStore";
-import { CommandRequest } from "../models/CommandRequest";
+import { CommandRequest } from "../requests/CommandRequest";
 import { OrderParams } from "../models/OrderParams";
 import { useParams } from "react-router-dom";
 import { CommandType } from "../enums/CommandType";
 import { useCommandStore } from "../stores/CommandStore";
-import { CreateOrderProps } from "../models/CreateOrderProps";
+import { CreateOrderProps } from "../props/CreateOrderProps";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
 import handleInputNumeric from "../helpers/Input";

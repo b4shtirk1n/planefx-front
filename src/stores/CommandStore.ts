@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { api } from "../api/Axios";
 import { AxiosError } from "axios";
-import { CommandRequest } from "../models/CommandRequest";
+import { CommandRequest } from "../requests/CommandRequest";
 import { BaseStore } from "./BaseStore";
 
 type CommandStore = BaseStore & {
