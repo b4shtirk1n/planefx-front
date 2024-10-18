@@ -39,7 +39,9 @@ export default function CreateAccount({
 
 	function handleInput(value: string, prev: string): string {
 		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
-		return value[-1].match(re) != null ? value : prev;
+		console.log("value: ", value);
+		console.log("value last: ", value[-1]);
+		return re.test(value[-1]) ? value : prev;
 	}
 
 	function handleClick(command: CommandRequest) {
