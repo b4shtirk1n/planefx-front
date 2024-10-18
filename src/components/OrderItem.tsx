@@ -10,13 +10,13 @@ import "../styles/Card.scss";
 type OrderProps = {
 	order: OpenOrder | CloseOrder;
 	isOpen: boolean;
-	setModalBgShow?(flag: boolean): void;
+	setIsModalBgShow?(flag: boolean): void;
 };
 
 export default function OrderItem({
 	order,
 	isOpen,
-	setModalBgShow,
+	setIsModalBgShow,
 }: OrderProps) {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
@@ -26,14 +26,14 @@ export default function OrderItem({
 				id={order.id}
 				isModalShow={isModalShow}
 				setIsModalShow={setIsModalShow}
-				process={() => {}}
+				setIsModalBgShow={setIsModalBgShow!}
 			/>
 			<div className="card">
 				<div className="card-header">
 					<h2>{order.order}</h2>
 					<h3>{order.symbol}</h3>
 					{isOpen ? (
-						<a onClick={() => (setIsModalShow(true), setModalBgShow!(true))}>
+						<a onClick={() => (setIsModalShow(true), setIsModalBgShow!(true))}>
 							<SubImg />
 						</a>
 					) : (

@@ -8,16 +8,13 @@ export default function OrderList() {
 
 	return (
 		<div className="container">
-			<div
-				className={isModalShow ? "modal" : "hide"}
-				onClick={() => setIsModalShow(false)}
-			/>
+			<div className={isModalShow ? "modal" : "hide"} />
 			{orders?.openedOrders.map((item) => (
 				<OrderItem
 					key={item.id}
 					order={item}
 					isOpen={true}
-					setModalBgShow={setIsModalShow}
+					setIsModalBgShow={setIsModalShow}
 				/>
 			))}
 			{orders?.closedOrders.map((item) => (

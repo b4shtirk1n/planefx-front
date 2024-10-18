@@ -5,22 +5,26 @@ type ConfirmProps = {
 	id: number;
 	isModalShow: boolean;
 	setIsModalShow(flag: boolean): void;
-	process(): void;
+	setIsModalBgShow(flag: boolean): void;
 };
 
 export default function Confirm({
 	id,
 	isModalShow,
 	setIsModalShow,
-	process,
+	setIsModalBgShow,
 }: ConfirmProps) {
 	return (
 		<>
 			<div className={isModalShow ? "confirm" : "hide"}>
 				<h3>{id} Сделка закроется через некоторое время!</h3>
 				<div>
-					<Button onClick={process}>Да</Button>
-					<Button onClick={() => setIsModalShow(false)}>Нет</Button>
+					<Button onClick={() => {}}>Да</Button>
+					<Button
+						onClick={() => (setIsModalShow(false), setIsModalBgShow(false))}
+					>
+						Нет
+					</Button>
 				</div>
 			</div>
 		</>
