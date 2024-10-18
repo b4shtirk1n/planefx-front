@@ -9,6 +9,9 @@ export default function OrderList() {
 			{orders?.openedOrders.map((item) => (
 				<OrderItem key={item.id} order={item} isOpen={true} />
 			))}
+			{orders?.closedOrders.map((item) => (
+				<OrderItem key={item.id} order={item} isOpen={false} />
+			))}
 		</div>
 	);
 }
