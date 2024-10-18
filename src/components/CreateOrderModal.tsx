@@ -2,7 +2,6 @@ import { useServiceStore } from "../stores/ServiceStore";
 import { CreateOrderProps } from "../props/CreateOrderProps";
 import CreateAccount from "./CreateOrder";
 import Loading from "../widgets/Loading";
-import "../styles/CreateOrder.scss";
 
 useServiceStore.getState().fetchTickers();
 
