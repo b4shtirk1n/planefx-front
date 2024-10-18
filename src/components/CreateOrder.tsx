@@ -8,6 +8,7 @@ import { CommandType } from "../enums/CommandType";
 import { useCommandStore } from "../stores/CommandStore";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
+import handleInputNumeric from "../helpers/Input";
 
 type CreateOrderProps = {
 	isModalShow: boolean;
@@ -37,12 +38,6 @@ export default function CreateAccount({
 		)
 	);
 
-	function handleInput(value: string, prev: string): string {
-		const re = RegExp("[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)");
-		const res = re.exec(value)?.[0];
-		return value === "" || res ? (res ? res : "") : prev;
-	}
-
 	function handleClick(command: CommandRequest) {
 		CreateCommand(command);
 		setIsModalShow(false);
@@ -61,7 +56,7 @@ export default function CreateAccount({
 							inputMode="numeric"
 							value={volumeParse}
 							onChange={(e) =>
-								setVolumeParse(handleInput(e.target.value, volumeParse))
+								setVolumeParse(handleInputNumeric(e.target.value, volumeParse))
 							}
 						/>
 					</div>
@@ -73,7 +68,7 @@ export default function CreateAccount({
 								inputMode="numeric"
 								value={priceParse}
 								onChange={(e) =>
-									setPriceParse(handleInput(e.target.value, priceParse))
+									setPriceParse(handleInputNumeric(e.target.value, priceParse))
 								}
 							/>
 						</div>
