@@ -10,6 +10,7 @@ import { CreateOrderProps } from "../props/CreateOrderProps";
 import Button from "../widgets/Button";
 import Loading from "../widgets/Loading";
 import handleInputNumeric from "../helpers/Input";
+import "../styles/CreateOrder.scss";
 
 export default function CreateAccount({
 	isModalShow,
