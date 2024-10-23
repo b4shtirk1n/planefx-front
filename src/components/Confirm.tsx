@@ -19,7 +19,9 @@ export default function Confirm({
 			<div className={isModalShow ? "confirm" : "hide"}>
 				<h3>{id} Сделка закроется через некоторое время!</h3>
 				<div>
-					<Button onClick={() => {}}>Закрыть</Button>
+					<Button isPrimary onClick={() => {}}>
+						Закрыть
+					</Button>
 					<Button
 						isPrimary={false}
 						onClick={() => (setIsModalShow(false), setIsModalBgShow(false))}
