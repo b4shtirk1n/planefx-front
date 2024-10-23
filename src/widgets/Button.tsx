@@ -8,8 +8,10 @@ type ButtonProps = {
 
 export default function Button({ isPrimary, onClick, children }: ButtonProps) {
 	return (
-		<div className={isPrimary ? "btn" : "btn cancel"}>
-			<a onClick={onClick}>{children}</a>
+		<div className="btn">
+			<a className={!isPrimary ? "cancel" : ""} onClick={onClick}>
+				{children}
+			</a>
 		</div>
 	);
 }
