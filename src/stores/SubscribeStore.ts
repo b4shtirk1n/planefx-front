@@ -78,11 +78,12 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 					});
 					set({ userSubscribes });
 				}
-				res = status
+				res = status;
 			})
 		} catch (err) {
 			set({ error: (err as AxiosError).toJSON() });
 		}
+		console.log(res)
 		return res;
 	},
 }));
