@@ -1,8 +1,8 @@
-import Button from "../widgets/Button";
 import { useCommandStore } from "../stores/CommandStore";
 import { CommandRequest } from "../requests/CommandRequest";
 import { BaseOrder } from "../models/BaseOrder";
 import { CommandType } from "../enums/CommandType";
+import Button from "../widgets/Button";
 import "../styles/Confirm.scss";
 
 type ConfirmProps = {
