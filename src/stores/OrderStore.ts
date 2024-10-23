@@ -9,6 +9,7 @@ type OrderStore = BaseStore & {
   types: string[];
 
   fetchOrders(account: number): void;
+  closeOrder(id: number): void;
 }
 
 export const useOrderStore = create<OrderStore>((set) => ({
@@ -32,5 +33,9 @@ export const useOrderStore = create<OrderStore>((set) => ({
     } finally {
       set({ isLoading: false });
     }
-  }
+  },
+
+  async closeOrder(id) {
+    console.log(id)
+  },
 }))
