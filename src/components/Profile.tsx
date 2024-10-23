@@ -36,13 +36,13 @@ export default function Profile() {
 				/>
 			</div>
 			{user?.parent === undefined ? (
-				<Button onClick={() => WebApp.showAlert(`${username}`)}>
+				<Button isPrimary onClick={() => WebApp.showAlert(`${username}`)}>
 					Реферальная система
 				</Button>
 			) : (
 				<></>
 			)}
-			<Button onClick={() => WebApp.showAlert(`${username}`)}>
+			<Button isPrimary onClick={() => WebApp.showAlert(`${username}`)}>
 				Пригласить друзей
 			</Button>
 		</div>

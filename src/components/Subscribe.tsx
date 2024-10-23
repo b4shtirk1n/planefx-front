@@ -8,9 +8,9 @@ export default function Subscribe() {
 
 	return (
 		<div className="subscribe">
-			<Button>Мои подписки</Button>
+			<Button isPrimary>Мои подписки</Button>
 			<SubscribeList />
-			<Button onClick={() => checkout(1)}>Оформить</Button>
+			<Button isPrimary onClick={() => checkout(1)}>Оформить</Button>
 		</div>
 	);
 }

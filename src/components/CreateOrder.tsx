@@ -96,7 +96,7 @@ export default function CreateAccount({
 							))}
 						</select>
 					</div>
-					<Button
+					<Button isPrimary
 						onClick={() =>
 							handleClick({
 								...command,
