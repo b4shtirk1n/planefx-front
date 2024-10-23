@@ -5,6 +5,7 @@ import { AxiosError } from "axios";
 
 type ServiceStore = BaseStore & {
   tickers?: string[];
+
   fetchTickers(): void;
 }
 
