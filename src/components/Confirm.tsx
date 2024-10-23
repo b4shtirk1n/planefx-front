@@ -21,6 +21,7 @@ export default function Confirm({
 				<div>
 					<Button onClick={() => {}}>Закрыть</Button>
 					<Button
+						isPrimary={false}
 						onClick={() => (setIsModalShow(false), setIsModalBgShow(false))}
 					>
 						Отмена

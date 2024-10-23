@@ -1,13 +1,18 @@
 import "../styles/Button.scss";
 
 type ButtonProps = {
+	isPrimary?: boolean;
 	onClick?: () => void;
 	children?: React.ReactNode;
 };
 
-export default function Button({ onClick, children }: ButtonProps) {
+export default function Button({
+	isPrimary = true,
+	onClick,
+	children,
+}: ButtonProps) {
 	return (
-		<div className="btn">
+		<div className={isPrimary ? "btn" : "btn cancel"}>
 			<a onClick={onClick}>{children}</a>
 		</div>
 	);
