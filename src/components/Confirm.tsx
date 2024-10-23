@@ -1,5 +1,6 @@
 import Button from "../widgets/Button";
 import "../styles/Confirm.scss";
+import { useOrderStore } from "../stores/OrderStore";
 
 type ConfirmProps = {
 	id: number;
@@ -14,12 +15,18 @@ export default function Confirm({
 	setIsModalShow,
 	setIsModalBgShow,
 }: ConfirmProps) {
+	function onSubmit() {
+		useOrderStore.getState().closeOrder(id);
+		setIsModalShow(false);
+		setIsModalBgShow(false);
+	}
+
 	return (
 		<>
 			<div className={isModalShow ? "confirm" : "hide"}>
-				<h3>{id} Сделка закроется через некоторое время!</h3>
+				<h3>Сделка закроется через некоторое время!</h3>
 				<div>
-					<Button isPrimary onClick={() => {}}>
+					<Button isPrimary onClick={onSubmit}>
 						Закрыть
 					</Button>
 					<Button
