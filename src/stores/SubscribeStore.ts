@@ -4,6 +4,10 @@ import { BaseStore } from "./BaseStore";
 import { UserSubscribe } from "../models/UserSubscribe";
 import { api } from "../api/Axios";
 import { AxiosError } from "axios";
+import { useUserStore } from "./UserStore";
+import { InvoiceRequest } from "../requests/InvoiceRequest";
+import { LabelPrice } from "../models/LabelPrice";
+import WebApp from "@twa-dev/sdk";
 
 type SubscribeStore = BaseStore & {
 	subscribes: Subscribe[];
@@ -12,7 +16,7 @@ type SubscribeStore = BaseStore & {
 	fetchSubscribes(): void;
 	addToCart(subscribe: number): void;
 	removeToCart(subscribe: number): void;
-	checkout(user: number): void;
+	checkout(user: number): Promise<string>;
 };
 
 export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
@@ -54,18 +58,31 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 		});
 	},
 
-	async checkout(user) {
-		// const response = await api.post("Subscribe/Checkout");
-		const userSubscribes: UserSubscribe[] = [];
-		get().subscribes.forEach((item) => {
-			for (let i = 0; i < item.count; i++) {
-				userSubscribes.push({
-					user: user,
-					subscribe: item.id,
-					date: new Date()
-				});
-			}
-		});
-		set({ userSubscribes });
+	async checkout(): Promise<string> {
+		let res: string = "failed";
+		const request = new InvoiceRequest("test", "test", "test", "XTR", [new LabelPrice("XTR", 10)]);
+
+		try {
+			WebApp.openInvoice(await api.post("Subscribe/Checkout", request), (status) => {
+				const userSubscribes: UserSubscribe[] = [];
+
+				if (status === "paid") {
+					get().subscribes.forEach((item) => {
+						for (let i = 0; i < item.count; i++) {
+							userSubscribes.push({
+								user: useUserStore.getState().user!.id,
+								subscribe: item.id,
+								date: new Date()
+							});
+						}
+					});
+					set({ userSubscribes });
+				}
+				res = status
+			})
+		} catch (error) {
+			console.log(error);
+		}
+		return res;
 	},
 }));
