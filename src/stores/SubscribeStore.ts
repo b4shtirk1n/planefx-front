@@ -80,8 +80,8 @@ export const useSubscribeStore = create<SubscribeStore>((set, get) => ({
 				}
 				res = status
 			})
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			set({ error: (err as AxiosError).toJSON() });
 		}
 		return res;
 	},
