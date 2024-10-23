@@ -1,22 +1,35 @@
 import Button from "../widgets/Button";
+import { useCommandStore } from "../stores/CommandStore";
+import { CommandRequest } from "../requests/CommandRequest";
+import { BaseOrder } from "../models/BaseOrder";
+import { CommandType } from "../enums/CommandType";
 import "../styles/Confirm.scss";
-import { useOrderStore } from "../stores/OrderStore";
 
 type ConfirmProps = {
-	id: number;
+	order: BaseOrder;
 	isModalShow: boolean;
 	setIsModalShow(flag: boolean): void;
 	setIsModalBgShow(flag: boolean): void;
 };
 
 export default function Confirm({
-	id,
+	order,
 	isModalShow,
 	setIsModalShow,
 	setIsModalBgShow,
 }: ConfirmProps) {
 	function onSubmit() {
-		useOrderStore.getState().closeOrder(id);
+		useCommandStore
+			.getState()
+			.CreateCommand(
+				new CommandRequest(
+					order.account,
+					CommandType.Close,
+					undefined,
+					order.order
+				)
+			);
+
 		setIsModalShow(false);
 		setIsModalBgShow(false);
 	}

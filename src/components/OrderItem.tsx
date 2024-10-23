@@ -23,7 +23,7 @@ export default function OrderItem({
 	return (
 		<>
 			<Confirm
-				id={order.id}
+				order={order}
 				isModalShow={isModalShow}
 				setIsModalShow={setIsModalShow}
 				setIsModalBgShow={setIsModalBgShow!}
