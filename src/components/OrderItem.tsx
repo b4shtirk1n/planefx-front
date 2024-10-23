@@ -5,7 +5,7 @@ import getDate from "../helpers/Date";
 import ColorSum from "../widgets/ColorSum";
 import SubImg from "../widgets/SubImg";
 import Confirm from "./Confirm";
-import "../styles/Card.scss";
+import "../styles/Order.scss";
 
 type OrderProps = {
 	order: OpenOrder | CloseOrder;
@@ -28,8 +28,8 @@ export default function OrderItem({
 				setIsModalShow={setIsModalShow}
 				setIsModalBgShow={setIsModalBgShow!}
 			/>
-			<div className="card">
-				<div className="card-header">
+			<div className="order">
+				<div className="order-header">
 					<h2>{order.order}</h2>
 					<h3>{order.symbol}</h3>
 					{isOpen ? (
@@ -40,7 +40,7 @@ export default function OrderItem({
 						<div />
 					)}
 				</div>
-				<div className="card-info">
+				<div className="order-info">
 					<div>
 						{isOpen ? (
 							<p>последнее обновления</p>
