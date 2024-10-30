@@ -28,6 +28,7 @@ section {
 	background: var(--tg-theme-secondary-bg-color);
 
 	.container {
+		padding: 15px 0px;
 		overflow: auto;
 	}
 }
@@ -85,8 +86,8 @@ select {
 }
 
 .label {
-	padding-top: 15px;
 	text-align: center;
+	font-weight: 400;
 }
 
 .modal {
