@@ -17,8 +17,8 @@ export default function OrderList() {
 					{processed && (
 						<>
 							<h2>В обработке</h2>
-							{processed.map((item, i) => (
-								<ProcessItem key={i} command={item.command} />
+							{processed.command.map((item, i) => (
+								<ProcessItem key={i} command={item} />
 							))}
 						</>
 					)}

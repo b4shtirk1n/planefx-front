@@ -6,7 +6,7 @@ import { BaseStore } from "./BaseStore";
 import { ProcessCommand } from "../models/ProcessCommand";
 
 type CommandStore = BaseStore & {
-  processed?: ProcessCommand[];
+  processed?: ProcessCommand;
 
   CreateCommand(command: CommandRequest, ordersCount: number): void;
 }
@@ -21,7 +21,12 @@ export const useCommandStore = create<CommandStore>((set) => ({
     } catch (err) {
       set({ error: (err as AxiosError).toJSON() });
     } finally {
-      set({ processed: [{ ...{ command, ordersCount } }], isLoading: false });
+      set({
+        processed: {
+          command: [{ ...command }],
+          ordersCount
+        }, isLoading: false
+      });
     }
   }
 }))

@@ -1,6 +1,6 @@
 import { CommandRequest } from "../requests/CommandRequest";
 
 export interface ProcessCommand {
-  command: CommandRequest;
+  command: CommandRequest[];
   ordersCount: number
 }
