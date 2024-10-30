@@ -1,0 +1,1 @@
+export const ESTIMATED_ITEM_HEIGHT = 100;
