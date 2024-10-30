@@ -22,7 +22,7 @@ export default function OrderList() {
 							))}
 						</>
 					)}
-					{orders.openedOrders && (
+					{orders.openedOrders.length > 0 && (
 						<>
 							<h2 className="label">Открытые</h2>
 							{orders.openedOrders.map((item) => (
@@ -36,7 +36,7 @@ export default function OrderList() {
 							))}
 						</>
 					)}
-					{orders.closedOrders && (
+					{orders.closedOrders.length > 0 && (
 						<>
 							<h2 className="label">Закрытые</h2>
 							{orders.closedOrders.map((item) => (
