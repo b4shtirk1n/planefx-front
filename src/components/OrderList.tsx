@@ -16,7 +16,7 @@ export default function OrderList() {
 				<>
 					{processed && (
 						<>
-							<h2>В обработке</h2>
+							<h3 className="label">В обработке</h3>
 							{processed.command.map((item, i) => (
 								<ProcessItem key={i} command={item} />
 							))}
@@ -24,7 +24,7 @@ export default function OrderList() {
 					)}
 					{orders.openedOrders && (
 						<>
-							<h2>Открытые</h2>
+							<h3 className="label">Открытые</h3>
 							{orders.openedOrders.map((item) => (
 								<OrderItem
 									key={item.id}
