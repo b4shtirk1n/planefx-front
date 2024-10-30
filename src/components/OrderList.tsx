@@ -24,7 +24,7 @@ export default function OrderList() {
 					)}
 					{orders.openedOrders && (
 						<>
-							<h3 className="label">Открытые</h3>
+							<h2 className="label">Открытые</h2>
 							{orders.openedOrders.map((item) => (
 								<OrderItem
 									key={item.id}
@@ -38,7 +38,7 @@ export default function OrderList() {
 					)}
 					{orders.closedOrders && (
 						<>
-							<h2>Закрытые</h2>
+							<h2 className="label">Закрытые</h2>
 							{orders.closedOrders.map((item) => (
 								<OrderItem key={item.id} order={item} isOpen={false} />
 							))}
