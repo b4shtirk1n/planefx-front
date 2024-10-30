@@ -68,15 +68,15 @@ export default function OrderItem({
 						) : (
 							<>
 								<h3>{getDate((order as CloseOrder).timeClosed)}</h3>
-								<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="%" />
+								<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="$" />
 							</>
 						)}
 						<h3>{getDate(order.timeOpened)}</h3>
-						<ColorSum Sum={order.priceOpened} Prefix="%" />
-						<ColorSum Sum={order.sl} Prefix="%" />
-						<ColorSum Sum={order.tp} Prefix="%" />
+						<ColorSum Sum={order.priceOpened} Prefix="$" />
+						<ColorSum Sum={order.sl} Prefix="$" />
+						<ColorSum Sum={order.tp} Prefix="$" />
 						<ColorSum Sum={order.swap} Prefix="$" />
-						<ColorSum Sum={order.volume} Prefix="%" />
+						<ColorSum Sum={order.volume} Prefix="$" />
 					</div>
 				</div>
 			</div>
