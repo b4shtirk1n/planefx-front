@@ -30,13 +30,13 @@ export default function OrderList() {
 									key={item.id}
 									order={item}
 									isOpen={true}
-									ordersCount={orders.openedOrders.length}
+									ordersCount={orders.openedOrders.length ?? 0}
 									setIsModalBgShow={setIsModalShow}
 								/>
 							))}
 						</>
 					)}
-					{orders?.closedOrders && (
+					{orders.closedOrders && (
 						<>
 							<h2>Закрытые</h2>
 							{orders.closedOrders.map((item) => (
