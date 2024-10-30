@@ -35,6 +35,7 @@ export default function OrderPage() {
 				}
 			/>
 			<CreateOrderModal
+				ordersCount={orders!.openedOrders.length}
 				isModalShow={isModalShow}
 				setIsModalShow={setIsModalShow}
 			/>

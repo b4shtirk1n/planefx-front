@@ -7,6 +7,7 @@ import "../styles/Confirm.scss";
 
 type ConfirmProps = {
 	order: BaseOrder;
+	ordersCount: number;
 	isModalShow: boolean;
 	setIsModalShow(flag: boolean): void;
 	setIsModalBgShow(flag: boolean): void;
@@ -14,6 +15,7 @@ type ConfirmProps = {
 
 export default function Confirm({
 	order,
+	ordersCount,
 	isModalShow,
 	setIsModalShow,
 	setIsModalBgShow,
@@ -27,7 +29,8 @@ export default function Confirm({
 					CommandType.Close,
 					undefined,
 					order.order
-				)
+				),
+				ordersCount
 			);
 
 		setIsModalShow(false);

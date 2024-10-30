@@ -13,6 +13,7 @@ import handleInputNumeric from "../helpers/Input";
 import "../styles/CreateOrder.scss";
 
 export default function CreateAccount({
+	ordersCount,
 	isModalShow,
 	setIsModalShow,
 }: CreateOrderProps) {
@@ -36,7 +37,7 @@ export default function CreateAccount({
 	);
 
 	function handleClick(command: CommandRequest) {
-		CreateCommand(command);
+		CreateCommand(command, ordersCount);
 		setIsModalShow(false);
 	}
 
@@ -96,7 +97,8 @@ export default function CreateAccount({
 							))}
 						</select>
 					</div>
-					<Button isPrimary
+					<Button
+						isPrimary
 						onClick={() =>
 							handleClick({
 								...command,

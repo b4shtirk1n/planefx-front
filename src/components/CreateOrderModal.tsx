@@ -6,6 +6,7 @@ import Loading from "../widgets/Loading";
 useServiceStore.getState().fetchTickers();
 
 export default function CreateOrderModal({
+	ordersCount,
 	isModalShow,
 	setIsModalShow,
 }: CreateOrderProps) {
@@ -22,6 +23,7 @@ export default function CreateOrderModal({
 						onClick={() => setIsModalShow(false)}
 					></div>
 					<CreateAccount
+						ordersCount={ordersCount}
 						isModalShow={isModalShow}
 						setIsModalShow={setIsModalShow}
 					/>
