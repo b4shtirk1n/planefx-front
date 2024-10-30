@@ -28,8 +28,11 @@ section {
 	background: var(--tg-theme-secondary-bg-color);
 
 	.container {
-		padding: 15px 0px;
 		overflow: auto;
+	}
+
+	.order {
+		padding: 15px 0px;
 	}
 }
 

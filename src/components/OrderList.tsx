@@ -11,7 +11,7 @@ export default function OrderList() {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
 	return (
-		<div className="container">
+		<div className="container order">
 			<div className={isModalShow ? "modal" : "hide"} />
 			{orders && (
 				<>
