@@ -34,12 +34,19 @@ export default function OrderPage() {
 					</a>
 				}
 			/>
-			<CreateOrderModal
-				ordersCount={orders!.openedOrders.length}
-				isModalShow={isModalShow}
-				setIsModalShow={setIsModalShow}
-			/>
-			{orders ? <OrderList /> : <Loading />}
+
+			{orders ? (
+				<>
+					<CreateOrderModal
+						ordersCount={orders.openedOrders.length}
+						isModalShow={isModalShow}
+						setIsModalShow={setIsModalShow}
+					/>
+					<OrderList />
+				</>
+			) : (
+				<Loading />
+			)}
 		</section>
 	);
 }

@@ -30,7 +30,7 @@ export default function OrderList() {
 									key={item.id}
 									order={item}
 									isOpen={true}
-									ordersCount={orders.openedOrders.length ?? 0}
+									ordersCount={orders.openedOrders.length}
 									setIsModalBgShow={setIsModalShow}
 								/>
 							))}
