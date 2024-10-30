@@ -3,6 +3,7 @@ import { useOrderStore } from "../stores/OrderStore";
 import { useCommandStore } from "../stores/CommandStore";
 import OrderItem from "./OrderItem";
 import ProcessItem from "./ProcessItem";
+import RenderIfVisible from "react-render-if-visible";
 
 export default function OrderList() {
 	const { orders } = useOrderStore();
@@ -18,7 +19,9 @@ export default function OrderList() {
 						<>
 							<h3 className="label">В обработке</h3>
 							{processed.command.map((item, i) => (
-								<ProcessItem key={i} command={item} />
+								<RenderIfVisible>
+									<ProcessItem key={i} command={item} />
+								</RenderIfVisible>
 							))}
 						</>
 					)}
@@ -26,13 +29,15 @@ export default function OrderList() {
 						<>
 							<h2 className="label">Открытые</h2>
 							{orders.openedOrders.map((item) => (
-								<OrderItem
-									key={item.id}
-									order={item}
-									isOpen={true}
-									ordersCount={orders.openedOrders.length}
-									setIsModalBgShow={setIsModalShow}
-								/>
+								<RenderIfVisible>
+									<OrderItem
+										key={item.id}
+										order={item}
+										isOpen={true}
+										ordersCount={orders.openedOrders.length}
+										setIsModalBgShow={setIsModalShow}
+									/>
+								</RenderIfVisible>
 							))}
 						</>
 					)}
@@ -40,7 +45,9 @@ export default function OrderList() {
 						<>
 							<h2 className="label">Закрытые</h2>
 							{orders.closedOrders.map((item) => (
-								<OrderItem key={item.id} order={item} isOpen={false} />
+								<RenderIfVisible>
+									<OrderItem key={item.id} order={item} isOpen={false} />
+								</RenderIfVisible>
 							))}
 						</>
 					)}

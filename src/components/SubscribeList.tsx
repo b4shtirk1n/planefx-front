@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSubscribeStore } from "../stores/SubscribeStore";
 import { Navigation, Pagination } from "swiper/modules";
+import RenderIfVisible from "react-render-if-visible";
 import SubscribeItem from "./SubscribeItem";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -19,9 +20,11 @@ export default function SubscribeList() {
 			modules={[Navigation, Pagination]}
 		>
 			{subscribes.map((item) => (
-				<SwiperSlide key={item.id}>
-					<SubscribeItem subscribe={item} />
-				</SwiperSlide>
+				<RenderIfVisible>
+					<SwiperSlide key={item.id}>
+						<SubscribeItem subscribe={item} />
+					</SwiperSlide>
+				</RenderIfVisible>
 			))}
 		</Swiper>
 	);
