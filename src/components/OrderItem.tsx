@@ -37,12 +37,10 @@ export default function OrderItem({
 				<div className="card-header">
 					<h2>{order.order}</h2>
 					<h3>{order.symbol}</h3>
-					{isOpen ? (
+					{isOpen && (
 						<a onClick={() => (setIsModalShow(true), setIsModalBgShow!(true))}>
 							<SubImg />
 						</a>
-					) : (
-						<div />
 					)}
 				</div>
 				<div className="card-info">
