@@ -10,24 +10,29 @@ import "../styles/Card.scss";
 type OrderProps = {
 	order: OpenOrder | CloseOrder;
 	isOpen: boolean;
+	ordersCount?: number;
 	setIsModalBgShow?(flag: boolean): void;
 };
 
 export default function OrderItem({
 	order,
 	isOpen,
+	ordersCount,
 	setIsModalBgShow,
 }: OrderProps) {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
 	return (
 		<>
-			<Confirm
-				order={order}
-				isModalShow={isModalShow}
-				setIsModalShow={setIsModalShow}
-				setIsModalBgShow={setIsModalBgShow!}
-			/>
+			{isOpen && (
+				<Confirm
+					order={order}
+					ordersCount={ordersCount!}
+					isModalShow={isModalShow}
+					setIsModalShow={setIsModalShow}
+					setIsModalBgShow={setIsModalBgShow!}
+				/>
+			)}
 			<div className="card">
 				<div className="card-header">
 					<h2>{order.order}</h2>
@@ -43,7 +48,7 @@ export default function OrderItem({
 				<div className="card-info">
 					<div>
 						{isOpen ? (
-							<p>последнее обновления</p>
+							<p>последнее обновление</p>
 						) : (
 							<>
 								<p>время закрытия</p>
