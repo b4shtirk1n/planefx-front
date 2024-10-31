@@ -26,7 +26,7 @@ export default function ProcessItem({ command }: ProcessProps) {
 					)}
 				</div>
 				<div>
-					<h3>{command.type}</h3>
+					<h3>{command.type.toString()}</h3>
 					{command.type === CommandType.Open ? (
 						<>
 							<h3>{command.orderType}</h3>
