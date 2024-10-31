@@ -16,16 +16,17 @@ export default function OrderList() {
 			<div className={isModalShow ? "modal" : "hide"} />
 			{orders && (
 				<>
-					{processed && (
-						<>
-							<h3 className="label">В обработке</h3>
-							{processed.command.map((item, i) => (
-								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
-									<ProcessItem key={i} command={item} />
-								</RenderIfVisible>
-							))}
-						</>
-					)}
+					{processed &&
+						processed.ordersCount !== orders.openedOrders.length && (
+							<>
+								<h2 className="label">В обработке</h2>
+								{processed.command.map((item, i) => (
+									<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
+										<ProcessItem key={i} command={item} />
+									</RenderIfVisible>
+								))}
+							</>
+						)}
 					{orders.openedOrders.length > 0 && (
 						<>
 							<h2 className="label">Открытые</h2>

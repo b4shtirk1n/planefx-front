@@ -2,7 +2,6 @@ import { CloseOrder } from "../models/CloseOrder";
 import { OpenOrder } from "../models/OpenOrder";
 import { useState } from "react";
 import getDate from "../helpers/Date";
-import ColorSum from "../widgets/ColorSum";
 import SubImg from "../widgets/SubImg";
 import Confirm from "./Confirm";
 import "../styles/Card.scss";
@@ -66,15 +65,15 @@ export default function OrderItem({
 						) : (
 							<>
 								<h3>{getDate((order as CloseOrder).timeClosed)}</h3>
-								<ColorSum Sum={(order as CloseOrder).priceClosed} Prefix="$" />
+								<h3>{(order as CloseOrder).priceClosed}</h3>
 							</>
 						)}
 						<h3>{getDate(order.timeOpened)}</h3>
-						<ColorSum Sum={order.priceOpened} Prefix="$" />
-						<ColorSum Sum={order.sl} Prefix="$" />
-						<ColorSum Sum={order.tp} Prefix="$" />
-						<ColorSum Sum={order.swap} Prefix="$" />
-						<ColorSum Sum={order.volume} Prefix="$" />
+						<h3>{order.priceOpened}</h3>
+						<h3>{order.sl}</h3>
+						<h3>{order.tp}</h3>
+						<h3>{order.swap}</h3>
+						<h3>{order.volume}</h3>
 					</div>
 				</div>
 			</div>
