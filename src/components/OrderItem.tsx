@@ -58,6 +58,8 @@ export default function OrderItem({
 						<p>TP</p>
 						<p>swap</p>
 						<p>объём</p>
+						<p>комиссия</p>
+						<p>профит</p>
 					</div>
 					<div>
 						{isOpen ? (
@@ -74,6 +76,8 @@ export default function OrderItem({
 						<h3>{order.tp}</h3>
 						<h3>{order.swap}</h3>
 						<h3>{order.volume}</h3>
+						<h3>{order.commissions}</h3>
+						<h3>{order.profit}</h3>
 					</div>
 				</div>
 			</div>

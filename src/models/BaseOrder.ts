@@ -10,5 +10,6 @@ export interface BaseOrder extends BaseModel {
   tp: number;
   swap: number;
   commissions: number;
+  profit: number;
   symbol: number;
 }
