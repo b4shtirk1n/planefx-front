@@ -17,6 +17,10 @@ export const useCommandStore = create(persist<CommandStore>((set) => ({
 
   async CreateCommand(command, ordersCount) {
     set({ isLoading: true });
+
+    if (this.processed?.command.includes(command))
+      return
+
     try {
       await api.post(`Command`, command);
     } catch (err) {
