@@ -17,7 +17,7 @@ export default function OrderList() {
 			{orders && (
 				<>
 					{processed &&
-						processed.ordersCount !== orders.openedOrders.length && (
+						processed.ordersCount === orders.openedOrders.length && (
 							<>
 								<h2 className="label">В обработке</h2>
 								{processed.command.map((item, i) => (
