@@ -4,6 +4,7 @@ import { AxiosError } from "axios";
 import { CommandRequest } from "../requests/CommandRequest";
 import { BaseStore } from "./BaseStore";
 import { ProcessCommand } from "../models/ProcessCommand";
+import { persist } from "zustand/middleware";
 
 type CommandStore = BaseStore & {
   processed?: ProcessCommand;
@@ -11,7 +12,7 @@ type CommandStore = BaseStore & {
   CreateCommand(command: CommandRequest, ordersCount: number): void;
 }
 
-export const useCommandStore = create<CommandStore>((set) => ({
+export const useCommandStore = create(persist<CommandStore>((set) => ({
   isLoading: false,
 
   async CreateCommand(command, ordersCount) {
@@ -29,4 +30,6 @@ export const useCommandStore = create<CommandStore>((set) => ({
       });
     }
   }
+}), {
+  name: "process"
 }))
