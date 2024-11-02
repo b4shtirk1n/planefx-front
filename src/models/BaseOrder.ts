@@ -11,5 +11,5 @@ export interface BaseOrder extends BaseModel {
   swap: number;
   commissions: number;
   profit: number;
-  symbol?: string;
+  symbol: string;
 }
