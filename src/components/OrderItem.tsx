@@ -34,7 +34,7 @@ export default function OrderItem({
 			)}
 			<div className="card">
 				<div className="card-header">
-					<h2>{order.order}</h2>
+					<h3>{order.order}</h3>
 					<h3>
 						{order.symbol
 							? order.symbol
