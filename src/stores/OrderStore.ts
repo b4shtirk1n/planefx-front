@@ -27,11 +27,11 @@ export const useOrderStore = create<OrderStore>((set) => ({
     try {
       const response = await api.get(`Order/${account}`);
       set({ orders: response.data as OrderResponse });
-      console.log(this.orders)
     } catch (err) {
       set({ error: (err as AxiosError).toJSON() });
     } finally {
       set({ isLoading: false });
+      console.log(this.orders)
     }
   },
 }))
