@@ -3,9 +3,9 @@ import { User } from "../models/User";
 import { api } from "../api/Axios";
 import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
+import { persist } from "zustand/middleware";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
-import { persist } from "zustand/middleware";
 
 type UserStore = BaseStore & {
 	username?: string;
