@@ -11,15 +11,15 @@ export default function OrderList() {
 	const { processed } = useCommandStore();
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
-	const openedData = orders!.paginationOpenedOrders.data;
-	const closedData = orders!.paginationOpenedOrders.data;
+	const openedData = orders?.paginationOpenedOrders.data;
+	const closedData = orders?.paginationOpenedOrders.data;
 
 	return (
 		<div className="container order">
 			<div className={isModalShow ? "modal" : "hide"} />
-			{orders && (
+			{openedData && closedData && (
 				<>
-					{processed && processed.ordersCount === openedData!.length && (
+					{processed && processed.ordersCount === openedData.length && (
 						<>
 							<h2 className="label">В обработке</h2>
 							{processed.command.map((item, i) => (
