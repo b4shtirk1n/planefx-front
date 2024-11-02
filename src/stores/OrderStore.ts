@@ -11,7 +11,7 @@ type OrderStore = BaseStore & {
   fetchOrders(account: number): void;
 }
 
-export const useOrderStore = create<OrderStore>((set) => ({
+export const useOrderStore = create<OrderStore>((set, get) => ({
   isLoading: false,
   types: [
     "Buy market",
@@ -31,7 +31,7 @@ export const useOrderStore = create<OrderStore>((set) => ({
       set({ error: (err as AxiosError).toJSON() });
     } finally {
       set({ isLoading: false });
-      console.log(this.orders)
+      console.log(get().orders)
     }
   },
 }))
