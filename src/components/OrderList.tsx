@@ -12,7 +12,7 @@ export default function OrderList() {
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
 	const openedData = orders?.paginationOpenedOrders.data;
-	const closedData = orders?.paginationOpenedOrders.data;
+	const closedData = orders?.paginationClosedOrders.data;
 
 	return (
 		<div className="container order">
