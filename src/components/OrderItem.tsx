@@ -35,7 +35,7 @@ export default function OrderItem({
 			<div className="card">
 				<div className="card-header">
 					<h2>{order.order}</h2>
-					<h3>{order.symbol! ?? order.profit > 0 ? "Пополнение" : "Снятие"}</h3>
+					<h3>{order.symbol ?? order.profit > 0 ? "Пополнение" : "Снятие"}</h3>
 					{isOpen && (
 						<a onClick={() => (setIsModalShow(true), setIsModalBgShow!(true))}>
 							<SubImg />
