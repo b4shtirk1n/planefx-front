@@ -38,7 +38,8 @@ export default function OrderPage() {
 			{orders ? (
 				<>
 					<CreateOrderModal
-						ordersCount={orders.paginationOpenedOrders.data.length}
+						ordersCount={orders.OpenedOrders.length}
+						// ordersCount={orders.paginationOpenedOrders.data.length}
 						isModalShow={isModalShow}
 						setIsModalShow={setIsModalShow}
 					/>

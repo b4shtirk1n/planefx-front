@@ -11,44 +11,45 @@ export default function OrderList() {
 	const { processed } = useCommandStore();
 	const [isModalShow, setIsModalShow] = useState<boolean>(false);
 
-	const openedData = orders?.paginationOpenedOrders.data;
-	const closedData = orders?.paginationClosedOrders.data;
+	// const openedData = orders?.paginationOpenedOrders.data;
+	// const closedData = orders?.paginationClosedOrders.data;
 
 	return (
 		<div className="container order">
 			<div className={isModalShow ? "modal" : "hide"} />
-			{openedData && closedData && (
-				<>
-					{processed && processed.ordersCount === openedData.length && (
-						<>
-							<h2 className="label">В обработке</h2>
-							{processed.command.map((item, i) => (
-								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
-									<ProcessItem key={i} command={item} />
-								</RenderIfVisible>
-							))}
-						</>
-					)}
-					{openedData.length > 0 && (
+			{orders && (
+				/* openedData && closedData && */ <>
+					{processed &&
+						processed.ordersCount === orders.OpenedOrders.length && (
+							<>
+								<h2 className="label">В обработке</h2>
+								{processed.command.map((item, i) => (
+									<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
+										<ProcessItem key={i} command={item} />
+									</RenderIfVisible>
+								))}
+							</>
+						)}
+					{orders.OpenedOrders.length > 0 && (
 						<>
 							<h2 className="label">Открытые</h2>
-							{openedData.map((item) => (
+							{orders.OpenedOrders.map((item) => (
 								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
 									<OrderItem
 										key={item.id}
 										order={item}
 										isOpen={true}
-										ordersCount={openedData.length}
+										ordersCount={orders.OpenedOrders.length}
 										setIsModalBgShow={setIsModalShow}
 									/>
 								</RenderIfVisible>
 							))}
 						</>
 					)}
-					{closedData.length > 0 && (
+					{orders.ClosedOrders.length > 0 && (
 						<>
 							<h2 className="label">Закрытые</h2>
-							{closedData.map((item) => (
+							{orders.ClosedOrders.map((item) => (
 								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
 									<OrderItem key={item.id} order={item} isOpen={false} />
 								</RenderIfVisible>
