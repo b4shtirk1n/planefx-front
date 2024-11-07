@@ -3,8 +3,8 @@ import { OpenOrder } from "../models/OpenOrder";
 // import { PaginationOrder } from "./PaginationOrder";
 
 export interface OrderResponse {
-  OpenedOrders: OpenOrder[];
-  ClosedOrders: CloseOrder[];
+  openedOrders: OpenOrder[];
+  closedOrders: CloseOrder[];
   // paginationOpenedOrders: PaginationOrder<OpenOrder[]>;
   // paginationClosedOrders: PaginationOrder<CloseOrder[]>;
 }

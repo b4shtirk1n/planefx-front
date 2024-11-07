@@ -20,7 +20,7 @@ export default function OrderList() {
 			{orders && (
 				/* openedData && closedData && */ <>
 					{processed &&
-						processed.ordersCount === orders.OpenedOrders.length && (
+						processed.ordersCount === orders.openedOrders.length && (
 							<>
 								<h2 className="label">В обработке</h2>
 								{processed.command.map((item, i) => (
@@ -30,26 +30,26 @@ export default function OrderList() {
 								))}
 							</>
 						)}
-					{orders.OpenedOrders && orders.OpenedOrders.length > 0 && (
+					{orders.openedOrders.length > 0 && (
 						<>
 							<h2 className="label">Открытые</h2>
-							{orders.OpenedOrders.map((item) => (
+							{orders.openedOrders.map((item) => (
 								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
 									<OrderItem
 										key={item.id}
 										order={item}
 										isOpen={true}
-										ordersCount={orders.OpenedOrders.length}
+										ordersCount={orders.openedOrders.length}
 										setIsModalBgShow={setIsModalShow}
 									/>
 								</RenderIfVisible>
 							))}
 						</>
 					)}
-					{orders.ClosedOrders && orders.ClosedOrders.length > 0 && (
+					{orders.closedOrders.length > 0 && (
 						<>
 							<h2 className="label">Закрытые</h2>
-							{orders.ClosedOrders.map((item) => (
+							{orders.closedOrders.map((item) => (
 								<RenderIfVisible defaultHeight={ESTIMATED_ITEM_HEIGHT}>
 									<OrderItem key={item.id} order={item} isOpen={false} />
 								</RenderIfVisible>
