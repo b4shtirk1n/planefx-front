@@ -30,7 +30,7 @@ export default function OrderList() {
 								))}
 							</>
 						)}
-					{orders.OpenedOrders.length > 0 && (
+					{orders.OpenedOrders && orders.OpenedOrders.length > 0 && (
 						<>
 							<h2 className="label">Открытые</h2>
 							{orders.OpenedOrders.map((item) => (
@@ -46,7 +46,7 @@ export default function OrderList() {
 							))}
 						</>
 					)}
-					{orders.ClosedOrders.length > 0 && (
+					{orders.ClosedOrders && orders.ClosedOrders.length > 0 && (
 						<>
 							<h2 className="label">Закрытые</h2>
 							{orders.ClosedOrders.map((item) => (
