@@ -17,8 +17,9 @@ export const useCommandStore = create<CommandStore>((set) => ({
   async CreateCommand(command, ordersCount) {
     set({ isLoading: true });
 
-    if (this.processed && this.processed.command.includes(command))
-      return
+    if (this.processed !== undefined)
+      if (this.processed?.command.includes(command))
+        return
 
     try {
       await api.post(`Command`, command);
