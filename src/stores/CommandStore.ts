@@ -17,7 +17,7 @@ export const useCommandStore = create<CommandStore>((set) => ({
   async CreateCommand(command, ordersCount) {
     set({ isLoading: true });
 
-    if (this.processed?.command.includes(command))
+    if (this.processed?.command?.includes(command))
       return
 
     try {
