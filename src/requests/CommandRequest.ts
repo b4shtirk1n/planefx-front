@@ -3,7 +3,7 @@ import { CommandType } from "../enums/CommandType";
 export class CommandRequest {
   account: number;
   type: CommandType;
-  orderType?: string;
+  orderType: string;
   order?: number;
   volume?: number;
   ticker?: string;
@@ -12,7 +12,7 @@ export class CommandRequest {
   constructor(
     account: number,
     type: CommandType,
-    orderType?: string,
+    orderType: string,
     order?: number,
     volume?: number,
     ticker?: string,

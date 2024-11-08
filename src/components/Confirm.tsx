@@ -27,7 +27,7 @@ export default function Confirm({
         new CommandRequest(
           order.account,
           CommandType.Close,
-          undefined,
+          "Close",
           order.order
         ),
         ordersCount
