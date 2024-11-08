@@ -7,21 +7,21 @@ import Loading from "../widgets/Loading";
 import Profile from "../components/Profile";
 
 export default function ProfilePage() {
-	const { user, fetchUser } = useUserStore();
+  const { user, fetchUser } = useUserStore();
 
-	useEffect(() => {
-		fetchUser();
-		const timer = setInterval(() => {
-			fetchUser();
-		}, REQUEST_DELAY);
-		return () => clearInterval(timer);
-	}, []);
+  useEffect(() => {
+    fetchUser();
+    const timer = setInterval(() => {
+      fetchUser();
+    }, REQUEST_DELAY);
+    return () => clearInterval(timer);
+  }, []);
 
-	return (
-		<section>
-			<Header text="Профиль" />
-			{user ? <Profile /> : <Loading />}
-			<NavBar isProfile />
-		</section>
-	);
+  return (
+    <section>
+      <Header text="Профиль" />
+      {user ? <Profile /> : <Loading />}
+      <NavBar isProfile />
+    </section>
+  );
 }

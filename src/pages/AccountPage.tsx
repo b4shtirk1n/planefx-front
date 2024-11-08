@@ -7,21 +7,21 @@ import NavBar from "../components/NavBar";
 import Loading from "../widgets/Loading";
 
 export default function AccountsPage() {
-	const { accounts, fetchAccounts } = useAccountStore();
+  const { accounts, fetchAccounts } = useAccountStore();
 
-	useEffect(() => {
-		fetchAccounts();
-		const timer = setInterval(() => {
-			fetchAccounts();
-		}, REQUEST_DELAY);
-		return () => clearInterval(timer);
-	}, []);
+  useEffect(() => {
+    fetchAccounts();
+    const timer = setInterval(() => {
+      fetchAccounts();
+    }, REQUEST_DELAY);
+    return () => clearInterval(timer);
+  }, []);
 
-	return (
-		<section>
-			<Header text="Счета" />
-			{accounts ? <AccountsList /> : <Loading />}
-			<NavBar isAccounts />
-		</section>
-	);
+  return (
+    <section>
+      <Header text="Счета" />
+      {accounts ? <AccountsList /> : <Loading />}
+      <NavBar isAccounts />
+    </section>
+  );
 }

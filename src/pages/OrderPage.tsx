@@ -11,43 +11,43 @@ import PlusImg from "../widgets/PlusImg";
 import CreateOrderModal from "../components/CreateOrderModal";
 
 export default function OrderPage() {
-	const [isModalShow, setIsModalShow] = useState<boolean>(false);
-	const { orders, fetchOrders } = useOrderStore();
-	const { id } = useParams<OrderParams>();
+  const [isModalShow, setIsModalShow] = useState<boolean>(false);
+  const { orders, fetchOrders } = useOrderStore();
+  const { id } = useParams<OrderParams>();
 
-	useEffect(() => {
-		fetchOrders(Number(id));
-		const timer = setInterval(() => {
-			fetchOrders(Number(id));
-		}, REQUEST_DELAY);
-		return () => clearInterval(timer);
-	}, []);
+  useEffect(() => {
+    fetchOrders(Number(id));
+    const timer = setInterval(() => {
+      fetchOrders(Number(id));
+    }, REQUEST_DELAY);
+    return () => clearInterval(timer);
+  }, []);
 
-	return (
-		<section className="without-nav">
-			<BackButton />
-			<Header
-				text="Счёт"
-				rightBtn={
-					<a onClick={() => setIsModalShow(true)}>
-						<PlusImg />
-					</a>
-				}
-			/>
+  return (
+    <section className="without-nav">
+      <BackButton />
+      <Header
+        text="Счёт"
+        rightBtn={
+          <a onClick={() => setIsModalShow(true)}>
+            <PlusImg />
+          </a>
+        }
+      />
 
-			{orders ? (
-				<>
-					<CreateOrderModal
-						ordersCount={orders.openedOrders.length}
-						// ordersCount={orders.paginationOpenedOrders.data.length}
-						isModalShow={isModalShow}
-						setIsModalShow={setIsModalShow}
-					/>
-					<OrderList />
-				</>
-			) : (
-				<Loading />
-			)}
-		</section>
-	);
+      {orders ? (
+        <>
+          <CreateOrderModal
+            ordersCount={orders.openedOrders.length}
+            // ordersCount={orders.paginationOpenedOrders.data.length}
+            isModalShow={isModalShow}
+            setIsModalShow={setIsModalShow}
+          />
+          <OrderList />
+        </>
+      ) : (
+        <Loading />
+      )}
+    </section>
+  );
 }
