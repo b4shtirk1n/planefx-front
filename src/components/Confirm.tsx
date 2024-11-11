@@ -35,16 +35,22 @@ export default function Confirm({
   }
 
   return (
-    <div className={isModalShow ? "confirm" : "hide"}>
-      <h3>Сделка закроется через некоторое время!</h3>
-      <div>
-        <Button isPrimary onClick={onSubmit}>
-          Закрыть
-        </Button>
-        <Button isPrimary={false} onClick={() => setIsModalShow(false)}>
-          Отмена
-        </Button>
+    <>
+      <div
+        className={isModalShow ? "modal" : "hide"}
+        onClick={() => setIsModalShow(false)}
+      />
+      <div className={isModalShow ? "confirm" : "hide"}>
+        <h3>Сделка закроется через некоторое время!</h3>
+        <div>
+          <Button isPrimary onClick={onSubmit}>
+            Закрыть
+          </Button>
+          <Button isPrimary={false} onClick={() => setIsModalShow(false)}>
+            Отмена
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

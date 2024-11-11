@@ -16,10 +16,6 @@ export default function OrderList() {
 
   return (
     <div className="container order">
-      <div
-        className={isModalShow ? "modal" : "hide"}
-        onClick={() => setIsModalShow(false)}
-      />
       {processed && processed.ordersCount === orders!.openedOrders.length && (
         <>
           <h2 className="label">В обработке</h2>
