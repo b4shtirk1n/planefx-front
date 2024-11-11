@@ -34,7 +34,6 @@ export default function OrderPage() {
           </a>
         }
       />
-
       {orders ? (
         <>
           <CreateOrderModal
