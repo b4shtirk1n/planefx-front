@@ -39,6 +39,7 @@ export default function OrderList() {
               order={item}
               isOpen={true}
               ordersCount={orders!.openedOrders.length}
+              isModalShow={isModalShow}
               setIsModalShow={setIsModalShow}
             />
           </RenderIfVisible>
