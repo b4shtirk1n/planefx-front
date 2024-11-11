@@ -1,32 +1,32 @@
 @mixin flex-center() {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin flex-between-p15() {
-	padding: 0 15px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @mixin bg-bg-border-rad($rad: 100%) {
-	border-radius: $rad;
-	background: var(--tg-theme-bg-color);
+  border-radius: $rad;
+  background: var(--tg-theme-bg-color);
 }
 
 @mixin to-center() {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @mixin input-reset() {
-	padding: 0.4rem 1rem;
-	width: 200px;
-	border: 0;
-	border-radius: 0.25em;
-	appearance: none;
-	background: var(--tg-theme-section-separator-color);
+  padding: 0.4rem 1rem;
+  width: 200px;
+  border: 0;
+  border-radius: 0.25em;
+  appearance: none;
+  background: var(--tg-theme-section-separator-color);
 }

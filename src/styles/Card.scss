@@ -1,54 +1,54 @@
 @use "mixin.scss";
 
 .clickable {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .card {
-	margin: 20px 30px;
-	@include mixin.bg-bg-border-rad(12px);
+  margin: 20px 30px;
+  @include mixin.bg-bg-border-rad(12px);
 
-	&-header {
-		height: 44px;
-		border-radius: 12px 12px 0 0;
-		background: var(--tg-theme-button-color);
-		@include mixin.flex-between-p15;
+  &-header {
+    height: 44px;
+    border-radius: 12px 12px 0 0;
+    background: var(--tg-theme-button-color);
+    @include mixin.flex-between-p15;
 
-		&-order {
-			position: relative;
-			width: 24px;
-			height: 24px;
-			border: 1px solid var(--tg-theme-text-color);
-			@include mixin.bg-bg-border-rad;
+    &-order {
+      position: relative;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--tg-theme-text-color);
+      @include mixin.bg-bg-border-rad;
 
-			h3 {
-				position: absolute;
-				@include mixin.to-center;
-			}
-		}
+      h3 {
+        position: absolute;
+        @include mixin.to-center;
+      }
+    }
 
-		path {
-			fill: var(--tg-theme-text-color);
-		}
-	}
+    path {
+      fill: var(--tg-theme-text-color);
+    }
+  }
 
-	&-info {
-		padding: 10px 15px;
-		display: flex;
-		justify-content: space-between;
+  &-info {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
 
-		div {
-			display: flex;
-			flex-direction: column;
-			gap: 4px;
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
 
-			p {
-				font-weight: 300;
-			}
+      p {
+        font-weight: 300;
+      }
 
-			h3 {
-				text-align: right;
-			}
-		}
-	}
+      h3 {
+        text-align: right;
+      }
+    }
+  }
 }

@@ -1,17 +1,17 @@
 @use "mixin.scss";
 
 .create-order {
-	position: absolute;
-	padding: 15px;
-	@include mixin.to-center;
-	@include mixin.bg-bg-border-rad(10px);
-	z-index: 20;
+  position: absolute;
+  padding: 15px;
+  @include mixin.to-center;
+  @include mixin.bg-bg-border-rad(10px);
+  z-index: 20;
 
-	div {
-		display: flex;
-		padding: 15px;
-		align-items: center;
-		justify-content: space-between;
-		gap: 50px;
-	}
+  div {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+  }
 }

@@ -10,14 +10,14 @@ import "./styles/main.scss";
 
 WebApp.ready();
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<Routes>
-				<Route path="/accounts" element={<AccountsPage />} />
-				<Route path="/accounts/:id" element={<OrderPage />} />
-				<Route path="/subscribe" element={<SubscribePage />} />
-				<Route path="/" element={<ProfilePage />} />
-			</Routes>
-		</BrowserRouter>
-	</React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/accounts" element={<AccountsPage />} />
+        <Route path="/accounts/:id" element={<OrderPage />} />
+        <Route path="/subscribe" element={<SubscribePage />} />
+        <Route path="/" element={<ProfilePage />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
 );

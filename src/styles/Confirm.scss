@@ -1,19 +1,19 @@
 @use "mixin.scss";
 
 .confirm {
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	padding: 20px;
-	width: 250px;
-	gap: 20px;
-	@include mixin.to-center;
-	@include mixin.bg-bg-border-rad(10px);
-	z-index: 20;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  width: 250px;
+  gap: 20px;
+  @include mixin.to-center;
+  @include mixin.bg-bg-border-rad(10px);
+  z-index: 20;
 
-	div {
-		display: flex;
-		gap: 15px;
-	}
+  div {
+    display: flex;
+    gap: 15px;
+  }
 }

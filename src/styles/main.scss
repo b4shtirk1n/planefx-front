@@ -5,102 +5,102 @@
 *,
 ::before,
 ::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "inter", sans-serif;
-	font-size: 16px;
-	color: var(--tg-theme-text-color);
-	--swiper-navigation-size: 20px;
-	--arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  font-size: 16px;
+  color: var(--tg-theme-text-color);
+  --swiper-navigation-size: 20px;
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
 }
 
 body {
-	background: var(--tg-theme-bg-color);
-	overflow: hidden;
+  background: var(--tg-theme-bg-color);
+  overflow: hidden;
 }
 
 section {
-	display: grid;
-	grid-template-rows: 40px auto 40px;
-	width: 100%;
-	height: 100vh;
-	background: var(--tg-theme-secondary-bg-color);
+  display: grid;
+  grid-template-rows: 40px auto 40px;
+  width: 100%;
+  height: 100vh;
+  background: var(--tg-theme-secondary-bg-color);
 
-	.container {
-		overflow: auto;
-	}
+  .container {
+    overflow: auto;
+  }
 
-	.order {
-		padding: 15px 0px;
-	}
+  .order {
+    padding: 15px 0px;
+  }
 }
 
 h1 {
-	font-size: 20px;
-	font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 h2 {
-	font-size: 18px;
-	font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 h3 {
-	font-size: 14px;
-	font-weight: 500;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 p {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 a {
-	text-decoration: none;
-	color: var(--tg-theme-button-text-color);
-	text-align: center;
-	font-weight: 500;
-	cursor: pointer;
+  text-decoration: none;
+  color: var(--tg-theme-button-text-color);
+  text-align: center;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 input {
-	@include mixin.input-reset;
+  @include mixin.input-reset;
 }
 
 select {
-	cursor: pointer;
-	@include mixin.input-reset;
-	background: var(--arrow-icon) no-repeat right 0.8em center / 1.2em,
-		var(--tg-theme-section-separator-color);
+  cursor: pointer;
+  @include mixin.input-reset;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.2em,
+    var(--tg-theme-section-separator-color);
 }
 
 .swiper {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
-	padding: 30px 40px;
-	@include mixin.flex-center;
+  padding: 30px 40px;
+  @include mixin.flex-center;
 }
 
 .without-nav {
-	grid-template-rows: 40px auto;
+  grid-template-rows: 40px auto;
 }
 
 .label {
-	text-align: center;
-	font-weight: 400;
+  text-align: center;
+  font-weight: 400;
 }
 
 .modal {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.3);
-	z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
