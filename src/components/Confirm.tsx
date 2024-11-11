@@ -10,7 +10,6 @@ type ConfirmProps = {
   ordersCount: number;
   isModalShow: boolean;
   setIsModalShow(flag: boolean): void;
-  setIsModalBgShow(flag: boolean): void;
 };
 
 export default function Confirm({
@@ -18,7 +17,6 @@ export default function Confirm({
   ordersCount,
   isModalShow,
   setIsModalShow,
-  setIsModalBgShow,
 }: ConfirmProps) {
   function onSubmit() {
     useCommandStore
@@ -34,23 +32,16 @@ export default function Confirm({
       );
 
     setIsModalShow(false);
-    setIsModalBgShow(false);
   }
 
   return (
-    <div
-      className={isModalShow ? "confirm" : "hide"}
-      onClick={() => (setIsModalShow(false), setIsModalBgShow(false))}
-    >
+    <div className={isModalShow ? "confirm" : "hide"}>
       <h3>Сделка закроется через некоторое время!</h3>
       <div>
         <Button isPrimary onClick={onSubmit}>
           Закрыть
         </Button>
-        <Button
-          isPrimary={false}
-          onClick={() => (setIsModalShow(false), setIsModalBgShow(false))}
-        >
+        <Button isPrimary={false} onClick={() => setIsModalShow(false)}>
           Отмена
         </Button>
       </div>

@@ -1,6 +1,5 @@
 import { CloseOrder } from "../models/CloseOrder";
 import { OpenOrder } from "../models/OpenOrder";
-import { useState } from "react";
 import getDate from "../helpers/Date";
 import SubImg from "../widgets/SubImg";
 import Confirm from "./Confirm";
@@ -10,26 +9,25 @@ type OrderProps = {
   order: OpenOrder | CloseOrder;
   isOpen: boolean;
   ordersCount?: number;
-  setIsModalBgShow?(flag: boolean): void;
+  isModalShow?: boolean;
+  setIsModalShow?(flag: boolean): void;
 };
 
 export default function OrderItem({
   order,
   isOpen,
   ordersCount,
-  setIsModalBgShow,
+  isModalShow,
+  setIsModalShow,
 }: OrderProps) {
-  const [isModalShow, setIsModalShow] = useState<boolean>(false);
-
   return (
     <>
       {isOpen && (
         <Confirm
           order={order}
           ordersCount={ordersCount!}
-          isModalShow={isModalShow}
-          setIsModalShow={setIsModalShow}
-          setIsModalBgShow={setIsModalBgShow!}
+          isModalShow={isModalShow!}
+          setIsModalShow={setIsModalShow!}
         />
       )}
       <div className="card">
@@ -43,7 +41,7 @@ export default function OrderItem({
               : "Снятие"}
           </h3>
           {isOpen && (
-            <a onClick={() => (setIsModalShow(true), setIsModalBgShow!(true))}>
+            <a onClick={() => setIsModalShow!(true)}>
               <SubImg />
             </a>
           )}
