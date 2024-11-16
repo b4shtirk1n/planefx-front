@@ -6,7 +6,6 @@ import { AxiosError } from "axios";
 import { persist } from "zustand/middleware";
 import WebApp from "@twa-dev/sdk";
 import profileImg from "../assets/profile.svg";
-import fileDownload from "js-file-download";
 
 type UserStore = BaseStore & {
   username?: string;
@@ -34,12 +33,12 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          const photo = (await api.get(`User/Photo/${get().tgId}`)).data;
-          fileDownload(photo, "photo.jpg");
+          const photo = await api.get(`User/Photo/${get().tgId}`);
+          const href = URL.createObjectURL(photo.data);
 
           set({
             user: response.data as User,
-            photoUrl: photo,
+            photoUrl: href,
           });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
