@@ -32,7 +32,13 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-          console.log((await api.get(`User/Photo/${get().tgId}`)).data);
+          console.log(
+            (
+              await api.get(`User/Photo/${get().tgId}`, {
+                headers: { "Content-Type": "application/octet-stream" },
+              })
+            ).data
+          );
           set({ user: response.data as User });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
