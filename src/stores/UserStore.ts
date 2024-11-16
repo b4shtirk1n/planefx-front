@@ -32,15 +32,13 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-
           const photo = await api.get(`User/Photo/${get().tgId}`, {
             responseType: "blob",
           });
-          const href = URL.createObjectURL(photo.data);
 
           set({
             user: response.data as User,
-            photoUrl: href,
+            photoUrl: URL.createObjectURL(photo.data),
           });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
