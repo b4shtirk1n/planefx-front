@@ -33,7 +33,9 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          const photo = await api.get(`User/Photo/${get().tgId}`);
+          const photo = await api.get(`User/Photo/${get().tgId}`, {
+            responseType: "blob",
+          });
           const href = URL.createObjectURL(photo.data);
 
           set({
