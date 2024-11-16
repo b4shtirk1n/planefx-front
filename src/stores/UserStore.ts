@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { User } from "../models/User";
-import { api } from "../api/Axios";
+import { api, apiFiles } from "../api/Axios";
 import { BaseStore } from "./BaseStore";
 import { AxiosError } from "axios";
 import { persist } from "zustand/middleware";
@@ -32,13 +32,7 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-          console.log(
-            (
-              await api.get(`User/Photo/${get().tgId}`, {
-                headers: { "Content-Type": "application/octet-stream" },
-              })
-            ).data
-          );
+          console.log((await apiFiles.get(`User/Photo/${get().tgId}`)).data);
           set({ user: response.data as User });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
