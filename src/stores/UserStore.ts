@@ -21,7 +21,7 @@ export const useUserStore = create(
     (set, get) => ({
       username: WebApp.initDataUnsafe.user?.username,
       tgId: WebApp.initDataUnsafe.user!.id,
-      photoUrl: WebApp.initDataUnsafe.user?.photo_url ?? profileImg,
+      photoUrl: profileImg,
       isLoading: false,
 
       async fetchUser() {
@@ -32,7 +32,16 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-          set({ user: response.data as User });
+          console.log(WebApp.initDataUnsafe.user?.photo_url);
+          const photo = await api.get(
+            `${WebApp.initDataUnsafe.user?.photo_url}}`,
+            { responseType: "blob" }
+          );
+
+          set({
+            user: response.data as User,
+            photoUrl: photo.status === 200 && photo.data,
+          });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
         } finally {
