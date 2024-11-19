@@ -32,13 +32,10 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-          const photo = await api.get("", {
-            baseURL: WebApp.initDataUnsafe.user?.photo_url,
-            responseType: "blob",
-          });
 
-          if (photo.status === 200)
-            set({ photoUrl: URL.createObjectURL(photo.data) });
+          const photo = WebApp.initDataUnsafe.user?.photo_url;
+          if (photo !== undefined)
+            set({ photoUrl: URL.createObjectURL(photo as unknown as Blob) });
 
           set({ user: response.data as User });
         } catch (err) {
