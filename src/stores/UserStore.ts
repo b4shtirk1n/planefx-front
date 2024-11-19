@@ -32,16 +32,15 @@ export const useUserStore = create(
             TgId: get().tgId,
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
-          console.log(WebApp.initDataUnsafe.user?.photo_url);
-          const photo = await api.get(
-            `${WebApp.initDataUnsafe.user?.photo_url}}`,
-            { responseType: "blob" }
-          );
-
-          set({
-            user: response.data as User,
-            photoUrl: photo.status === 200 && photo.data,
+          const photo = await api.get("", {
+            baseURL: WebApp.initDataUnsafe.user?.photo_url,
+            responseType: "blob",
           });
+
+          if (photo.status === 200)
+            set({ photoUrl: URL.createObjectURL(photo.data) });
+
+          set({ user: response.data as User });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
         } finally {
