@@ -33,9 +33,14 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          const photo = WebApp.initDataUnsafe.user?.photo_url;
-          if (photo !== undefined)
-            set({ photoUrl: URL.createObjectURL(photo as unknown as Blob) });
+          const photo = await api.get("", {
+            baseURL: WebApp.initDataUnsafe.user?.photo_url,
+            responseType: "blob",
+            withCredentials: false,
+          });
+
+          if (photo.status === 200)
+            set({ photoUrl: URL.createObjectURL(photo.data) });
 
           set({ user: response.data as User });
         } catch (err) {
