@@ -37,6 +37,10 @@ export const useUserStore = create(
             baseURL: WebApp.initDataUnsafe.user?.photo_url,
             responseType: "blob",
             withCredentials: false,
+            headers: {
+              "Cache-Control": "no-cache",
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
           });
 
           if (photo.status === 200)
