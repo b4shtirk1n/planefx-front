@@ -37,7 +37,10 @@ export const useUserStore = create(
             mode: "no-cors",
           })
             .then((resp) => resp.blob())
-            .then((photo) => set({ photoUrl: URL.createObjectURL(photo) }));
+            .then((photo) => {
+              console.log(photo);
+              set({ photoUrl: URL.createObjectURL(photo) });
+            });
 
           set({ user: response.data as User });
         } catch (err) {
