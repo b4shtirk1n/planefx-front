@@ -33,18 +33,11 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          const photo = await api.get("", {
-            baseURL: WebApp.initDataUnsafe.user?.photo_url,
-            responseType: "blob",
-            withCredentials: false,
-            headers: {
-              "Cache-Control": "no-cache",
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-          });
-
-          if (photo.status === 200)
-            set({ photoUrl: URL.createObjectURL(photo.data) });
+          await fetch(WebApp.initDataUnsafe.user!.photo_url!, {
+            mode: "no-cors",
+          })
+            .then((resp) => resp.blob())
+            .then((photo) => set({ photoUrl: URL.createObjectURL(photo) }));
 
           set({ user: response.data as User });
         } catch (err) {
