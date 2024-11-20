@@ -40,6 +40,9 @@ export const useUserStore = create(
             api
               .get(`User/Photo/${url}`, {
                 responseType: "blob",
+                validateStatus(status) {
+                  return status >= 200 && status < 400;
+                },
               })
               .then((res) => set({ photoUrl: URL.createObjectURL(res.data) }));
           }
