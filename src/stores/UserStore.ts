@@ -33,17 +33,14 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          fetch(WebApp.initDataUnsafe.user!.photo_url!, {
-            mode: "no-cors",
-          }).then((res) => {
-            res.blob().then((blob) => {
-              blob.arrayBuffer().then((buf) => {
-                set({ photoUrl: URL.createObjectURL(new Blob([buf])) });
-              });
-            });
+          const photo = await api.get(
+            `User/Photo/${WebApp.initDataUnsafe.user!.photo_url!}`,
+            { responseType: "blob" }
+          );
+          set({
+            user: response.data as User,
+            photoUrl: URL.createObjectURL(photo.data),
           });
-
-          set({ user: response.data as User });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
         } finally {
