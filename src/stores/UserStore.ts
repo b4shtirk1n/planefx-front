@@ -33,12 +33,13 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          await fetch(WebApp.initDataUnsafe.user!.photo_url!, {
+          fetch(WebApp.initDataUnsafe.user!.photo_url!, {
             mode: "no-cors",
           })
             .then((resp) =>
               resp.blob().then((photo) => {
                 console.log(photo);
+                photo.text().then((val) => console.log(val));
                 set({ photoUrl: URL.createObjectURL(photo) });
               })
             )
