@@ -35,22 +35,13 @@ export const useUserStore = create(
 
           fetch(WebApp.initDataUnsafe.user!.photo_url!, {
             mode: "no-cors",
-          })
-            .then((resp) => {
-              resp.text().then((text) => {
-                console.log(text);
+          }).then((res) => {
+            res.blob().then((blob) => {
+              blob.arrayBuffer().then((buf) => {
+                set({ photoUrl: URL.createObjectURL(new Blob([buf])) });
               });
-              resp.json().then((json) => {
-                console.log(JSON.stringify(json));
-              });
-              resp.blob().then((photo) => {
-                console.log(URL.createObjectURL(photo));
-                set({ photoUrl: URL.createObjectURL(photo) });
-              });
-            })
-            .catch((err) => {
-              console.log(err);
             });
+          });
 
           set({ user: response.data as User });
         } catch (err) {
