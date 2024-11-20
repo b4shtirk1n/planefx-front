@@ -33,14 +33,17 @@ export const useUserStore = create(
             TimeZone: new Date().getTimezoneOffset() / -60,
           });
 
-          const photo = await api.get(
-            `User/Photo/${WebApp.initDataUnsafe.user!.photo_url!}`,
-            { responseType: "blob" }
-          );
-          set({
-            user: response.data as User,
-            photoUrl: URL.createObjectURL(photo.data),
-          });
+          if (WebApp.initDataUnsafe.user!.photo_url) {
+            const url = encodeURIComponent(
+              WebApp.initDataUnsafe.user!.photo_url
+            );
+            api
+              .get(`User/Photo/${url}`, {
+                responseType: "blob",
+              })
+              .then((res) => set({ photoUrl: URL.createObjectURL(res.data) }));
+          }
+          set({ user: response.data as User });
         } catch (err) {
           set({ error: (err as AxiosError).toJSON() });
         } finally {
