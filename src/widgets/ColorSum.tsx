@@ -1,15 +1,20 @@
 import "../styles/ColorSum.scss";
 
 type ColorSumProps = {
-  Sum: number;
-  Prefix: string;
+  sum: number;
+  prefix: string;
+  revert?: boolean;
 };
 
-export default function ColorSum({ Sum, Prefix }: ColorSumProps) {
+export default function ColorSum({
+  sum,
+  prefix,
+  revert = false,
+}: ColorSumProps) {
   return (
-    <h3 className={Sum == 0 ? "" : Sum > 0 ? "high" : "low"}>
-      {Sum}
-      {Prefix}
+    <h3 className={sum == 0 ? "" : sum > 0 && !revert ? "high" : "low"}>
+      {sum}
+      {prefix}
     </h3>
   );
 }
