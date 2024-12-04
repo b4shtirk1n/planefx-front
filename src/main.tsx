@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useUserStore } from "./stores/UserStore";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import WebApp from "@twa-dev/sdk";
@@ -9,6 +10,7 @@ import OrderPage from "./pages/OrderPage";
 import "./styles/main.scss";
 
 WebApp.ready();
+useUserStore.getState().fetchUser();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
