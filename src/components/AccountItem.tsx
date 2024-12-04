@@ -6,9 +6,14 @@ import "../styles/Card.scss";
 type AccountProps = {
   account: Account;
   countOrders: number;
+  profitOfWeek: number;
 };
 
-export default function AccountItem({ account, countOrders }: AccountProps) {
+export default function AccountItem({
+  account,
+  countOrders,
+  profitOfWeek,
+}: AccountProps) {
   const navigate = useNavigate();
 
   return (
@@ -34,7 +39,7 @@ export default function AccountItem({ account, countOrders }: AccountProps) {
           <ColorSum Sum={account.balance} Prefix="$" />
           <ColorSum Sum={account.profit} Prefix="$" />
           <ColorSum Sum={account.profitToday} Prefix="$" />
-          <ColorSum Sum={account.profitWeek} Prefix="$" />
+          <ColorSum Sum={profitOfWeek} Prefix="$" />
         </div>
       </div>
     </div>

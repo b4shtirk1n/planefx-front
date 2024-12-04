@@ -14,6 +14,7 @@ export default function AccountsList() {
             key={item.account.id}
             account={item.account}
             countOrders={item.countOrders}
+            profitOfWeek={item.profitOfWeek}
           />
         </RenderIfVisible>
       ))}
