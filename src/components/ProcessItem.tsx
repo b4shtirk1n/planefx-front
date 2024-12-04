@@ -30,8 +30,8 @@ export default function ProcessItem({ command }: ProcessProps) {
           {command.type === CommandType.Open ? (
             <>
               <h3>{command.orderType}</h3>
-              <ColorSum Sum={command.volume!} Prefix="%" />
-              <ColorSum Sum={command.price!} Prefix="$" />
+              <ColorSum sum={command.volume!} prefix="%" />
+              <ColorSum sum={command.price!} prefix="$" />
             </>
           ) : (
             <h3>{command.order}</h3>

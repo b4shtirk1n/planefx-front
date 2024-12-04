@@ -34,12 +34,12 @@ export default function AccountItem({
           <p>прибыль за неделю</p>
         </div>
         <div>
-          <ColorSum Sum={account.drawdown} Prefix="%" />
-          <ColorSum Sum={account.marginLevel} Prefix="%" />
-          <ColorSum Sum={account.balance} Prefix="$" />
-          <ColorSum Sum={account.profit} Prefix="$" />
-          <ColorSum Sum={account.profitToday} Prefix="$" />
-          <ColorSum Sum={profitOfWeek} Prefix="$" />
+          <ColorSum sum={account.drawdown} revert prefix="%" />
+          <ColorSum sum={account.marginLevel} prefix="%" />
+          <ColorSum sum={account.balance} prefix="$" />
+          <ColorSum sum={account.profit} prefix="$" />
+          <ColorSum sum={account.profitToday} prefix="$" />
+          <ColorSum sum={profitOfWeek} prefix="$" />
         </div>
       </div>
     </div>
