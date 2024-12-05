@@ -10,6 +10,7 @@ import OrderPage from "./pages/OrderPage";
 import "./styles/main.scss";
 
 WebApp.ready();
+useUserStore.persist.clearStorage();
 useUserStore.getState().fetchUser();
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
